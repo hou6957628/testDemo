@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--可视区域的定义，如屏幕缩放等。告诉浏览器如何规范的渲染网页-->
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <title>详情页面</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+        .topContent{
+            background: url("images/detailBg.png");
+            background-size: contain;
+            height: 3.5rem;
+            width: 100%;
+            position: relative;
+        }
+        .left{
+            position: absolute;
+            left: 0.33rem;
+            bottom:0.81rem;
+            width: 1.8rem;
+        }
+        .left img{
+            width: 1.47rem;
+            height: 1.47rem;
+        }
+        .right{
+            position: absolute;
+            left: 2.1rem;
+            bottom:0.9rem;
+        }
+        .productName{
+            font-size: 0.48rem;
+            color: #fff;
+            margin-bottom: 0.1rem;
+            letter-spacing: 1px;
+        }
+        .productDetail{
+            font-size: 0.37rem;
+            color: #fff;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        .registerContent{
+            width: 9.36rem;
+            height: 5rem;
+            margin: 0 auto;
+        }
+        .registerContent ul li{
+            list-style-type:disc;
+            margin-left: 0.7rem;
+            font-size: 0.4rem;
+            color: #5b5b5b;
+            font-weight:400;
+            height: 0.60rem;
+            line-height: 0.60rem;
+            letter-spacing: 2px;
+        }
+        .topText{
+            margin-top: 0.2rem;
+            margin-left: 0.17rem;
+            color: #333333;
+            font-size: 0.45rem;
+            font-weight: bold;
+            letter-spacing: 6px;
+        }
+        .line{
+            width: 100%;
+            background-color: #999;
+            height: 1px;
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+        .boxline{
+            width: 100%;
+            height: 0.27rem;
+            background-color: #F5F6F9;
+        }
+        .goH5{
+            display: block;
+            width: 8.8rem;
+            height: 1.28rem;
+            line-height: 1.28rem;
+            margin: 0 auto;
+            background-color: #fdd51b;
+            color: #fff;
+            text-align: center;
+            font-size: 0.53rem;
+            letter-spacing: 4px;
+            border-radius: 20px;
+            -webkit-border-radius: 0.7rem;
+            -o-border-radius: 0.7rem;
+            -ms-border-radius: 0.7rem;
+            margin-top: 0.4rem;
+            margin-bottom: 0.8rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <p class="p"></p>
+    <div class="topContent">
+        <div class="left">
+            <img :src="detailsLogo">
+        </div>
+        <div class="right">
+            <p class="productName">{{description1}}</p>
+            <p class="productDetail">{{description4}}</p>
+        </div>
+    </div>
+    <div class="registerContent">
+        <p class="topText">申请条件</p>
+        <p class="line"></p>
+        <ul>
+            <li v-for="item in arr">{{item}}</li>
+        </ul>
+    </div>
+    <div class="boxline"></div>
+    <div class="registerContent">
+        <p class="topText">借款详情</p>
+        <p class="line"></p>
+        <ul>
+            <li v-for="item in arr1">{{item}}</li>
+        </ul>
+    </div>
+    <a class="goH5" @click="goH5()" href="javascript:;">立即借款</a>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            pname:'',
+            detailsLogo:'',
+            description4:'',
+            description1:'',
+            detailsTips:'',
+            detailsBorrowing:'',
+            h5Url:'',
+            arr:'',
+            arr1:'',
+            id:'',
+            token:''
+        },
+        mounted: function () {
+            var url = window.location.href;
+            this.getInfo(url);
+        },
+        methods: {
+            getInfo: function (url) {
+                    var params = {};
+                    var arr = url.split("?");
+                    var arr1 = arr[1].split("&");
+                    for (var i = 0; i < arr1.length; i++) {
+                        arr2 = arr1[i].split('=');
+
+                        if (!arr2[1]) {
+                            params[arr2[0]] = 'true';
+                        } else {
+                            if (params[arr2[0]]) {
+                                var arr3 = [params[arr2[0]]];
+                                arr3.push(arr2[1]);
+                                params[arr2[0]] = arr3;
+                            } else {
+                                params[arr2[0]] = decodeURI(arr2[1]);
+                            }
+                        }
+                    }
+                    this.id=parseInt(params.id);
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/flowPool/api/product/getDetailsById",
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/getDetailsById",
+                    type: "get",
+                    data:{
+                        productId:this.id
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.pname=data.body.pname;
+                            app.id=data.body.id;
+                            app.detailsLogo=data.body.detailsLogo;
+                            app.description4=data.body.description4;
+                            app.description1=data.body.description1;
+                            app.detailsTips=data.body.detailsTips;
+                            app.detailsBorrowing=data.body.detailsBorrowing;
+                            app.h5Url=data.body.h5Url;
+                            app.arr=app.detailsTips.split('，');//注split可以用字符或字符串分割
+                            app.arr1=app.detailsBorrowing.split('，');//注split可以用字符或字符串分割
+                        }else {
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,anim:false
+                                ,time: 1 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+            },
+            goH5:function(){
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/flowPool/api/product/countUV",
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
+                    type: "get",
+                    data:{
+                        productId:app.id
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            window.location.href=app.h5Url;
+                        }else {
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,anim:false
+                                ,time: 1 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+                //
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token,
+                        'productCode':'merchantProduct20190315161059'
+                    },
+                    url:"http://60.205.216.141/flowPool/api/cusUvEarnings/countUV",
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
+                    type: "post",
+                    data:{
+                        productId:app.id,
+                        productName:app.pname
+                    },
+                    success: function (data) {
+                    }
+                });
+            }
+        },
+    });
+    function getToken(data) {
+        app.token=data;
+    }
+</script>
+
+</body>
+</html>

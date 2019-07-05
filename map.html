@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //求和
+    let arr = [12, 20, 44, 566];
+    let result = arr.reduce(function (tmp, item, index) {
+        return tmp + item;
+    });
+    console.log(result);
+</script>
+<script>
+    //求平均数
+    let arr1 = [12, 20, 44, 566];
+    let result1 = arr1.reduce(function (tmp, item, index) {
+        //index等于数组长度-1 即为数组最后一位，返回求和的结果
+        if (index == arr1.length - 1) {
+            return tmp + item;
+        } else {
+            return (tmp + item) / arr1.length
+        }
+
+    });
+    console.log(result1);
+</script>
+</body>
+</html>

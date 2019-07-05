@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*
+---------------class的概念-----------------------------
+ */
+    class Person{//定义了一个名字为Person的类
+        constructor(name,age){//constructor是一个构造方法，用来接收参数
+            this.name = name;//this代表的是实例对象
+            this.age=age;
+        }
+        say(){//这是一个类的方法，注意千万不要加上function
+            return "我的名字叫" + this.name+"今年"+this.age+"岁了";
+        }
+    }
+    var obj=new Person("laotie",88);
+    // console.log(obj.say());//我的名字叫laotie今年88岁了
+/*
+------------------发布订阅者模式--------------------------
+ */
+    class Dep {//定义了一个名字为Dep的类
+        constructor() {
+            this.subs = [];
+        }
+        // 增加订阅者
+        addSub(sub) {
+            if (this.subs.indexOf(sub) < 0) {
+                this.subs.push(sub);
+            }
+        }
+        // 通知订阅者
+        notify() {
+            this.subs.forEach((sub) => {
+                sub.update();
+            })
+        }
+    }
+    const dep = new Dep();
+    const sub = {
+        update() {
+            console.log('sub1 update')
+        },
+        name:'sub',
+    };
+    const sub1 = {
+        update() {
+            console.log('sub2 update');
+        },
+        name:'sub1'
+    };
+    dep.addSub(sub);
+    dep.addSub(sub1);
+    dep.notify(); // 通知订阅者事件发生，触发他们的更新函数
+</script>
+</body>
+</html>

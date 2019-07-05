@@ -1,0 +1,532 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--可视区域的定义，如屏幕缩放等。告诉浏览器如何规范的渲染网页-->
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <title>米贷</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/2.6.1/theme-chalk/index.css" rel="stylesheet">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+        *{
+            -webkit-overflow-scrolling: touch;
+        }
+        .el-carousel__container{
+            position: relative;
+            height: 3rem;
+        }
+        .imggg{
+            width: 9rem;
+            height: 3rem;
+        }
+        .topContent {
+            width: 9.33rem;
+            height: 4rem;
+            margin: 0 auto;
+            margin-top: 1.3rem;
+            background: url(images/shenBg.png) no-repeat no-repeat;
+            background-size: 9.33rem 4rem;
+            position: relative;
+        }
+
+        #registerBtn {
+            font-size: 0.45rem;
+            font-weight: bold;
+            width: 3.2rem;
+            height: 1rem;
+            line-height: 1rem;
+            letter-spacing: 2px;
+            background-color: #fff;
+            color: #567ef4;
+            border: 1px solid #fff;
+            border-radius: 70px;
+            -webkit-border-radius: 70px;
+            -o-border-radius: 70px;
+            -ms-border-radius: 70px;
+            margin-left: 5.73rem;
+            margin-top: 2.48rem;
+        }
+
+        .middleContent {
+            width: 9rem;
+            height: 2rem;
+            margin: 0 auto;
+            margin-top: 0.4rem;
+        }
+
+        .iconContent {
+            display: inline-block;
+            width: 2.15rem;
+            text-align: center;
+            height: 1.81rem;
+        }
+
+        .iconContent img {
+            display: block;
+            width: 1.06rem;
+            height: 1.06rem;
+            margin: 0 auto;
+        }
+
+        .iconContent p {
+            display: block;
+            margin-top: 0.3rem;
+            font-size: 0.37rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            color: #666666;
+        }
+
+        .darkLine {
+            width: 100%;
+            height: 0.13rem;
+            background-color: #F2F3F5;
+        }
+
+        .swiper-container {
+            width: 9rem;
+            height: 3rem;
+            margin: 0 auto;
+        }
+        .swiper-container img{
+            background-size: contain;
+        }
+        .bannerContent {
+            margin-bottom: 0.5rem;
+        }
+
+        .bannerText {
+            font-size: 0.5rem;
+            text-align: center;
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+            color: #333333;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .productList {
+            width: 8.53rem;
+            height: 3rem;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logoIcon {
+            display: inline-block;
+            width: 0.64rem;
+            height: 0.64rem;
+            margin-right: 0.21rem;
+            vertical-align: middle;
+        }
+
+        .productName {
+            display: inline-block;
+            color: #333333;
+            font-size: 0.38rem;
+            font-weight: bold;
+            margin-right: 0.33rem;
+            vertical-align: middle;
+        }
+
+        .productDetail {
+            display: inline-block;
+            color: #666;
+            font-size: 0.32rem;
+            vertical-align: middle;
+        }
+
+        .line1 {
+            margin-bottom: 0.35rem;
+            margin-top: 0.57rem;
+        }
+
+        .line2 {
+            font-size: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: red;
+            margin-bottom: 0.15rem;
+        }
+
+        .line3 {
+            font-size: 0.35rem;
+            color: #666666;
+        }
+
+        .detailBtn {
+            position: absolute;
+            bottom: 0.53rem;
+            right: 0rem;
+            width: 2rem;
+            text-align: center;
+            height: 0.7rem;
+            background-color: #FFE249;
+            border: 1px solid #FFE249;
+            font-size: 0.35rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 50px;
+        }
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 18px;
+            opacity: 0.75;
+            line-height: 300px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #fff;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #fff;
+        }
+        .proD{
+            border-bottom: 0.05rem solid #F2F3F5;
+        }
+        #footer{
+            height: 1.36rem;
+            line-height: 1.36rem;
+            text-align: center;
+            background-color: #F2F3F5;
+            color:#999;
+        }
+        #bg {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 1001;
+            background: rgba(0,0,0,0.8);
+        }
+        .bgimg{
+            display: block;
+            width: 6rem;
+            height: 4rem;
+            margin: 0 auto;
+            margin-top: 7rem;
+        }
+        .el-icon-error{
+            position: absolute;
+            top: 7.25rem;
+            left: 7.3rem;
+            display: inline-block;
+            font-size: 0.47rem;
+        }
+        html ,body{
+            height:100%;
+            width:100%
+            overflow:hidden;
+        }
+        .msg{
+            position: absolute;
+            right: -0.3rem;
+            top: -1rem;
+            width: 0.65rem;
+            height: 0.65rem;
+            padding: 0.05rem 0.3rem 1rem 2rem;
+        }
+        p{font-family: Helvetica, Tahoma, Arial;}
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div class="topContent">
+        <img @click="msgButtonAction()" class="msg" src="http://123.56.12.92/images/home_msg.png">
+        <button @click="applyButtonAction()" id="registerBtn">借款申请</button>
+    </div>
+    <div class="middleContent">
+        <div class="iconContent" @click="UV(icon1id,icon1h5Url)">
+            <a :id="icon1id" href="javascript:;">
+                <img :src="icon1detailsLogo"/>
+                <p>{{icon1Name}}</p>
+            </a>
+        </div>
+        <div class="iconContent" @click="UV(icon5id,icon5h5Url)">
+            <a :id="icon5id" href="javascript:;">
+                <img :src="icon5detailsLogo">
+                <p>{{icon5Name}}</p>
+            </a>
+        </div>
+        <div class="iconContent" @click="UV(icon6id,icon6h5Url)">
+            <a :id="icon6id" href="javascript:;">
+                <img :src="icon6detailsLogo">
+                <p>{{icon6Name}}</p>
+            </a>
+        </div>
+        <div class="iconContent" @click="UV(icon7id,icon7h5Url)">
+            <a :id="icon7id" href="javascript:;">
+                <img :src="icon7detailsLogo">
+                <p>{{icon7Name}}</p>
+            </a>
+        </div>
+    </div>
+    <div class="darkLine"></div>
+    <div class="bannerContent">
+        <p class="bannerText">每日精选</p>
+        <header id="header" class="swiper-container">
+            <template>
+                <el-carousel :interval="3000" arrow="always">
+                    <el-carousel-item v-for="item in productList3" :key="item">
+                        <img class="imggg" @click="UV(item.id,item.h5Url)" :src=["https://zytech-test.oss-cn-beijing.aliyuncs.com"+item.logoUrl]>
+                        <!--<h3>{{ item }}</h3>-->
+                    </el-carousel-item>
+                </el-carousel>
+            </template>
+        </header>
+    </div>
+    <div class="darkLine"></div>
+    <div class="productContent">
+        <p class="bannerText">更多选择</p>
+        <div class="proD" v-for="item in productList4">
+            <div class="productList" @click="goDetail(item.id)">
+                <p class="line1"><img class="logoIcon" :src=["https://zytech-test.oss-cn-beijing.aliyuncs.com"+item.logoUrl]><span class="productName">{{item.pname}}</span><span
+                        class="productDetail" v-model="item.description1"></span></p>
+                <p class="line2" >{{item.description2}}</p>
+                <p class="line3" >{{item.description3}}</p>
+                <button @click="goDetail(item.id)" class="detailBtn">立即借款</button>
+            </div>
+        </div>
+        <div class="darkLine"></div>
+        <!--<div class="darkLine"></div>-->
+    </div>
+    <div id="footer">-我是有底线的-</div>
+    <div @click="closeBg()" id="bg">
+        <i @click="closeBg()" class="el-icon-error"></i>
+        <img :src="danImg" @click="UV(danid,danh5Url)" class="bgimg"/>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.6.1/index.js"></script>
+<script>
+    var isMobile = {
+        Android: function () {
+            return navigator.userAgent.match(/Android/i) ? true : false;
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+        }
+    };
+    var handler = {
+        callHander: function (json) {
+            if (isMobile.iOS()) {
+                window.webkit.messageHandlers.control.postMessage(JSON.stringify(json))
+            }
+            if (isMobile.Android()) {
+                window.control.postMessage(JSON.stringify(json));
+            }
+        },
+        clearHander: function (json) {
+            if (isMobile.iOS()) {
+                window.webkit.messageHandlers.tokenControl.postMessage(JSON.stringify(json))
+            }
+            if (isMobile.Android()) {
+                window.control.cleanToken();
+            }
+        },
+        callHander1: function (json) {
+            if (isMobile.iOS()) {
+                window.webkit.messageHandlers.messageControl.postMessage(JSON.stringify(json))
+            }
+            if (isMobile.Android()) {
+                window.control.onMessageClick(JSON.stringify(json));
+            }
+        },
+    };
+    var app = new Vue({
+        el: '#app',
+        data:{
+            danid:'',
+            danh5Url:'',
+            buttonName:'',
+            icon1Name:'',
+            icon5Name:'',
+            icon6Name:'',
+            icon7Name:'',
+            icon1h5Url:"",
+            icon5h5Url:"",
+            icon6h5Url:"",
+            icon7h5Url:"",
+            icon1detailsLogo:'',
+            icon5detailsLogo:'',
+            icon6detailsLogo:'',
+            icon7detailsLogo:'',
+            icon1id:"",
+            icon5id:"",
+            icon6id:"",
+            icon7id:"",
+            productList4:[],
+            productList3:[],
+            danImg:'',
+        },
+        mounted: function () {
+            this.getInfo();
+        },
+        methods: {
+            getInfo: function (data) {
+                $.ajax({
+                    headers:{
+                    },
+                    url:"http://60.205.216.141/super/api/product/index",
+                    type: "get",
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-SUPERMARKET-200"){
+                            if(!data.body.productList1){
+                                app.danid=data.body.productList1[0].id;
+                                app.danh5Url=data.body.productList1[0].h5Url;
+                                app.danImg="https://zytech-test.oss-cn-beijing.aliyuncs.com"+data.body.productList1[0].logoUrl;
+                                $("#bg").css("display","block");
+                                document.querySelector('#app').addEventListener('touchmove', stopScroll, false);
+                            }
+                            $("html").css("overflow","auto");
+                            $("body").css("overflow","auto");
+                            app.icon1Name=data.body.productList2[0].nameIcon;
+                            app.icon1h5Url=data.body.productList2[0].h5Url;
+                            app.icon1detailsLogo="https://zytech-test.oss-cn-beijing.aliyuncs.com"+data.body.productList2[0].logoUrl;
+                            app.icon1id=data.body.productList2[0].id;
+
+                            app.icon5Name=data.body.productList5[0].nameIcon;
+                            app.icon5h5Url=data.body.productList5[0].h5Url;
+                            app.icon5detailsLogo="https://zytech-test.oss-cn-beijing.aliyuncs.com"+data.body.productList5[0].logoUrl;
+                            app.icon5id=data.body.productList5[0].id;
+
+                            app.icon6Name=data.body.productList6[0].nameIcon;
+                            app.icon6h5Url=data.body.productList6[0].h5Url;
+                            app.icon6detailsLogo="https://zytech-test.oss-cn-beijing.aliyuncs.com"+data.body.productList6[0].logoUrl;
+                            app.icon6id=data.body.productList6[0].id;
+
+                            app.icon7Name=data.body.productList7[0].nameIcon;
+                            app.icon7h5Url=data.body.productList7[0].h5Url;
+                            app.icon7detailsLogo="https://zytech-test.oss-cn-beijing.aliyuncs.com"+data.body.productList7[0].logoUrl;
+                            app.icon7id=data.body.productList7[0].id;
+
+                            app.productList3=data.body.productList3;
+                            app.productList4=data.body.productList4;
+                            // if(app.danid!=" "){
+                            //     $("#bg").css("display","block");
+                            //     document.querySelector('#app').addEventListener('touchmove', stopScroll, false);
+                            // }
+                            // console.log(app.productList3);
+                            // console.log(app.productList4);
+                            console.log(data.body.productList2);
+                            console.log(data.body.productList5);
+                            console.log(data.body.productList6);
+                            console.log(data.body.productList7);
+
+                        }else if(data.msgCd=="ZYCASH-SUPERMARKET-1013"){
+                            app.$message.error('请先登录！');
+                        }
+                        else {
+                            app.$message.error('系统繁忙请稍后再试！');
+                            handler.clearHander({
+                                'clearToken': ""
+                            });
+                        }
+                    }
+                });
+            },
+            goDetail:function (data) {
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/super/api/product/countButton",
+                    type: "get",
+                    data:{
+                        productId:data
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-SUPERMARKET-200"){
+                            window.location.href="http://39.96.195.239/daichao/detail.html?id="+data;
+                        }else {
+                            alert(data.msgInfo);
+                        }
+                    }
+                });
+
+            },
+            applyButtonAction:function () {
+                handler.callHander({
+                    'getButtonTitle': $("#registerBtn").val()
+                });
+            },
+            msgButtonAction:function () {
+                handler.callHander1({
+                    'getButtonTitle': $("#registerBtn1").val()
+                });
+            },
+            UV:function(data,data1){
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/super/api/product/countUV",
+                    type: "get",
+                    data:{
+                        productId:data
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-SUPERMARKET-200"){
+                            window.location.href=data1;
+                        }else {
+                            alert(data.msgInfo);
+                        }
+                    }
+                });
+            },
+            closeBg:function () {
+                document.querySelector('#app').removeEventListener('touchmove', stopScroll, false);
+                $("#bg").css("display","none");
+                $("html").css("overflow","auto");
+                $("body").css("overflow","auto");
+            }
+        },
+    });
+    function getButtonTitle(data) {
+        this.buttonName=data;
+        $("#registerBtn").html(data);
+    }
+    function getToken(data) {
+        localStorage.token=data;
+        if(localStorage.token){
+
+        }
+        // $("#registerBtn").html(data);
+        // app.getInfo(data);
+        // $("#registerBtn").html(data);
+    }
+    function stopScroll(e) {
+        e.preventDefault()
+    }
+
+
+</script>
+
+<!--<script>-->
+    <!--var _mtac = {"senseQuery":1};-->
+    <!--(function() {-->
+        <!--var mta = document.createElement("script");-->
+        <!--mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";-->
+        <!--mta.setAttribute("name", "MTAH5");-->
+        <!--mta.setAttribute("sid", "500674789");-->
+        <!--mta.setAttribute("cid", "500674790");-->
+        <!--var s = document.getElementsByTagName("script")[0];-->
+        <!--s.parentNode.insertBefore(mta, s);-->
+    <!--})();-->
+<!--</script>-->
+</body>
+</html>

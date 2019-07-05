@@ -1,0 +1,710 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码1-->
+    <meta name="format-detection" content="telephone=no">
+    <title>小锦鲤</title>
+    <script src="http://123.56.12.92/index.js"></script>
+    <link href="http://123.56.12.92/skin/layer.css">
+    <style>
+        *{margin: 0;padding: 0;text-decoration: none;overflow-x: hidden;
+            overflow-y:auto;
+            -webkit-overflow-scrolling: touch;}
+        /* 移动端定义字体的代码 */
+        html,body{
+            font-family:Helvetica;
+            width: 100%;
+            height: 19.4rem;
+            background: url("http://123.56.12.92/images/xiaojinli.png") no-repeat no-repeat;
+            background-size: contain;
+            background-color: #4C38D7;
+            overflow-x: hidden;
+        }
+        #header{
+            width: 100%;
+        }
+        #content{
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 9.4rem;
+            position: relative;
+        }
+        .iconBox{
+            margin: 0 auto;
+            margin-top: 0.93rem;
+        }
+        .icon1 .iconImg{
+            width: 1.06rem;
+            height: 1.06rem;
+            background: url("http://123.56.12.92/images/iconImg.png") no-repeat no-repeat;
+            background-size: 1.06rem 3.18rem;
+            margin: 0 auto;
+        }
+        .icon2 .iconImg{
+            width: 1.06rem;
+            height: 1.06rem;
+            background: url("http://123.56.12.92/images/iconImg.png") no-repeat no-repeat;
+            background-size: 1.06rem 3.18rem;
+            background-position: 0 -1.06rem;
+            margin: 0 auto;
+        }
+        .icon3 .iconImg{
+            width: 1.06rem;
+            height: 1.06rem;
+            background: url("http://123.56.12.92/images/iconImg.png") no-repeat no-repeat;
+            background-size: 1.06rem 3.18rem;
+            background-position: 0 -2.12rem;
+            margin: 0 auto;
+        }
+        .icon1 ,.icon2 ,.icon3{
+            width: 33%;
+            float: left;
+            text-align: center;
+        }
+        .icon1 p,.icon2 p,.icon3 p{
+            font-size: 0.41rem;
+            color: #666666;
+            margin-top: 0.27rem;
+            letter-spacing: 1px;
+        }
+        .iptBox{
+            height: 1.50rem;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 0.5rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        .ipt{
+            width: 8.1rem;
+            display: inline-block;
+            height: 1.38rem;
+            background:rgba(255,255,255,0.9);
+            border-radius:0.19rem;
+            margin: 0 auto;
+            outline: none;
+            font-size:0.45rem;
+            font-weight:bold;
+            text-align: left;
+            text-indent: 0.55rem;
+            border:0.02rem solid #614ce1;
+            color:#999999;
+            -webkit-appearance: none;
+        }
+        .ipt::-webkit-input-placeholder{
+            font-weight:500;
+            color:rgba(153,153,153,1);
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        .ipt::-moz-placeholder{   /* Mozilla Firefox 19+ */
+            font-weight:500;
+            color:#bbbbbb;
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        .ipt:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+            font-weight:500;
+            color:#bbbbbb;
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+            font-weight:500;
+            color:#bbbbbb;
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        #btn{
+            width:8.38rem;
+            height:1.54rem;
+            line-height: 1rem;
+            background: url("http://jmyq.wzgeek.com/images/jinlibutten.png") no-repeat no-repeat;
+            background-size: contain;
+            color: #954311;
+            text-align: center;
+            font-size: 0.48rem;
+            margin: 0 auto;
+            border: 0;
+            margin-top: 0.20rem;
+            font-weight: bold;
+            letter-spacing: 0.06rem;
+        }
+        .retext{
+            margin: 0 auto;
+            margin-top: 0.56rem;
+            margin-bottom: 0.5rem;
+            color: #FF7200;
+            font-size: 0.35rem;
+            text-align: center;
+        }
+        .layer{
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 1.5rem;
+            width: 8.6rem;
+            height: 7.8rem;
+            margin-left: -4.3rem;
+            background-color: #ffffff;
+            border-radius: 0.28rem;
+            z-index: 1999;
+        }
+        .bg{
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:rgba(51,51,51,0.6);
+            z-index: 999;
+        }
+        .iphoneNum{
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.4rem;
+            margin-top: 0.5rem;
+        }
+        .code,.sms,.password{
+            position: relative;
+            height: 1rem;
+            width: 85%;
+            margin: 0 auto;
+            font-size: 0.38rem;
+            vertical-align: middle;
+            margin-top: 0.5rem;
+        }
+        .code input,.sms input,.password input{
+            width: 3.8rem;
+            height: 0.85rem;
+            padding: 0 5px;
+            border: none;
+            border-bottom: 1px solid #828282;
+            font-size: 0.34rem;
+            vertical-align: middle;
+            border-radius: 0;
+            letter-spacing: 2px;
+            text-indent: 0.70rem;
+            -webkit-appearance: none;
+            outline: none;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        .password input{
+            width: 6.65rem;
+        }
+        .code span,.sms span,.password span{
+            display: inline-block;
+            width: 2.2rem;
+            vertical-align: middle;
+            color: #333333;
+        }
+        #smsBtn{
+            display: inline-block;
+            width: 2.5rem;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            padding: 0 5px;
+            background-color: #ffce31;
+            border: 1px solid #FFD12F;
+            font-size: 0.35rem;
+            text-align: center;
+            color: #fff;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        #quebtn{
+            width:80%;
+            height:1.30rem;
+            border:4px solid #FFD12F;
+            background-color: #FFD12F;
+            border-radius:70px;
+            color: #333333;
+            text-align: center;
+            font-size: 0.45rem;
+            margin: 0 auto;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .madd{
+            width: 90%;
+            margin: 0 auto;
+            font-size: 0.38rem;
+            vertical-align: middle;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .codeImg{
+            display: inline-block;
+            width: 2.5rem;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            padding: 0 10px;
+            vertical-align: middle;
+        }
+        .codeIcon{
+            /*position: absolute;*/
+            /*top: 1.7rem;*/
+            display: inline-block;
+            width: 0.60rem;
+            height: 0.60rem;
+            /*background: url("images/codeIcon.png") no-repeat no-repeat;*/
+            /*background-size: 0.6rem 0.6rem;*/
+        }
+        .smsIcon{
+            /*position: absolute;*/
+            /*top: 3.1rem;*/
+            display: inline-block;
+            width: 0.67rem;
+            height: 0.67rem;
+            /*background: url("images/smsIcon.png") no-repeat no-repeat;*/
+            /*background-size: 0.67rem 0.67rem;*/
+        }
+        .passwordIcon{
+            /*position: absolute;*/
+            /*top: 4.55rem;*/
+            display: inline-block;
+            width: 0.6rem;
+            height: 0.6rem;
+            /*background: url("images/passwordIcon.png") no-repeat no-repeat;*/
+            /*background-size: 0.6rem 0.6rem;*/
+
+        }
+        .code:before{
+            position: absolute;
+            display: inline-block;
+            /* left: 1.4rem; */
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-top: 0.15rem;
+            content: '';
+            background:url("http://123.56.12.92/images/codeIcon.png") no-repeat;
+            background-size:0.6rem;
+            z-index: 10000;
+        }
+        .sms:before{
+            position: absolute;
+            display: inline-block;
+            /* left: 1.4rem; */
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-top: 0.15rem;
+            content:'';
+            background:url("http://123.56.12.92/images/smsIcon.png") no-repeat;
+            background-size:0.6rem;
+            z-index: 10000;
+        }
+        .password:before{
+            position: absolute;
+            display: inline-block;
+            /* left: 1.4rem; */
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-top: 0.15rem;
+            content:'';
+            background:url("http://123.56.12.92/images/passwordIcon.png") no-repeat;
+            background-size:0.6rem;
+            z-index: 10000;
+        }
+        .Logo{
+            width: 1.2rem;
+            height: 1.2rem;
+            margin: 0.2rem 0.35rem;
+        }
+        .close{
+            position: absolute;
+            left: 50%;
+            top: 11rem;
+            width: 1rem;
+            height: 1rem;
+            margin-left: -0.5rem;
+        }
+        .closeIcon{
+            position: absolute;
+            left: 50%;
+            top: 11rem;
+            width: 0.2rem;
+            height: 0.2rem;
+        }
+        .blueLine{
+            position: absolute;
+            left: 0.76rem;
+            top: 0.55rem;
+            display: inline-block;
+            width: 0.05rem;
+            height: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <!--<img class="Logo" src="http://123.56.12.92/images/jiemoLogo.png">-->
+</header>
+<div id="content">
+    <div class="iptBox"><input placeholder="请输入手机号码（领取50000额度）" maxlength="11" class="ipt" type="text"/><i class="closeIcon"></i> </div>
+    <div style="text-align: center;margin-top: 0.1rem"><button id="btn"></button></div>
+    <!--<img src="images/codeIcon.png" class="codeIcon">-->
+    <!--<img src="images/smsIcon.png" class="smsIcon">-->
+    <!--<img src="images/passwordIcon.png" class="passwordIcon">-->
+</div>
+<div class="bg">
+    <img class="close" src="http://123.56.12.92/images/close.png">
+</div>
+<div class="layer">
+    <form id="registerForm" method="post">
+        <div class="iphoneNum">手机号:<span class="hiddPhone"></span></div>
+        <div class="code"><input id="code" name="code" type="number" placeholder="请输入图形验证码" ><img class="codeImg" src=""></div>
+        <div class="sms"><input id="sms" name="sms" type="number" placeholder="请输入短信验证码" ><button id="smsBtn" type="button">点击发送</button></div>
+        <div class="password"><input id="password1" name="password1" type="password" placeholder="请输入密码"></div>
+        <div class="madd"><button type="submit" id="quebtn">确定</button></div>
+        <div><input class="hiddPhone" type="hidden"></div>
+    </form>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="http://123.56.12.92/layer.js"></script>
+<script>
+    $(function () {
+        //截取渠道
+        var url = window.location.href;
+        function getCaption(obj){
+            //var ret = /merchantProduct\d+_([a-zA-Z0-9]{1,32})_\d+/g;
+
+            var ret = /uri\/(\S*).html/;
+
+            var c=obj.match(ret);
+            console.log(c);
+
+            if(c==null || c=='null'){
+                var index=obj.lastIndexOf("\/");
+                c=obj.substring(index+1,obj.length);
+            }else{
+                c=c[1];
+            }
+
+            console.log(c);
+            return c;
+
+            /**
+             * var index=obj.lastIndexOf("\/");
+             obj=obj.substring(index+1,obj.length-5);
+             console.log(obj);
+             return obj;
+             */
+        }
+        localStorage.channle=getCaption(url);
+        function getParam(paramName) {
+            paramValue = "", isFound = !1;
+            if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+                arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+                while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+            }
+            return paramValue == "" && (paramValue = null), paramValue
+        }
+        localStorage.fx=getParam("fx");
+        /**
+         * getMsg() 获取验证码方法
+         */
+        function getMsg() {
+            $.ajax({
+                url: "http://60.205.216.141/flowPool/api/user/getAuthCode",
+                // url: "http://47.93.234.167:31999/flowPool/api/user/getAuthCode",
+                data: {
+                    mobile:$(".ipt").val(),
+                    productCode:"merchantProduct20190315161059",
+                },
+                headers: {'productCode': "merchantProduct20190315161059"},
+                type: "post",
+                dataType: "json",
+                cache: false,
+                success: function(message) {
+                    if(message.msgCd == "ZYCASH-200") {
+                        var content="data:image/jpg;base64,"+message.body;
+                        $(".codeImg").attr("src",content);
+                    } else {
+                        layer.msg(message.msgInfo);
+                    }
+                },error:function (message){
+                    layer.msg(message.msgInfo);
+                }
+            });
+        }
+        getMsg();
+        //重新获取验证码
+        $(".codeImg").on("click",function () {
+            getMsg();
+        });
+        $(".close").on('click',function () {
+            $(".bg").css("display","none");
+            $(".layer").css("display","none");
+        });
+        //校验手机号
+        function checkPhone(phone){
+            if(!(/^1[34578]\d{9}$/.test(phone))){
+                layer.msg("手机号码有误，请重填");
+                return false;
+            }else {
+                $.ajax({
+                    url: "http://60.205.216.141/flowPool/api/user/mobileExisted",
+                    // url: "http://47.93.234.167:31999/flowPool/api/user/mobileExisted",
+                    data: {
+                        mobile:$(".ipt").val(),
+                    },
+                    headers: {'productCode': "merchantProduct20190315161059"},
+                    type: "POST",
+                    success: function(message) {
+                        if(message.msgCd=="ZYCASH-2004"){
+                            downLoadApp();
+                        }else if(message.msgCd=="SYS00001"){
+                            layer.msg(message.msgInfo);
+                        }
+                        else {
+                            $(".hiddPhone").val(phone);
+                            $(".hiddPhone").html(phone);
+                            console.log($(".hiddPhone").val());
+                            $(".bg").css("display","block");
+                            $(".layer").css("display","block");
+                        }
+                    },error:function (message){
+                        layer.msg(message);
+                    }
+                });
+
+            }
+
+        };
+        //校验验证码
+        function checkCode(code){
+            if(!(/([0-9]{4})/.test(code))){
+                layer.msg("请输入正确的图形验证码");
+                return false;
+            }else {
+                return true;
+            }
+        };
+        $("#btn").on("click",function () {
+            var name=$.trim($(".ipt").val());
+            checkPhone(name);
+            getMsg();
+        });
+        //发送验证码
+        $("#smsBtn").click(function(event) {
+            if(checkCode($("#code").val())){
+                //这里写发送验证码的代码
+                var _this=this;
+                $.ajax({
+                    url: "http://60.205.216.141/flowPool/api/user/send-texting",
+                    // url: "http://47.93.234.167:31999/flowPool/api/user/send-texting",
+                    data: {
+                        mobile:$(".hiddPhone").val(),
+                        type:0,
+                        authCode:$("#code").val(),
+                    },
+                    headers: {'productCode': "merchantProduct20190315161059"},
+                    type: "post",
+                    dataType: "json",
+                    cache: false,
+                    success: function(message) {
+                        if(message.msgCd == "ZYCASH-200") {
+                            layer.msg("发送验证码成功");
+                            var time = 60;
+                            settime($("#smsBtn"));
+                            function settime(obj){
+                                if (time==0) {
+                                    $(obj).attr('disabled', false);
+                                    $(obj).html("点击获取验证码");
+                                    time = 60;
+                                    return;
+                                } else{
+                                    $(obj).attr('disabled', true);
+                                    $(obj).html(time+"秒后重新发送");
+                                    time--;
+                                }
+                                setTimeout(function() {
+                                    settime(obj)
+                                },1000)
+                            }
+                        }else if(message.msgCd == "ZYCASH-2002"){
+                            layer.msg("图形验证码错误！");
+                        }
+                        else {
+                            layer.msg(message.msgInfo);
+                        }
+                    },error:function (message){
+                        layer.msg(message.msgInfo);
+                    }
+                });
+            }
+        });
+        //收齐键盘
+        $('.ipt').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+        $('#code').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+        $('#sms').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+        $('#password1').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+    });
+    $.validator.addMethod("isPassword",function(value,element,params){
+        var score = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9a-zA-Z_]+$/;
+        return this.optional(element) || (score.test(value));
+    },"密码必须由6位以上字母和数字组成");
+    //注册成功android3秒钟后下载，ios跳转下载页
+    function downLoadApp(){
+        let ua = navigator.userAgent.toLowerCase();
+        //Android终端
+        let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
+        //Ios终端
+        let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+            window.location.href="http://xjl.qxykjz.com/xiaoRegister/downloadApp.html"
+        } else if (/(Android)/i.test(navigator.userAgent)) {
+            //Android终端
+            layer.msg("3秒后自动下载app");
+            setTimeout(function () {
+                window.location= "https://qingtai-install.oss-cn-beijing.aliyuncs.com/JLAN/xiaojinli_1.0.3.apk";
+            },3000);
+        }
+    };
+    $("#registerForm").validate({
+        rules: {
+            password1:{
+                required: true,
+                minlength: 6,
+                maxlength: 16,
+                isPassword:true
+                // pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/,
+            },
+            code:{
+                required: true,
+                minlength: 4,
+                maxlength: 4,
+                // pattern: /^\d{4}$/,
+            },
+            sms: {
+                required: true,
+                minlength: 4,
+                maxlength: 4,
+            },
+
+        },
+        messages: {
+            password1:{
+                required: "请输入密码",
+                minlength: "请输入6到16位数字字母组合的密码",
+                maxlength: "请输入6到16位数字字母组合的密码",
+            },
+            code:{
+                required: "请输入您的图形验证码",
+                minlength: "请输入4位图形验证码",
+                maxlength: "请输入4位图形验证码",
+            },
+            sms:{
+                required: "请输入短信验证码",
+                minlength: "请输入4位短信验证码",
+                maxlength: "请输入4位短信验证码",
+            },
+
+        },
+        errorPlacement: function(error, element) {
+            layer.msg(error.text());
+        },
+            submitHandler:function(form) {
+            $.ajax({
+                url: "http://60.205.216.141/flowPool/api/user/register?fx="+localStorage.fx,
+                // url: "http://47.93.234.167:31999/flowPool/api/user/register?fx="+localStorage.fx,
+                data: {
+                    mobile:$(".hiddPhone").val(),
+                    password:$("#password1").val(),
+                    mobileCaptcha:$("#sms").val(),
+                    productCode:"merchantProduct20190315161059",
+                    subChannelCode:localStorage.channle,
+                },
+                headers: {'productCode': "merchantProduct20190315161059",'deviceType': "h5"},
+                type: "post",
+                dataType: "json",
+                cache: false,
+                success: function(message) {
+                    if(message.msgCd == "ZYCASH-200") {
+                        downLoadApp();
+                    }else if(message.msgCd == "ZYCASH-2002"){
+                        layer.msg("图形验证码错误！");
+                    }else if(message.msgCd=="ZYCASH-2005"){
+                        layer.msg(message.msgInfo);
+                    }
+                    else {
+                        layer.msg(message.msgInfo);
+                    }
+                },error:function (message){
+                    layer.msg(message);
+                }
+            });
+        },
+        onkeyup:false
+    });
+</script>
+<!--<script>-->
+    <!--//解决第三方软键盘唤起时底部input输入框被遮挡问题-->
+    <!--var ua = navigator.userAgent;-->
+    <!--var isAndroid = /android/i.test(ua); //android终端-->
+    <!--if(isAndroid) {-->
+        <!--// window.onresize = function () {-->
+        <!--//     if (document.activeElement.tagName == "INPUT" || document.activeElement.tagName == "TEXTAREA") {-->
+        <!--//         setTimeout(function () {-->
+        <!--//             var top = document.activeElement.getBoundingClientRect().top;-->
+        <!--//             window.scrollTo(0,top);-->
+        <!--//         }, 0);-->
+        <!--//     }-->
+        <!--// }-->
+        <!--var winHeight = $(window).height(); //获取当前页面高度-->
+        <!--$(window).resize(function() {-->
+            <!--var thisHeight = $(this).height();-->
+            <!--if (winHeight - thisHeight > 50) {-->
+                <!--//当软键盘弹出，在这里面操作-->
+                <!--//alert('aaa');-->
+                <!--$('body').css('height', winHeight + 'px');-->
+            <!--} else {-->
+                <!--//alert('bbb');-->
+                <!--//当软键盘收起，在此处操作-->
+                <!--$('body').css('height', '100%');-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
+<!--</script>-->
+
+<script>
+    var _mtac = {"senseQuery":1};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500687712");
+        mta.setAttribute("cid", "500687713");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
+</body>
+</html>

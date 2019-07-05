@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--可视区域的定义，如屏幕缩放等。告诉浏览器如何规范的渲染网页-->
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <title>红包墙</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.3.0/animate.min.css" rel="stylesheet">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <script src="http://jmyq.wzgeek.com/js/layer.js"></script>
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+        *{
+            -webkit-overflow-scrolling: touch;
+        }
+        html,body{
+            width: 100%;
+            background: url(http://jmyq.wzgeek.com/images/redEnvelopesBg.png) no-repeat no-repeat;
+            background-size: cover;
+            background-color: #e40003;
+            overflow: auto;
+        }
+        .content{
+            width: 94%;
+            height: 11.5rem;
+            margin: 0 auto;
+            margin-top: 5rem;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            outline: 0;
+            -webkit-overflow-scrolling: touch;
+            background-color: rgb(0, 0, 0);
+            filter: alpha(opacity=60);
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+        }
+        .renClass{
+            position: absolute;
+            width: 7.5rem;
+            height: 8.88rem;
+            left: 50%;
+            top:50%;
+            margin-left: -3.75rem;
+            margin-top: -4.44rem;
+        }
+        .dakai{
+            position: absolute;
+            width: 7.5rem;
+            height: 8.88rem;
+            line-height: 8rem;
+            text-align: center;
+            left: 50%;
+            top:50%;
+            margin-left: -3.75rem;
+            margin-top: -4.44rem;
+            background: url("http://jmyq.wzgeek.com/images/dakai.png") no-repeat no-repeat;
+            background-size: contain;
+            background-color:#ffdea0;
+            border-radius: 0.27rem;
+            color: red;
+            font-size: 0.6rem;
+        }
+        .dakai1{
+            position: absolute;
+            width: 7.5rem;
+            height: 8.88rem;
+            line-height: 8rem;
+            text-align: center;
+            left: 50%;
+            top:50%;
+            margin-left: -3.75rem;
+            margin-top: -4.44rem;
+            background: url("http://jmyq.wzgeek.com/images/nozhong.png") no-repeat no-repeat;
+            background-size: contain;
+            border-radius: 0.27rem;
+            color: red;
+            font-size: 0.6rem;
+        }
+        .dakai span{
+            font-size: 1.4rem;
+        }
+        .closeBtn1{
+            position: absolute;
+            width: 0.93rem;
+            height: 0.93rem;
+            top: 82%;
+            left: 50%;
+            margin-left: -0.46rem;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+<div class="content" @click="openBg">
+&nbsp;
+</div>
+<div @click="chouBg" class="modal" v-show="bg">
+    <img v-show="iii" @click.stop="drawRedEnvelopes" src="http://jmyq.wzgeek.com/images/openRed.png" :class="[this.flag?'tada':'']" class="animated infinite renClass">
+    <div v-show="dakaiBg" class="dakai"><span>{{money}}</span>元</div>
+    <div v-show="weizhong" class="dakai1"></div>
+    <img @click="closeBg" class="closeBtn1" src="http://jmyq.wzgeek.com/images/closeW.png">
+</div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.5/vue.min.js"></script>
+<script>
+    function getToken(data) {
+        localStorage.token=data;
+    }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    function stopScroll(e) {
+        e.preventDefault()
+    }
+    var app = new Vue({
+        el: '#app',
+        data:{
+            danImg:'',
+            bg:false,
+            money:5,
+            dakaiBg:false,
+            weizhong:false,
+            flag:false,
+            activeCode:"",
+            iii:true,
+        },
+        mounted: function () {
+            // this.getInfo();
+            var activityId=getQueryString("activityId");
+            this.activityId=activityId;
+        },
+        methods: {
+            //点击红包墙查询用户是否有足够金币
+            getInfo: function () {
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/flowPool/api/goldCoin/get",
+                    // url:"http://47.93.234.167:31999/flowPool/api/goldCoin/get",
+                    type: "POST",
+                    data:{
+                        activityId :app.activityId,
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.bg=true;
+                            app.iii=true;
+                        }else if(data.msgCd=="ZYCASH-8002"){
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,time: 2 //2秒后自动关闭
+                            });
+                        }
+                        else {
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,time: 2 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+            },
+            //拆开红包
+            openRedEnvelopes: function () {
+            // class="animated bounce infinite"
+                this.flag=true;
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/flowPool/api/redPacketWall/open",
+                    // url:"http://47.93.234.167:31999/flowPool/api/redPacketWall/open",
+                    type: "POST",
+                    data:{
+                        activityId :app.activityId,
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.money=data.body;
+                            if(app.money==0.0){
+                                app.iii=false;
+                                app.weizhong=true;
+                                app.flag=false;
+                            }else {
+                                app.dakaiBg=true;
+                                app.flag=false;
+                            }
+                        }else if(data.msgCd=="ZYCASH-8002"){
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,time: 2 //2秒后自动关闭
+                            });
+                            app.flag=false;
+                        }
+                        else {
+                            app.flag=false;
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,time: 2 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+            },
+            applyButtonAction:function () {
+                handler.callHander({
+                    'getButtonTitle': $("#registerBtn").val()
+                });
+            },
+            msgButtonAction:function () {
+                handler.callHander1({
+                    'getButtonTitle': $("#registerBtn1").val()
+                });
+            },
+            chouBg:function () {
+                document.querySelector('#app').removeEventListener('touchmove', stopScroll, false);
+                this.dakaiBg=false;
+                this.weizhong=false;
+                this.bg=false;
+            },
+            openBg:function(){
+                var _this=this;
+                //询问框
+                layer.open({
+                    content: '是否要扣除30个金币'
+                    ,btn: ['确定', '不要']
+                    ,yes: function(index){
+                        layer.close(index);
+                        _this.getInfo();
+                    }
+                    ,no:function (index) {
+                        layer.close(index);
+                    }
+                });
+
+            },
+            closeBg:function(){
+                this.bg=false;
+                this.dakaiBg=false;
+                this.weizhong=false;
+            },
+            drawRedEnvelopes(){
+                this.openRedEnvelopes();
+            }
+        },
+    });
+</script>
+</body>
+</html>

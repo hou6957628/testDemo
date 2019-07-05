@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<!--<script>-->
+<!--Promise.all([-->
+<!--$.ajax({url: "http://39.96.195.239/testData/data1.txt", dataType: "json"}),-->
+<!--$.ajax({url: "http://39.96.195.239/testData/data2.txt", dataType: "json"}),-->
+<!--$.ajax({url: "http://39.96.195.239/testData/data3.txt", dataType: "json"}),-->
+<!--]).then(function (results) {-->
+<!--let [list, json, num] = results;-->
+<!--console.log(list, json, num);-->
+<!--}, function (err) {-->
+<!--console.log(err);-->
+<!--})-->
+<!--</script>-->
+<script>
+    Promise.all([
+        $.ajax({url: "data/data1.txt", dataType: "json"}),
+        $.ajax({url: "data/data2.txt", dataType: "json"}),
+        $.ajax({url: "data/data3.txt", dataType: "json"}),
+    ]).then(results => {
+        let [list, json, num] = results;
+        console.log(list, json, num);
+    }, err => {
+        console.log(err);
+    })
+</script>
+</body>
+</html>

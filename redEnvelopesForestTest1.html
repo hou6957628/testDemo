@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--可视区域的定义，如屏幕缩放等。告诉浏览器如何规范的渲染网页-->
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <title>红包森林</title>
+    <link href="https://cdn.bootcss.com/animate.css/3.3.0/animate.min.css" rel="stylesheet">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <script src="http://jmyq.wzgeek.com/js/layer.js"></script>
+    <style type="text/css">
+        .dakai1{
+            position: absolute;
+            width: 7.5rem;
+            height: 8.88rem;
+            line-height: 8rem;
+            text-align: center;
+            left: 50%;
+            top:50%;
+            margin-left: -3.75rem;
+            margin-top: -4.44rem;
+            background: url("http://jmyq.wzgeek.com/images/nozhong.png") no-repeat no-repeat;
+            background-size: contain;
+            border-radius: 0.27rem;
+            color: red;
+            font-size: 0.6rem;
+        }
+        [v-cloak] {
+            display: none;
+        }
+        *{
+            -webkit-overflow-scrolling: touch;
+        }
+        html,body{
+            width: 100%;
+            min-height: 24rem;
+            background: url("http://jmyq.wzgeek.com/images/forestBg.png") no-repeat no-repeat;
+            background-size: contain;
+            background-color:#a0d657;
+            overflow: auto;
+        }
+        .content{
+            width: 94%;
+            height: 10.5rem;
+            margin: 0 auto;
+            margin-top: 5rem;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            outline: 0;
+            -webkit-overflow-scrolling: touch;
+            background-color: rgb(0, 0, 0);
+            filter: alpha(opacity=60);
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+        }
+        .renClass{
+            position: absolute;
+            width: 7.5rem;
+            height: 8.88rem;
+            left: 50%;
+            top:50%;
+            margin-left: -3.75rem;
+            margin-top: -4.44rem;
+        }
+        .dakai{
+            position: absolute;
+            width: 7.5rem;
+            height: 8.88rem;
+            line-height: 8rem;
+            text-align: center;
+            left: 50%;
+            top:50%;
+            margin-left: -3.75rem;
+            margin-top: -4.44rem;
+            background: url("http://jmyq.wzgeek.com/images/dakai.png") no-repeat no-repeat;
+            background-size: contain;
+            background-color:#ffdea0;
+            border-radius: 0.27rem;
+            color: red;
+            font-size: 0.6rem;
+        }
+        .dakai span{
+            font-size: 1.4rem;
+        }
+        .closeBtn1{
+            position: absolute;
+            width: 0.93rem;
+            height: 0.93rem;
+            top: 82%;
+            left: 50%;
+            margin-left: -0.46rem;
+        }
+        .ruleBox{
+            float: left;
+            margin-top: 0.24rem;
+            width: 4rem;
+            height: 1.24rem;
+            line-height: 1.24rem;
+            background:rgba(242,253,226,0.4);
+            border-radius:0px 47px 47px 0px;
+        }
+        .ruleBox span{
+            display: inline-block;
+        }
+        .ruleTitle{
+            margin-left: 0.2rem;
+            font-size:0.43rem;
+            font-family:PingFang-SC-Medium;
+            color:rgba(33,155,0,1);
+        }
+        .greenArea{
+            width: 0.93rem;
+            height: 0.73rem;
+            float: left;
+            margin-top: 0.28rem;
+            background:rgba(49,157,20,1);
+            border-radius:0px 8px 8px 0px;
+        }
+        .ruleBox .greenImg{
+            float: left;
+            display: inline-block;
+            width: 0.4rem;
+            height: 0.49rem;
+            margin-left: 0.27rem;
+            margin-top: 0.12rem;
+        }
+        .ruleBox:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .cle{
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            opacity: 0;
+        }
+        .ruleText{
+            margin: 0 auto;
+            margin-top: 1.88rem;
+            width: 95%;
+            line-height: 0.7rem;
+            font-size:0.37rem;
+            font-family:PingFang-SC-Regular;
+            font-weight:bold;
+            color:rgba(60,112,58,0.8);
+            letter-spacing: 1px;
+        }
+        .countArea{
+            height: 2rem;
+            margin-top: 6rem;
+        }
+        .redBox{
+            position: relative;
+            float: left;
+            width: 2.1rem;
+            height: 1.75rem;
+            background: url("http://jmyq.wzgeek.com/images/redCount1.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.23rem;
+        }
+        .goldBox{
+            position: relative;
+            float: left;
+            width: 1.83rem;
+            height: 1.73rem;
+            background: url("http://jmyq.wzgeek.com/images/goldCount1.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.45rem;
+        }
+        .goldText{
+            position: absolute;
+            bottom: 0.1rem;
+            left: 0.2rem;
+            letter-spacing: 1px;
+            font-size: 0.24rem;
+            color: #1C8CC4;
+        }
+        .goldNum{
+            width: 0.9rem;
+            text-align: center;
+            position: absolute;
+            right: 0;
+            top: 0.04rem;
+            letter-spacing: 1px;
+            font-size: 0.24rem;
+            color: #1C8CC4;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .redText{
+            position: absolute;
+            bottom: 0.1rem;
+            left: 0.2rem;
+            letter-spacing: 1px;
+            font-size: 0.24rem;
+            color: #B98011;
+        }
+        .redNum{
+            position: absolute;
+            width: 0.9rem;
+            text-align: center;
+            top: 0.05rem;
+            right: 0.05rem;
+            letter-spacing: 1px;
+            font-size: 0.24rem;
+            color: #B98011;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .countTime{
+            position: relative;
+            float: right;
+            width: 2rem;
+            text-align: center;
+            height: 1.73rem;
+            line-height: 1.73rem;
+            margin-right: 0.48rem;
+        }
+        .timeBox{
+            position: relative;
+            width: 90%;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 1rem;
+        }
+        .timeBox p,.timeBox span{
+            color: #fff;
+            font-size: 0.32rem;
+            font-weight: normal;
+        }
+        .timeBox p{
+            color: #249118;
+            font-size: 0.4rem;
+            font-weight: bold;
+        }
+        .timeBox span{
+            display: inline-block;
+            width: 0.7rem;
+            height: 0.7rem;
+            text-align: center;
+            line-height: 0.7rem;
+            border:0.03rem solid rgba(255, 255, 255, 0.8);
+            border-radius:0.05rem;
+            background-color: rgba(36, 145, 24, 0.6);
+        }
+        .countArea .timeText{
+            width: 4rem;
+            text-align: center;
+            margin-right: 1.03rem;
+            height:0.53rem;
+            font-size:0.43rem;
+            margin-top: 0.2rem;
+            font-weight:bold;
+            color: #ffffff;
+        }
+        .guaBtn{
+            width: 6.11rem;
+            text-align: center;
+            height: 1.37rem;
+            line-height: 1.30rem;
+            margin: 0 auto;
+            margin-top: 0.5rem;
+            background: url("http://jmyq.wzgeek.com/images/guaBtn.png") no-repeat no-repeat;
+            background-size: contain;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: bold;
+            -webkit-text-stroke:5px #9C4E0B;
+            text-stroke:5px #9C4E0B;
+        }
+        .renDynamic{
+            margin-top: 0.93rem;
+            width: 100%;
+            height: 7.03rem;
+            background: rgba(212,244,168,0.7);
+            border-radius: 0.4rem 0.4rem 0.13rem 0.13rem;
+        }
+        .renDynamicText{
+            width:3rem;
+            height:1rem;
+            font-size:0.51rem;
+            font-weight:bold;
+            color:rgba(51,51,51,1);
+            padding-top: 0.53rem;
+            margin-left: 0.33rem;
+        }
+        .renDynamicHistoy{
+            height: 5rem;
+            overflow-y: auto;
+        }
+        .renDynamicHistoy .redBox1{
+            width: 9.36rem;
+            height: 2rem;
+            margin: 0 auto;
+            margin-top: 0.27rem;
+            margin-bottom: 0.27rem;
+            background:rgba(228,254,193,1);
+            border-radius:0.13rem;
+        }
+        .jiaoIcon{
+            display: inline-block;
+            width: 0.53rem;
+            height: 0.53rem;
+            background: url("http://jmyq.wzgeek.com/images/jiaoIcon.png") no-repeat no-repeat;
+            background-size: contain;
+            vertical-align: middle;
+            margin-left: 0.4rem;
+            margin-top: 0.75rem;
+        }
+        .jiaoText{
+            display: inline-block;
+            margin-left: 0.19rem;
+            margin-top: 0.75rem;
+            vertical-align: middle;
+            color:rgba(51,51,51,1);
+            font-size: 0.4rem;
+        }
+        .renDynamicHistoy .redBox1 .lin{
+            float: right;
+            margin-top: 0.6rem;
+            margin-right: 0.4rem;
+            display: inline-block;
+            width: 1.87rem;
+            text-align: center;
+            height: 0.8rem;
+            font-size: 0.43rem;
+            letter-spacing: 2px;
+            line-height: 0.8rem;
+            background-color: #ffc600;
+            vertical-align: middle;
+            color: #7f5608;
+            border-radius:0.5rem;
+        }
+        .jiaos{
+            width: 1.5rem;
+            height: auto;
+            margin-top: 0.2rem;
+        }
+        .jiaoText1{
+            position: absolute;
+            width: 1rem;
+            height: 40px;
+            line-height: 40px;
+            bottom: 18px;
+            left: 50%;
+            margin-left: -0.5rem;
+            color: #1C8CC4;
+            font-size: 0.43rem;
+            letter-spacing: 2px;
+        }
+        .jsGIF{
+            width: 3rem;
+            height: auto;
+            position: absolute;
+            top: 3rem;
+            left: 50%;
+            margin-left: -1.5rem;
+        }
+        .jiaoTime{
+            margin-left: 1.1rem;
+            margin-top: 0.1rem;
+            color: #999;
+        }
+        .pop0,.pop1,.pop2,.pop3{
+            width: 1rem;
+            height: 1rem;
+            line-height: 1rem;
+            background-color: #666666;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div>
+        <div class="ruleBox">
+            <span class="greenArea"><img class="greenImg" src="http://jmyq.wzgeek.com/images/greenImg.png"></span><span
+                class="ruleTitle">红包森林规则</span>
+        </div>
+        <div class="cle"></div>
+        <div class="ruleText">{{ruleWord}}</div>
+        <div class="timeBox">
+            <p><span class="day">{{day}}天</span>&nbsp;:&nbsp;<span class="hour">{{hour}}</span>&nbsp;:&nbsp;<span class="Minute">{{minute}}</span>&nbsp;:&nbsp;<span class="second">{{second}}</span>
+            </p>
+            <p class="timeText"><img style="width: 2.24rem;height:0.59rem;margin-top: 0.3rem" src="http://jmyq.wzgeek.com/images/guafen.png"></p>
+            <p v-if="flagList">
+            <ul>
+                <li v-for="(item,index) in goldCoinRecords" class="redBox1" @click="getGold(item)" :class="setClass(index)">{{item.amount}}</li>
+            </ul>
+            </p>
+            <img v-if="waterFlag" src="http://jmyq.wzgeek.com/images/jsGif.gif" class="jsGIF">
+        </div>
+        <div class="countArea">
+            <div class="goldBox">
+                <span class="goldNum">{{iconCount}}</span>
+            </div>
+            <div class="redBox">
+                <span class="redNum">{{redCount}}</span>
+            </div>
+            <div class="countTime" @click="watering">
+                <img class="jiaos" src="http://jmyq.wzgeek.com/images/shuohu.jpg">
+            </div>
+        </div>
+        <div class="cle"></div>
+        <div class="guaBtn">&nbsp;</div>
+        <div class="renDynamic">
+            <p v-if="app.flag>0" class="renDynamicText">待瓜分红包</p>
+            <p v-if="app.flag>0">（瓜分计时结束后可打开红包，每个红包瓜分0~100元不等）<p/>
+            <p v-if="app.flag<=0" class="renDynamicText">火热瓜分中...</p>
+            <div v-if="redList" class="renDynamicHistoy">
+                <div v-for="(item,index) in redList" class="redBox1" @click="openBg(item)">
+                    <i class="jiaoIcon"></i><span class="jiaoText">浇金币红包待领取</span><span class="lin">领取</span>
+                    <p class="jiaoTime">{{item.createDate}}</p>
+                </div>
+            </div>
+            <div v-if="!flagList" class="renDynamicHistoy" style="height: 5rem;line-height: 5rem;text-align: center;font-size:26px;color: #999 ">
+                <p>暂无红包</p>
+            </div>
+        </div>
+    </div>
+    <div @click="chouBg" class="modal" v-show="bg">
+        <img @click.stop="drawRedEnvelopes" src="http://jmyq.wzgeek.com/images/openRed.png" :class="[this.flagOpen?'swing':'']" class="animated infinite renClass">
+        <div v-show="dakaiBg" class="dakai"><span>{{money}}</span>元</div>
+        <div v-show="weizhong" class="dakai1"></div>
+        <img @click="closeBg" class="closeBtn1" src="http://jmyq.wzgeek.com/images/closeW.png">
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.5/vue.min.js"></script>
+<script>
+    function getToken(data) {
+        localStorage.token=='';
+        localStorage.token=data;
+        var activeCode=getQueryString("activeCode");
+        var activityId=getQueryString("activityId");
+        app.getInfo(activeCode,data);
+        app.activityId=activityId;
+    }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    function show() {
+        var timeType=(app.dateTime).replace(/-/g, '/');
+        var time = Date.parse(new Date(timeType));
+        //获取当前时间
+        // var nowTime = Date.now();
+        var nowTime=new Date().getTime();
+        //获取时间差
+        var timediff = Math.round((time - nowTime) / 1000);
+        //获取还剩多少天
+        var day = parseInt(timediff / 3600 / 24);
+        //获取还剩多少小时
+        var hour = parseInt(timediff / 3600 % 24);
+        //获取还剩多少分钟
+        var minute = parseInt(timediff / 60 % 60);
+        //获取还剩多少秒
+        var second = timediff % 60;
+        //输出还剩多少时间
+        app.day = day;
+        app.hour = hour;
+        app.minute = minute;
+        app.second = second;
+        app.flag=time-nowTime;
+        setTimeout(function (){show()}, 1000);
+        if (timediff <= 0) {
+            app.day=0;
+            app.hour=0;
+            app.minute=0;
+            app.second=0;
+            return;
+        }
+    };
+    var app = new Vue({
+        el: '#app',
+        data:{
+            congfu:true,
+            iconCount:'',
+            redCount:'',
+            activityId:"",
+            flag:0,
+            flagList:'',
+            day:'',
+            hour:'',
+            minute:'',
+            second:'',
+            id:'',
+            dateTime:"",
+            waterFlag:false,
+            activeCode:'',
+            danImg:'',
+            bg:false,
+            money:5,
+            dakaiBg:false,
+            flagOpen:false,
+            redList:[],
+            weizhong:false,
+            iii:true,
+            goldCoinRecords:[],
+            ruleWord:"每次浇水可以获得10金币，每5分钟可浇一次，每天最多浇7次。（前两次浇水每次可获得一次瓜分红包奖池的机会,每周计时结束后统一瓜分红包奖池总金额，浇水越多瓜分越多。）"
+        },
+        mounted: function () {
+            localStorage.token="2be47ab194224c70926ae7aadf186648";
+            var activeCode=getQueryString("activeCode");
+            var activityId=getQueryString("activityId");
+            this.getInfo(activeCode);
+            this.activityId=activityId;
+            // var activeCode=getQueryString("activeCode");
+            // var activityId=getQueryString("activityId");
+            // this.getInfo(activeCode);
+            // this.activityId=activityId;
+        },
+        methods: {
+            //加载红包森林
+            getInfo: function (data,tokenNum) {
+                this.activeCode=data;
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': tokenNum||localStorage.token
+                    },
+                    // url:"http://60.205.216.141/flowPool/api/red_packet/forest",
+                    url:"http://47.93.234.167:31999/flowPool/api/red_packet/forest",
+                    type: "get",
+                    data:{
+                        activeCode :this.activeCode,
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.iii=true;
+                            app.id=data.body.activityPlaning.id;
+                            app.redList=data.body.records;
+                            app.flagList=data.body.records;
+                            app.goldCoinRecords=data.body.goldCoinRecords;
+                            app.dateTime=data.body.activityPlaning.endDate;
+                            app.iconCount=data.body.iconCount;
+                            app.redCount=data.body.warterCount;
+                            show();
+                        }else if(data.msgCd=="ZYCASH-8002"){
+                            app.sendMsg(data.body);
+                        }
+                        else {
+                            app.sendMsg(data.body);
+                        }
+                    }
+                });
+            },
+            //浇水
+            watering:function(){
+                if(app.congfu){
+                    app.congfu=false;
+                    $.ajax({
+                        headers:{
+                            'Content-Type':'application/x-www-form-urlencoded',
+                            'token': localStorage.token
+                        },
+                        // url:"http://60.205.216.141/flowPool/api/goldCoin/get",
+                        url:"http://47.93.234.167:31999/flowPool/api/goldCoin/get",
+                        type: "POST",
+                        data:{
+                            activityId :app.activityId,
+                        },
+                        success: function (data) {
+                            if(data.msgCd=="ZYCASH-200"){
+                                $.ajax({
+                                    headers:{
+                                        'Content-Type':'application/x-www-form-urlencoded',
+                                        'token': localStorage.token
+                                    },
+                                    // url:"http://60.205.216.141/flowPool/api/red_packet/water",
+                                    url:"http://47.93.234.167:31999/flowPool/api/red_packet/water",
+                                    type: "POST",
+                                    data:{
+                                        activeId:app.id,
+                                    },
+                                    success: function (data) {
+                                        if(data.msgCd=="ZYCASH-200"){
+                                            app.waterFlag=true;
+                                            setTimeout(()=> {
+                                                app.waterFlag=false;
+                                                app.congfu=true;
+                                                app.sendMsg(data.body);
+                                            },1000);
+
+                                            app.getInfo(app.activeCode);
+                                        }else if(data.msgCd=="ZYCASH-8002"){
+                                            app.sendMsg(data.body);
+                                            app.congfu=true;
+                                        }
+                                        else {
+                                            app.sendMsg(data.body);
+                                            app.congfu=true;
+                                        }
+                                    }
+                                });
+                            }else if(data.msgCd=="ZYCASH-8002"){
+                                layer.open({
+                                    content: data.msgInfo
+                                    ,skin: 'msg'
+                                    ,time: 2 //2秒后自动关闭
+                                });
+                                app.congfu=true;
+                            }
+                            else {
+                                layer.open({
+                                    content: data.msgInfo
+                                    ,skin: 'msg'
+                                    ,time: 2 //2秒后自动关闭
+                                });
+                                app.congfu=true;
+                            }
+                        }
+                    });
+                }
+
+            },
+            //拆开红包
+            openRedEnvelopes: function (redId) {
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': localStorage.token
+                    },
+                    // url:"http://60.205.216.141/flowPool/api/red_packet/openRedPacket",
+                    url:"http://47.93.234.167:31999/flowPool/api/red_packet/openRedPacket",
+                    type: "POST",
+                    data:{
+                        packetRedordId :app.packetRedordId,
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            if(app.money==0.0){
+                                app.iii=false;
+                                app.weizhong=true;
+                                app.flag=false;
+                                app.getInfo(getQueryString("activeCode"));
+
+                            }else {
+                                app.dakaiBg=true;
+                                app.flag=false;
+                                app.weizhong=false;
+                                app.getInfo(getQueryString("activeCode"));
+                            }
+                        }else if(data.msgCd=="ZYCASH-8002"){
+                            app.sendMsg(data.body);
+                            app.flag=false;
+                        }
+                        else {
+                            app.flag=false;
+                            app.sendMsg(data.body);
+                        }
+                    }
+                });
+            },
+            chouBg:function () {
+                this.dakaiBg=false;
+                this.bg=false;
+            },
+            openBg:function(item){
+                if(app.flag>0){
+                    app.sendMsg("还没有到瓜分时间，请耐心等待！");
+                    app.bg=false;
+                }else {
+                    app.bg=true;
+                    app.weizhong=false;
+                    app.packetRedordId=item.id;
+                    app.money=(item.amount).toFixed(1);
+                }
+            },
+            closeBg:function(){
+                this.bg=false;
+                this.dakaiBg=false;
+            },
+            drawRedEnvelopes(){
+                this.openRedEnvelopes();
+            },
+            //动态设置class名字
+            setClass:function(data){
+                return "pop"+data;
+            },
+            //获取金币
+            getGold:function (data) {
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': localStorage.token
+                    },
+                    // url:"http://60.205.216.141/flowPool/api/red_packet/getCoin",
+                    url:"http://47.93.234.167:31999/flowPool/api/red_packet/getCoin",
+                    type: "POST",
+                    data:{
+                        packetRedordId :data.id,
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.sendMsg(data.body);
+                            app.getInfo(getQueryString("activeCode"));
+                        }else if(data.msgCd=="ZYCASH-8002"){
+                            app.sendMsg(data.body);
+                            app.flag=false;
+                        }
+                        else {
+                            app.flag=false;
+                            app.sendMsg(data.body);
+                        }
+                    }
+                });
+            },
+            //发送信息
+            sendMsg(data){
+                let ua = navigator.userAgent.toLowerCase();
+                //Android终端
+                let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
+                //Ios终端
+                let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    alert(data);
+                    //Ios
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    //Android终端
+                    window.control.signIn(data);
+                }
+            },
+        },
+
+    });
+</script>
+</body>
+</html>

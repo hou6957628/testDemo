@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const boj = {};
+    let val = 'cjg';
+    Object.defineProperty(boj, 'name', {
+        get() {
+            console.log("劫持了你的取值操作");
+            return val;
+        },
+        set(newVal) {
+            console.log("劫持了你的赋值操作");
+            return val = newVal;
+        },
+    });
+    //调用的时候可以触发get()方法
+    console.log(boj.name);
+    //调用的时候触发set()方法
+    boj.name = 'cwc';
+    console.log(boj.name);
+</script>
+</body>
+</html>

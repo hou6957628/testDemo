@@ -1,0 +1,431 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渠道统计</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- 引入样式1 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/element-ui/2.8.2/theme-chalk/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+        }
+
+        #ddd {
+            overflow: auto;
+        }
+
+        .table-hover > tbody > tr:hover {
+            background-color: #d4fffe;
+            cursor: pointer;
+        }
+
+        #ddd ,.dddd{
+            width: 900px;
+            margin: 0 auto;
+            margin-top: 30px;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .bs-example {
+            margin: 20px;
+            /*padding-left: 150px;*/
+            font-size: 15px;
+            font-family: "微软雅黑", "microsoft yahei", "宋体", "Arial Narrow";
+        }
+
+        #datetimeStart {
+            text-indent: 5px;
+        }
+
+        #datetimeEnd {
+            text-indent: 5px;
+        }
+
+        .leftContent {
+            float: left;
+            width: 150px;
+            height: 100%;
+            background-color: #0d0d0d;
+        }
+
+        .topContent {
+            height: 40px;
+            width: 100%;
+            background-color: #0d0d0d;
+        }
+
+        .leftContent p {
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .leftContent .qu {
+            background-color: #686868;
+        }
+
+        .leftContent .qu:hover {
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            text-align: center;
+            background-color: #ccc;
+        }
+
+        #search {
+            letter-spacing: 2px;
+            margin-left: 15px;
+            min-width: 80px;
+        }
+
+        #upPage {
+            padding: 5px 15px;
+            margin: 0 auto;
+            margin-left: 42%;
+        }
+
+        #downpage {
+            padding: 5px 15px;
+            margin: 0 auto;
+            margin-left: 10px;
+
+        }
+
+        .tfff th {
+            background-color: #e6e6e6;
+        }
+        .goOut{
+            float: right;
+            margin-top: 10px;
+            margin-right: 10px;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #119a93;
+            border: 1px solid #119a93;
+            border-radius: 20px;
+        }
+        [v-cloak] {
+            display: none;
+        }
+        #search{
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            margin-left: 30px;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #0bbbff;
+            border: 1px solid #0bbbff;
+        }
+        .left{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            line-height: 60px;
+            background-color: #199ed8;
+            font-size: 22px;
+            text-align: center;
+        }
+        .tfff th{
+            height: 40px;
+            background-color: #199ed8;
+            text-align: center;
+            border-left:1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <header style="height: 60px;line-height: 60px;color: #fff; width: 100%;text-align: center;font-size: 24px;background-color: #25c9e8">小锦鲤渠道统计后台<button class="goOut" value="退出">退出</button></header>
+    <div class="dddd">
+        <span style="font-size: 18px;font-weight: bold;letter-spacing: 1px">开始时间</span> : <input type="text" id="datetimeStart" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="font-size: 18px;font-weight: bold;letter-spacing: 1px">结束时间</span>: <input type="text" id="datetimeEnd" value="">
+        <button id="search" type="button">搜索</button>
+
+    </div>
+    <template style="width: 900px;margin: 0 auto;text-align: center;">
+        <el-form>
+        <el-table
+                :data="tableData"
+                border
+                style="width: 902px;margin: 0 auto;text-align: center;font-size: 18px">
+            <el-table-column
+                    align="center"
+                    prop="subChannelName"
+                    label="渠道名称"
+                    width="225">
+            </el-table-column>
+            <el-table-column
+                    align="center"
+                    prop="statisticsDate"
+                    label="时间"
+                    width="225">
+            </el-table-column>
+            <el-table-column
+                    align="center"
+                    prop="cpaNum"
+                    label="CPA"
+                    width="225">
+            </el-table-column>
+            <el-table-column
+                    align="center"
+                    prop="cpsFactNum"
+                    label="CPS"
+                    width="225">
+            </el-table-column>
+        </el-table>
+            <div class="block" style="width: 900px;margin: 0 auto;margin-top:20px;text-align: center;">
+                <el-pagination class="paginationBox"
+                               @size-change="handleSizeChange"
+                               @current-change="handleCurrentChange"
+                               :unique-opened="true"
+                               :current-page="pageNum"
+                               :page-sizes="pageSizes"
+                               :page-size="pageSize"
+                               layout="total, sizes, prev, pager, next, jumper"
+                               :total="proTotal">
+                </el-pagination>
+            </div>
+        </el-form>
+    </template>
+
+</div>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<!-- 引入组件库 -->
+<script src="https://cdn.bootcss.com/element-ui/2.8.2/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    $(function () {
+
+        $("#datetimeStart").datetimepicker({
+            format: 'yyyy-mm-dd',
+            minView: 'month',
+            language: 'zh-CN',
+            autoclose: true,
+            pickerPosition: "bottom-left",
+            // startDate: new Date(new Date() - 1000 * 60 * 60 * 24 * 30),
+            // endDate: new Date(),
+            initialDate: new Date(),
+        }).on("click", function () {
+            $("#datetimeStart").datetimepicker("setEndDate", $("#datetimeEnd").val())
+        });
+        $("#datetimeEnd").datetimepicker({
+            format: 'yyyy-mm-dd',
+            minView: 'month',
+            language: 'zh-CN',
+            autoclose: true,
+            pickerPosition: "bottom-left",
+            // startDate: new Date(new Date() - 1000 * 60 * 60 * 24 * 30),
+            // endDate: new Date(),
+            initialDate: new Date(),
+        }).on("click", function () {
+            $("#datetimeEnd").datetimepicker("setStartDate", $("#datetimeStart").val())
+        });
+    });
+</script>
+<script type="text/javascript">
+var getQueryString=function(name) {
+var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+var r = window.location.search.substr(1).match(reg);
+if (r != null) {
+return unescape(r[2]);
+}
+return null;
+}
+    var formatDate = function (date) {
+        var y = date.getFullYear();
+        var m = date.getMonth() + 1;
+        m = m < 10 ? ('0' + m) : m;
+        var d = date.getDate();
+        d = d < 10 ? ('0' + d) : d;
+        var h = date.getHours();
+        var minute = date.getMinutes();
+        minute = minute < 10 ? ('0' + minute) : minute;
+        var second = date.getSeconds();
+        second = minute < 10 ? ('0' + second) : second;
+        return y + '-' + m + '-' + d;
+    };
+    var newDate = new Date();
+    var app = new Vue({
+        el: '#app',
+        data: {
+            tableData: [],
+            isLogin: true,
+            list: '',
+            page: '',
+            pageUp: '',
+            pageDown: '',
+            pageNum: null,
+            proTotal:null,
+            pageSize:null,
+            parentChannel:'',
+            tokenn:"",
+            pageSizes:[10,30,50],
+        },
+        created: function () {
+           var tokenn=getQueryString("id")
+            var startTime = $("#datetimeStart").val() || formatDate(newDate);
+            var endTime = $("#datetimeEnd").val() || formatDate(newDate);
+            var that = this;
+            var dataList= {
+                'startDate':startTime,
+                'endDate':endTime,
+                'pageSize':50,
+                'pageNum':1,
+            };
+            $.ajax({
+                // url: "http://47.95.118.227:8080/lm/api/debug_king/searchChannel",
+                url: "http://60.205.216.141/flowPool/admin/channel_statistics/selectList",
+                type: "post",
+                dataType: "json",
+                headers: {
+                    'Authorization': tokenn ,
+                    'Content-Type':'application/json',
+                    'productCode': "merchantProduct20190315161059"
+                },
+                data: JSON.stringify(dataList),
+                success: function (date) {
+                        if (date.msgCd == "SYS00001") {
+                           alert("身份过期，请重新登录");
+                           window.location.href = "http://qdjl.qxykjz.com/littleWhaleUV/index.html";
+                        }
+                    that.tableData = date.body.list;     
+                    that.proTotal=date.body.total;
+                    that.pageSize=date.body.pageSize;
+                    that.pageNum=date.body.pageNum;
+                    $("#datetimeStart").val(startTime);
+                    $("#datetimeEnd").val(endTime);
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+        },
+        methods: {
+            search: function (data1,data2,data3,data4) {
+                var startTime = $("#datetimeStart").val() || formatDate(newDate);
+                var endTime = $("#datetimeEnd").val() || formatDate(newDate);
+                var that = this;
+                var dataList= {
+                    'startDate':startTime,
+                    'endDate':endTime,
+                    'pageSize':data3,
+                    'pageNum':data4,
+                };
+                $.ajax({
+                    url: "http://60.205.216.141/flowPool/admin/channel_statistics/selectList",
+                    type: "post",
+                    dataType: "json",
+                    headers: {
+                        'Authorization': getQueryString("id"),
+                        'Content-Type':'application/json',
+                    'productCode': "merchantProduct20190315161059",
+                    },
+                    data: JSON.stringify(dataList),
+                    success: function (date) {
+                        if (date.msgCd == "SYS00001") {
+                           alert("身份过期，请重新登录");
+                           window.location.href = "http://qdjl.qxykjz.com/littleWhaleUV/index.html";
+                        }
+                       that.tableData = date.body.list;
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                });
+            },
+
+            handleSizeChange(val) {
+                var startTime = $("#datetimeStart").val() || formatDate(newDate);
+                var endTime = $("#datetimeEnd").val() || formatDate(newDate);
+                console.log(`每页 ${val} 条`);
+                this.search('','',val,this.pageNum);
+                this.nowPageSizes=val;
+            },
+            handleCurrentChange(val) {
+                console.log(`当前页: ${val}`);
+                console.log(this.nowPageSizes);
+                this.search('','',val,this.nowPageSizes);
+            },
+        }
+    })
+</script>
+<script>
+    $(function () {
+        var formatDate = function (date) {
+            var y = date.getFullYear();
+            var m = date.getMonth() + 1;
+            m = m < 10 ? ('0' + m) : m;
+            var d = date.getDate();
+            d = d < 10 ? ('0' + d) : d;
+            var h = date.getHours();
+            var minute = date.getMinutes();
+            minute = minute < 10 ? ('0' + minute) : minute;
+            var second = date.getSeconds();
+            second = minute < 10 ? ('0' + second) : second;
+            return y + '-' + m + '-' + d;
+        };
+        var newDate = new Date();
+        $("#search").on('click', function () {
+            var page = app.page;
+            // var starttime=$("#datetimeStart").val()||formatDate(newDate);
+            // var endtime=$("#datetimeEnd").val()||formatDate(newDate);
+            // console.log(page);
+            // console.log(starttime);
+            // console.log(endtime);
+            app.search('','',30,app.pageNum);
+            console.log(app.pageNum);
+        });
+
+    })
+</script>
+<script>
+    function logout() {
+        var userAgent = navigator.userAgent.toLowerCase();
+        if(userAgent.indexOf("msie")>-1) { //IE
+            sessionStorage.clear();
+            window.location.href = "http://qdjl.qxykjz.com/littleWhaleUV/index.html";
+        }else { //FireFox Chrome
+            sessionStorage.clear();
+            window.location.href = "http://qdjl.qxykjz.com/littleWhaleUV/index.html";
+        }
+    }
+    $(".goOut").on("click",function () {
+        logout();
+    })
+</script>
+<!--<script>-->
+    <!--(function () {-->
+        <!--if(sessionStorage['token'] == "" || sessionStorage['token'] == null || sessionStorage['token'] == undefined){-->
+            <!--location.href="http://39.96.195.239/anXinHua1UV/index.html"-->
+        <!--}-->
+    <!--})();-->
+<!--</script>-->
+</body>
+</html>

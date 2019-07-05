@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="App">
+    <input type="text" v-model="searchName">
+    <ul>
+        <li v-for="(item ,index) in newList" :key="index">
+            {{item.index}}-{{item.name}}-{{item.age}}
+        </li>
+    </ul>
+    <button @click="sort(1)">升序排列</button>
+    <button @click="sort(2)">降序排列</button>
+    <button @click="sort(0)">正常排序</button>
+</div>
+<script src="https://cdn.bootcss.com/vue/2.6.5/vue.min.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#App',
+        data: {
+            searchName: '',
+            wordType: 0,
+            list: [
+                {'name': 'kobe', 'age': 25, 'index': 1},
+                {'name': 'James', 'age': 12, 'index': 2},
+                {'name': 'joke', 'age': 19, 'index': 3},
+                {'name': 'ok', 'age': 20, 'index': 4},
+            ]
+        },
+        methods: {
+            sort(data) {
+                this.wordType = data;
+            }
+        },
+        computed: {
+            newList() {
+                //取出相关的数据
+                const {searchName, list, wordType} = this;
+                let lastList;
+                // lastList = list.filter(p => p.name.indexOf(searchName) !== -1);
+                lastList=list.filter(
+                    function (item) {
+                        return item.name.indexOf(searchName)!==-1
+                    }
+                );
+                if (wordType !== 0) {
+                    lastList.sort(function (p1, p2) {//返回负数p1在前面，返回正数p2在前
+                        //1 代表升序 2,代表降序
+                        if (wordType == 2) {
+                            return p2.age - p1.age;
+                        } else {
+                            return p1.age - p2.age
+                        }
+                    })
+                }
+                return lastList
+            }
+        }
+    })
+</script>
+</body>
+</html>

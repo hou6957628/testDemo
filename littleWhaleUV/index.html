@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <title>渠道统计查询管理系统</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-size: cover;
+        }
+        html{
+            background: url("http://jmyq.wzgeek.com/images/bgbg.jpg") no-repeat center center;
+            background-size: cover;
+            min-height: 100%;
+            width: 100%;
+        }
+        .top{
+            font-size: 24px;
+            color: #0b87a0;
+            text-align: center;
+            position: relative;
+            height: 60px;
+            line-height: 60px;
+            margin: 30px 10px 10px 10px;
+            padding: 0 30px;
+        }
+        .login-box{
+            width: 500px;
+            padding:10px 45px ;
+            background-color: #ffffff;
+        }
+        #password ,#username{
+            border:1px solid #b5b5b5;
+        }
+    </style>
+</head>
+<body>
+<div id="containerDiv" class="layui-container login-box">
+    <div class="top">
+        渠道统计查询管理系统
+    </div>
+    <div class="layui-row login-box-con">
+        <form class="layui-form" id="loginForm" action="#">
+            <dl>
+                <input type="text" name="username" id="username" value="" placeholder="请填写用户名"
+                       autocomplete="off" class="layui-input">
+            </dl>
+            <dl>
+                <input type="password" name="password" id="password" value=""
+                       placeholder="请填写密码" autocomplete="off" class="layui-input">
+            </dl>
+            <div class="layui-form-item" style="margin-top: 50px;text-align: center">
+                <button id="subit" type="button" style="width: 200px;background-color: #1277ff;border-radius: 10px" class="layui-btn layui-btn-fluid  layui-btn-normal" >登 录
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/layer/2.2/layer.js"></script>
+<script>
+    $("#subit").on("click", function () {
+        var usename=$("#username").val();
+        var password=$("#password").val();
+        if((usename == "" || usename == null || usename == undefined)){
+            layer.msg("账号有误，请重填");
+            return false;
+        }
+        if((password == "" || password == null || password == undefined)){
+            layer.msg("账号有误，请重填");
+            return false;
+        }
+        $.ajax({
+            // url: "http://47.95.118.227:8080/lm/api/debug_king/channel",
+            // url: "http://qtkj.zytech360.com/zyadmin/api/debug_king/channel",
+            // url: "http://jhkj.zytech360.com/zyadmin/api/debug_king/channel",
+            url: "http://60.205.216.141/flowPool/admin/user/login",
+            type: "post",
+            dataType: "json",
+            headers: {'productCode': "merchantProduct20190315161059"},
+            data: {
+                userName: $("#username").val(),
+                password: $("#password").val()
+            },
+            success: function (res) {
+                if(res.msgCd=='ZYCASH-1001'){
+                    layer.msg(res.msgInfo);
+                }else if(res.msgCd=='ZYCASH-200'){
+                    sessionStorage['token']=res.body.token;
+                    var token=res.body.token;
+                    console.log(sessionStorage['token']);
+ location.href="http://qdjl.qxykjz.com/littleWhaleUV/content.html?id="+token
+                }else {
+                    layer.msg(res.msgInfo);
+                }
+            },
+            error: function (err) {
+                layer.msg("账号有误，请重填")
+            }
+        });
+
+    })
+
+</script>
+</body>
+</html>
