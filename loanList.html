@@ -231,7 +231,8 @@
         }
         html ,body{
             height:100%;
-            overflow:hidden;
+            overflow-y:auto;
+            overflow-x:hidden;
         }
         .msg{
             position: relative;
@@ -321,10 +322,6 @@
         <!--<div class="darkLine"></div>-->
     </div>
     <!--<div id="footer">-我是有底线的-</div>-->
-    <div @click="closeBg()" id="bg">
-        <i @click="closeBg()" class="el-icon-error"></i>
-        <img :src="danImg" @click="UV(danid,danh5Url)" class="bgimg"/>
-    </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
@@ -404,14 +401,14 @@
                 if(id!=null) {
                     $.ajax({
                         headers: {
-                            'token': localStorage.token
+                            'token': localStorage.token,
+                            'productCode':'merchantProduct20190315161059'
                         },
-                        url:"http://60.205.216.141/flowPool/api/cusUvEarnings/countUV",
+                        url:"http://60.205.216.141/flowPool/api/product/countUV",
                         // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
-                        type: "post",
+                        type: "get",
                         data: {
                             productId: id,
-                            productName: name
                         },
                         success: function (data) {
                             if (data.msgCd == "ZYCASH-200") {
@@ -420,41 +417,7 @@
                             }
                         }
                     });
-                    $.ajax({
-                        headers:{
-                            'token': localStorage.token
-                        },
-                        url:"http://60.205.216.141/flowPool/api/product/countUV",
-                        // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
-                        type: "get",
-                        data:{
-                            productId:id
-                        },
-                        success: function (data) {
-                            if(data.msgCd=="ZYCASH-200"){
-                            }else {
-                            }
-                        }
-                    });
                 }
-            },
-            UV:function(data,data1){
-                $.ajax({
-                    headers:{
-                        'token': localStorage.token
-                    },
-                    url:"http://60.205.216.141/flowPool/api/cusUvEarnings/countUV",
-                    // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
-                    type: "post",
-                    data:{
-                        productId:data
-                    },
-                    success: function (data) {
-                        if(data.msgCd=="ZYCASH-200"){
-                            window.location.href=data1;
-                        }
-                    }
-                });
             },
             closeBg:function () {
                 document.querySelector('#app').removeEventListener('touchmove', stopScroll, false);

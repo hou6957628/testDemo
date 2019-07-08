@@ -170,14 +170,16 @@
 
         .detailBtn {
             position: absolute;
-            bottom: 1.04rem;
+            bottom: 0.59rem;
             right: 0rem;
-            width: 2rem;
-            text-align: right;
+            width: 1.87rem;
+            text-align: center;
             height: 0.7rem;
             line-height: 0.7rem;
-            font-size: 0.5rem;
-            color: #666666;
+            font-size:0.29rem;
+            font-weight:bold;
+            color:rgba(255,255,255,1);
+            letter-spacing: 0.02rem;
         }
         .el-carousel__item h3 {
             color: #475669;
@@ -299,8 +301,144 @@
 
         }
         .jiantou{
-            width: 0.16rem;
-            height: 0.27rem;
+            width: 1.87rem;
+            height: 0.64rem;
+            background: url("http://jmyq.wzgeek.com/images/shenqinBtn.png") no-repeat no-repeat;
+            background-size: contain;
+            display: inline-block;
+        }
+        .tuijian{
+            overflow: scroll;
+            background-color: #F7F7F7;
+        }
+        .tui{
+            font-size: 0.43rem;
+            color: #100F10;
+            padding-top: 0.37rem;
+            padding-bottom: 0.45rem;
+            padding-left: 0.37rem;
+            background-color: #F7F7F7;
+        }
+        .productContent1{
+            width: 9.34rem;
+            height: 3.6rem;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius:0.27rem;
+        }
+        .proBox{
+            width: 100%;
+            height: 3.6rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            float: left;
+            min-width: 100%;
+        }
+        .proD1{
+            width: 3.03rem;
+            height: 3.6rem;
+            float: left;
+            margin-left: 0.04rem;
+            border-right: 0.06rem solid #F7F7F7;
+            white-space: nowrap;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex: 3;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-left: 0.04rem;
+            border-right: 0.06rem solid #F7F7F7;
+            white-space: nowrap;
+        }
+        .shenqing{
+            width:2.13rem;
+            height:0.45rem;
+            line-height: 0.45rem;
+            text-align: center;
+            background:rgba(246,214,0,1);
+            border-radius:0.23rem;
+            margin-top: 0.21rem;
+            margin-left: 0.88rem;
+            color: #fff;
+        }
+        .logoIc{
+            width: 0.48rem;
+            height: 0.48rem;
+            margin-left: 0.27rem;
+            vertical-align: middle;
+        }
+        .reName{
+            height: 0.48rem;
+            display: inline-block;
+            font-size:0.35rem;
+            font-weight:400;
+            color:rgba(20,20,20,1);
+            line-height:0.48rem;
+            margin-left: 0.15rem;
+            vertical-align: middle;
+        }
+        .dddds{
+            height: 0.8rem;
+            line-height: 0.8rem;
+            margin-top: 0.15rem;
+            margin-bottom: 0.15rem;
+        }
+        .edu{
+            font-size: 0.32rem;
+            color: #666;
+            margin-left: 0.27rem;
+            margin-bottom: 0.15rem;
+            width: 2.57rem;
+            overflow:hidden; /*超出的部分隐藏起来。*/
+            white-space:nowrap;/*不显示的地方用省略号...代替*/
+            text-overflow:ellipsis;/* 支持 IE */
+        }
+        .jing{
+            font-size: 0.43rem;
+            color: #100F10;
+            padding-top: 0.67rem;
+            padding-bottom: 0.40rem;
+            padding-left: 0.37rem;
+            background-color: #F7F7F7;
+        }
+        .xiaoe{
+            display: inline-block;
+            width: 0.77rem;
+            height: 0.39rem;
+            line-height: 0.39rem;
+            text-align: center;
+            background: url("http://jmyq.wzgeek.com/images/xiaoe.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.05rem;
+            vertical-align: middle;
+            font-size: 0.22rem;
+            color: #fff;
+        }
+        .zhouz{
+            display: inline-block;
+            width: 1.07rem;
+            height: 0.4rem;
+            line-height: 0.4rem;
+            text-align: center;
+            background: url("http://jmyq.wzgeek.com/images/zhouz.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.13rem;
+            vertical-align: middle;
+            font-size: 0.22rem;
+            color: #fff;
+        }
+        .shenq{
+            float: right;
+            font-size: 0.29rem;
+            letter-spacing: 0.05rem;
+            color: #666;
+            vertical-align: middle;
         }
     </style>
 </head>
@@ -312,7 +450,7 @@
             <template>
                 <el-carousel :interval="3000" arrow="always">
                     <el-carousel-item v-for="item in productList3" :key="item">
-                        <img class="imggg" @click="UV(item.id,item.h5Url)" :src=item.logoUrl>
+                        <img class="imggg" @click="goDetail(item.id,item.description1,item.h5Url)" :src=item.logoUrl>
                         <!--<h3>{{ item }}</h3>-->
                     </el-carousel-item>
                 </el-carousel>
@@ -343,14 +481,32 @@
         <span class="lalal">申请5个以上产品，通过率超过95%</span>
         <span class="btn11">去看看</span>
     </div>
+    <div class="tuijian" v-if="kong">
+        <p class="tui">热门推荐</p>
+        <div class="productContent1">
+            <div class="proBox">
+                <div class="proD1" v-for="item in productList14">
+                        <div class="productList1" @click="goDetail(item.id,item.description1,item.h5Url)">
+                            <p class="shenqing">{{item.applyNumber}}人已申请</p>
+                            <p class="dddds"><img class="logoIc" :src=item.logoUrl><span class="reName">{{item.description1}}</span></p>
+                            <p class="edu">额度:<span style="color: #FF8B06;font-size: 0.32rem">{{item.description2}}</span></p>
+                            <p class="edu">{{item.description5}}</span></p>
+                            <p class="edu">{{item.description3}}</span></p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <p class="jing">精选产品</p>
+    </div>
     <div class="productContent">
         <div class="proD" v-for="item in productList4">
             <div class="productList" @click="goDetail(item.id,item.description1,item.h5Url)">
-                <p class="line1"><img class="logoIcon" :src=item.logoUrl><span class="productName">{{item.description1}}</span><span
-                        class="productDetail" v-model="item.description1"></span></p>
+                <p class="line1"><img class="logoIcon" :src=item.logoUrl><span class="productName">{{item.description1}}</span>
+                    <span class="xiaoe">{{(item.classifyAmount)?"大额":"小额"}}</span><span class="zhouz">{{(item.classifyTime)?"长期":"7天周转"}}</span><span class="shenq">已申请:<span style="color: #FF3C00">{{item.applyNumber}}</span>人</span></p>
                 <p class="line2" >{{item.description2}}<span class="tibix2">{{item.description3}}</span></p>
                 <p class="line3" >额度范围 (元)<span class="tibix1">{{item.description5}}</span></p>
-                <p class="detailBtn"><img class="jiantou" src="http://jmyq.wzgeek.com/images/jiantouIcon.png"></p>
+                <!--<p class="detailBtn"><img class="jiantou" src="http://jmyq.wzgeek.com/images/jiantouIcon.png"></p>-->
+                <p class="detailBtn"><span class="jiantou" >立即申请</span></p>
             </div>
         </div>
         <div class="darkLine"></div>
@@ -373,8 +529,8 @@
             headers:{
                 token:localStorage.token
             },
-            url:"http://47.93.234.167:31999/flowPool/api/product/countLoanPageUV",
-            // url:"http://60.205.216.141/flowPool/api/product/countLoanPageUV",
+            // url:"http://47.93.234.167:31999/flowPool/api/product/countLoanPageUV",
+            url:"http://60.205.216.141/flowPool/api/product/countLoanPageUV",
             type: "get",
             success: function (data) {
             }
@@ -405,7 +561,9 @@
             icon7id:"",
             productList4:[],
             productList3:[],
+            productList14:[],
             danImg:'',
+            kong:'',
         },
         mounted: function () {
             this.getInfo();
@@ -429,16 +587,13 @@
                             $("body").css("overflow","auto");
                             app.productList3=data.body.productList3;
                             app.productList4=data.body.productList4;
-                            console.log(app.productList3);
-                            console.log(app.productList4);
+                            app.productList14=data.body.productList14;
+                            app.kong=app.productList14.length;
                         }else if(data.msgCd=="ZYCASH-1013"){
                             app.$message.error('请先登录！');
                         }
                         else {
                             app.$message.error('系统繁忙请稍后再试！');
-                            handler.clearHander({
-                                'clearToken': ""
-                            });
                         }
                     }
                 });
@@ -447,47 +602,21 @@
                 if(id!=null){
                     $.ajax({
                         headers:{
-                            'Content-Type':'application/x-www-form-urlencoded',
-                            'token': localStorage.token
-                        },
-                        url:"http://60.205.216.141/flowPool/api/cusUvEarnings/countUV",
-                        // url:"http://47.93.234.167:31999/flowPool/api/cusUvEarnings/countUV",
-                        type: "POST",
-                        data:{
-                            productId:id,
-                            productName:name
-                        },
-                        success: function (data) {
-                            if(data.msgCd=="ZYCASH-200"){
-                                app.copyMobile("login");
-                                window.location.href=url;
-                            }else if(data.msgCd=="ZYCASH-2009"){
-                                app.loginIn("login");
-                            }
-                            else {
-                                //提示
-                                layer.open({
-                                    content: data.msgInfo
-                                    ,skin: 'msg'
-                                    ,anim:false
-                                    ,time: 1 //2秒后自动关闭
-                                });
-                            }
-                        }
-                    });
-                    $.ajax({
-                        headers:{
-                            'token': localStorage.token
+                            'token': localStorage.token,
+                            'productCode':'merchantProduct20190315161059'
                         },
                         url:"http://60.205.216.141/flowPool/api/product/countUV",
                         // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
                         type: "get",
                         data:{
-                            productId:id
+                            productId:id,
                         },
                         success: function (data) {
                             if(data.msgCd=="ZYCASH-200"){
+                                app.copyMobile("login");
+                                window.location.href=url;
                             }else {
+                                app.loginIn("login");
                             }
                         }
                     });

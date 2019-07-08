@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08c86d7d-3487-4c2c-813f-86d6d4820b78" name="Default Changelist" comment="" />
+    <list default="true" id="08c86d7d-3487-4c2c-813f-86d6d4820b78" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/downloadAndroidApp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loanList.html" beforeDir="false" afterPath="$PROJECT_DIR$/loanList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newLoan.html" beforeDir="false" afterPath="$PROJECT_DIR$/newLoan.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register111.html" beforeDir="false" afterPath="$PROJECT_DIR$/register111.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,18 +19,19 @@
     <session id="157718734">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="30" />
           <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.14" value="1" />
-          <entry key="project.open.time.2" value="5" />
+          <entry key="project.open.time.2" value="6" />
           <entry key="project.open.time.3" value="4" />
           <entry key="project.open.time.36" value="1" />
-          <entry key="project.open.time.4" value="3" />
+          <entry key="project.open.time.4" value="4" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.opened" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -31,13 +39,13 @@
           <entry key="data1" value="1" />
           <entry key="data2" value="1" />
           <entry key="data3" value="1" />
-          <entry key="html" value="89" />
+          <entry key="html" value="101" />
           <entry key="vue" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="89" />
+          <entry key="HTML" value="101" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="Vue.js" value="5" />
         </counts>
@@ -47,12 +55,12 @@
           <entry key="data1" value="25" />
           <entry key="data2" value="23" />
           <entry key="data3" value="5" />
-          <entry key="html" value="11013" />
+          <entry key="html" value="12496" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="11013" />
+          <entry key="HTML" value="12496" />
           <entry key="PLAIN_TEXT" value="53" />
         </counts>
       </usages-collector>
@@ -61,69 +69,76 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/newLoanDetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7029">
-              <caret line="213" column="16" selection-start-line="213" selection-start-column="16" selection-end-line="235" selection-end-column="19" />
-              <folding>
-                <element signature="e#6947#7867#0" />
-                <element signature="e#7912#8518#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17061">
-              <caret line="666" column="9" selection-start-line="666" selection-start-column="9" selection-end-line="666" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#13505#14482#0" />
-                <element signature="e#14798#16161#0" />
-                <element signature="e#16211#16401#0" />
-                <element signature="e#16615#18707#0" />
-                <element signature="e#20345#20888#0" />
-                <element signature="e#20369#20585#0" />
-                <element signature="e#20908#21399#0" />
-                <element signature="e#21450#21498#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newLoan.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14784">
-              <caret line="477" column="20" selection-start-line="477" selection-start-column="20" selection-end-line="492" selection-end-column="23" />
+            <state relative-caret-position="71">
+              <caret line="483" column="36" lean-forward="true" selection-start-line="483" selection-start-column="36" selection-end-line="483" selection-end-column="36" />
               <folding>
-                <element signature="e#13883#15262#0" />
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#span#0;n#span#3;n#p#0;n#div#0;n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#17842#19104#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/downloadAndroidApp.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="412">
+              <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
+              <folding>
+                <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
+                <element signature="e#7129#9063#0" />
+                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#10129#10135#0" expanded="true" />
+                <element signature="e#10135#10141#0" expanded="true" />
+                <element signature="e#10141#10147#0" expanded="true" />
+                <element signature="e#13174#13280#0" />
+                <element signature="e#13303#13448#0" />
+                <element signature="e#13628#15621#0" />
+                <element signature="e#13650#14570#0" />
+                <element signature="e#14607#15615#0" />
+                <element signature="e#15663#15707#0" />
+                <element signature="n#script#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/downloadApp.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="220" selection-start-line="220" selection-end-line="223" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/register111.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="627">
+              <caret line="25" column="9" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="25" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/loanList.html">
+        <entry file="file://$PROJECT_DIR$/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="441" column="24" selection-start-line="441" selection-start-column="24" selection-end-line="441" selection-end-column="24" />
+            <state relative-caret-position="3198">
+              <caret line="552" column="11" lean-forward="true" selection-start-line="552" selection-start-column="11" selection-end-line="552" selection-end-column="11" />
               <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#12644#13293#0" />
+                <element signature="e#14798#16161#0" />
+                <element signature="e#16211#16401#0" />
+                <element signature="e#16615#18707#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/detail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5214">
-              <caret line="158" column="34" selection-start-line="158" selection-start-column="31" selection-end-line="158" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -140,17 +155,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>jiaoTime</find>
-      <find>jiaoText</find>
-      <find>app.flag</find>
-      <find>huore</find>
-      <find>bbbbb</find>
-      <find>chouContent</find>
-      <find>activeNo</find>
-      <find>timeBox</find>
-      <find>countArea</find>
-      <find>getGold</find>
-      <find>noSee</find>
       <find>dakai1</find>
       <find>renDynamicHistoy</find>
       <find>goH5</find>
@@ -163,14 +167,28 @@
       <find>ipt</find>
       <find>icon1id</find>
       <find>.iptBox</find>
-      <find>goList</find>
       <find>quebtn</find>
       <find>registerForm</find>
       <find>layer</find>
-      <find>goDetail</find>
       <find>post</find>
+      <find>productList1</find>
+      <find>tuijian</find>
+      <find>proD1</find>
+      <find>productCode</find>
+      <find>goDetail</find>
+      <find>goList</find>
+      <find>detailBtn</find>
+      <find>productList</find>
+      <find>jiantou</find>
       <find>UV</find>
+      <find>flowPool/api/product/countUV</find>
+      <find>html</find>
+      <find>contt</find>
+      <find>modal</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -187,7 +205,6 @@
         <option value="$PROJECT_DIR$/redEnvelopesActiveForest.html" />
         <option value="$USER_HOME$/Desktop/daichao.html" />
         <option value="$USER_HOME$/Desktop/content.html" />
-        <option value="$PROJECT_DIR$/register111.html" />
         <option value="$PROJECT_DIR$/data/data1" />
         <option value="$PROJECT_DIR$/data/data2" />
         <option value="$PROJECT_DIR$/data/data3" />
@@ -201,9 +218,11 @@
         <option value="$PROJECT_DIR$/littleWhaleUV/content.html" />
         <option value="$PROJECT_DIR$/littleWhaleUV/index.html" />
         <option value="$PROJECT_DIR$/newLoanDetail.html" />
-        <option value="$PROJECT_DIR$/register.html" />
-        <option value="$PROJECT_DIR$/newLoan.html" />
         <option value="$PROJECT_DIR$/loanList.html" />
+        <option value="$PROJECT_DIR$/newLoan.html" />
+        <option value="$PROJECT_DIR$/register111.html" />
+        <option value="$PROJECT_DIR$/downloadAndroidApp.html" />
+        <option value="$PROJECT_DIR$/register.html" />
       </list>
     </option>
   </component>
@@ -213,12 +232,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-105" />
     <option name="y" value="161" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -243,7 +263,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562294389813" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562339272517" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -304,17 +324,20 @@
       <workItem from="1562206712224" duration="11712000" />
       <workItem from="1562225456844" duration="6792000" />
       <workItem from="1562233456404" duration="8361000" />
-      <workItem from="1562323882088" duration="553000" />
+      <workItem from="1562323882088" duration="13397000" />
+      <workItem from="1562374504090" duration="1980000" />
+      <workItem from="1562554112592" duration="7511000" />
+      <workItem from="1562571763027" duration="4136000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243673000" />
+    <option name="totallyTimeSpent" value="270144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13859275" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1433902" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -329,7 +352,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.23210412" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.10749186" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -366,11 +389,7 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/daichao.html" />
-    <entry file="file://$USER_HOME$/Desktop/anRegister.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1183" />
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/anRegister.html" />
     <entry file="file://$USER_HOME$/Desktop/h5资源/安薪花/anAboutUs.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="693">
@@ -379,20 +398,7 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/daichao1.html" />
-    <entry file="file://$USER_HOME$/Desktop/content.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="806">
-          <caret line="164" column="48" selection-start-line="164" selection-start-column="48" selection-end-line="164" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register111.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1038">
-          <caret line="568" column="31" lean-forward="true" selection-start-line="568" selection-start-column="31" selection-end-line="568" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/content.html" />
     <entry file="file://$PROJECT_DIR$/data/data1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -414,31 +420,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/promise.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/redEnvelopesForestTest1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="806">
           <caret line="744" column="7" selection-start-line="744" selection-start-column="7" selection-end-line="744" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue响应式原理.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue响应式原理demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4125">
-          <caret line="125" column="12" selection-start-line="125" selection-start-column="12" selection-end-line="125" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -502,9 +487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1815">
           <caret line="55" column="24" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#el-col#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -512,17 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/redEnvelopesForest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2154">
-          <caret line="773" column="12" selection-start-line="773" selection-start-column="12" selection-end-line="787" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#6;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#26568#27156#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -550,60 +521,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newLoanDetail.html">
+    <entry file="file://$PROJECT_DIR$/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7029">
-          <caret line="213" column="16" selection-start-line="213" selection-start-column="16" selection-end-line="235" selection-end-column="19" />
-          <folding>
-            <element signature="e#6947#7867#0" />
-            <element signature="e#7912#8518#0" />
-          </folding>
+        <state relative-caret-position="33">
+          <caret line="158" column="34" selection-start-line="158" selection-start-column="31" selection-end-line="158" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register.html">
+    <entry file="file://$PROJECT_DIR$/promise.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17061">
-          <caret line="666" column="9" selection-start-line="666" selection-start-column="9" selection-end-line="666" selection-end-column="9" />
+        <state relative-caret-position="615">
+          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/redEnvelopesForest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5268">
+          <caret line="773" column="12" selection-start-line="773" selection-start-column="12" selection-end-line="787" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue响应式原理.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue响应式原理demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4386">
+          <caret line="145" column="26" lean-forward="true" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newLoanDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="240" column="69" lean-forward="true" selection-start-line="240" selection-start-column="23" selection-end-line="240" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loanList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2488">
+          <caret line="444" column="29" selection-start-line="444" selection-start-column="29" selection-end-line="444" selection-end-column="29" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#13505#14482#0" />
-            <element signature="e#14798#16161#0" />
-            <element signature="e#16211#16401#0" />
-            <element signature="e#16615#18707#0" />
-            <element signature="e#20345#20888#0" />
-            <element signature="e#20369#20585#0" />
-            <element signature="e#20908#21399#0" />
-            <element signature="e#21450#21498#0" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/newLoan.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14784">
-          <caret line="477" column="20" selection-start-line="477" selection-start-column="20" selection-end-line="492" selection-end-column="23" />
+        <state relative-caret-position="71">
+          <caret line="483" column="36" lean-forward="true" selection-start-line="483" selection-start-column="36" selection-end-line="483" selection-end-column="36" />
           <folding>
-            <element signature="e#13883#15262#0" />
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#span#3;n#p#0;n#div#0;n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#17842#19104#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/detail.html">
+    <entry file="file://$PROJECT_DIR$/downloadApp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5214">
-          <caret line="158" column="34" selection-start-line="158" selection-start-column="31" selection-end-line="158" selection-end-column="34" />
+        <state relative-caret-position="247">
+          <caret line="220" selection-start-line="220" selection-end-line="223" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loanList.html">
+    <entry file="file://$PROJECT_DIR$/downloadAndroidApp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="441" column="24" selection-start-line="441" selection-start-column="24" selection-end-line="441" selection-end-column="24" />
+        <state relative-caret-position="412">
+          <caret line="236" lean-forward="true" selection-start-line="236" selection-end-line="236" />
           <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#12644#13293#0" />
+            <element signature="n#script#1;n#head#0;n#html#0;n#!!top" />
+            <element signature="e#7129#9063#0" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#10129#10135#0" expanded="true" />
+            <element signature="e#10135#10141#0" expanded="true" />
+            <element signature="e#10141#10147#0" expanded="true" />
+            <element signature="e#13174#13280#0" />
+            <element signature="e#13303#13448#0" />
+            <element signature="e#13628#15621#0" />
+            <element signature="e#13650#14570#0" />
+            <element signature="e#14607#15615#0" />
+            <element signature="e#15663#15707#0" />
+            <element signature="n#script#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register111.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="25" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3198">
+          <caret line="552" column="11" lean-forward="true" selection-start-line="552" selection-start-column="11" selection-end-line="552" selection-end-column="11" />
+          <folding>
+            <element signature="e#14798#16161#0" />
+            <element signature="e#16211#16401#0" />
+            <element signature="e#16615#18707#0" />
           </folding>
         </state>
       </provider>

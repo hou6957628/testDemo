@@ -582,10 +582,7 @@
             window.location.href="http://xjl.qxykjz.com/xiaoRegister/downloadApp.html"
         } else if (/(Android)/i.test(navigator.userAgent)) {
             //Android终端
-            layer.msg("3秒后自动下载app");
-            setTimeout(function () {
-                window.location= "https://qingtai-install.oss-cn-beijing.aliyuncs.com/JLAN/xiaojinli_1.0.3.apk";
-            },3000);
+            window.location.href="http://xjl.qxykjz.com/xiaoRegister/downloadAndroidApp.html"
         }
     };
     $("#registerForm").validate({
