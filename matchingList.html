@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--可视区域的定义，如屏幕缩放等。告诉浏览器如何规范的渲染网页-->
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <title>米贷</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/2.6.1/theme-chalk/index.css" rel="stylesheet">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+        *{
+            -webkit-overflow-scrolling: touch;
+        }
+        .hideClass{
+            display: none;
+        }
+        .el-carousel__container{
+            position: relative;
+            height: 3rem;
+        }
+        .imggg{
+            width: 9rem;
+            height: 3rem;
+        }
+        .topContent {
+            width: 9.33rem;
+            height: 4rem;
+            margin: 0 auto;
+            margin-top: 0.4rem;
+            background: url(images/shenBg1.png) no-repeat no-repeat;
+            background-size: 9.33rem 4rem;
+            position: relative;
+        }
+
+        #registerBtn {
+            font-size: 0.45rem;
+            font-weight: bold;
+            width: 3.5rem;
+            height: 1rem;
+            line-height: 1rem;
+            letter-spacing: 0.1rem;
+            background-color: #fff;
+            color: #ff7200;
+            border: 1px solid #fff;
+            border-radius: 70px;
+            -webkit-border-radius: 70px;
+            -o-border-radius: 70px;
+            -ms-border-radius: 70px;
+            margin-left: 0.4rem;
+            margin-top: 2.48rem;
+        }
+        .middleContent {
+            width: 9rem;
+            height: 2.27rem;
+            margin: 0 auto;
+            margin-top: 0.17rem;
+        }
+        .iconContent {
+            display: inline-block;
+            width: 2.15rem;
+            text-align: center;
+            height: 1.81rem;
+        }
+
+        .iconContent img {
+            display: block;
+            width: 1.06rem;
+            height: 1.06rem;
+            margin: 0 auto;
+        }
+
+        .iconContent p {
+            display: block;
+            margin-top: 0.13rem;
+            font-size: 0.27rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #100F10;
+            font-family:Helvetica;
+        }
+        .iconContent a{
+            text-decoration: none;
+        }
+        .darkLine {
+            width: 100%;
+            height: 0.027rem;
+            background-color: #F2F3F5;
+        }
+
+        .swiper-container {
+            width: 9.73rem;
+            height: 2.93rem;
+            margin: 0 auto;
+        }
+        .swiper-container img{
+            background-size: contain;
+        }
+        .bannerContent {
+            margin-top: 0.2rem;
+            margin-bottom: 0.173rem;
+        }
+
+        .bannerText {
+            font-size: 0.5rem;
+            text-align: center;
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+            color: #333333;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .productList {
+            width: 8.99rem;
+            height: 2.4rem;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logoIcon {
+            display: inline-block;
+            width: 0.48rem;
+            height: 0.48rem;
+            margin-right: 0.21rem;
+            vertical-align: middle;
+        }
+
+        .productName {
+            display: inline-block;
+            color: #333333;
+            font-size: 0.38rem;
+            font-weight: bold;
+            margin-right: 0.33rem;
+            vertical-align: middle;
+        }
+
+        .productDetail {
+            display: inline-block;
+            color: #666;
+            font-size: 0.32rem;
+            vertical-align: middle;
+        }
+
+        .line1 {
+            margin-top: 0.27rem;
+            margin-bottom: 0.48rem;
+        }
+
+        .line2 {
+            height:0.33rem ;
+            line-height:0.33rem ;
+            font-size: 0.44rem;
+            font-weight: bold;
+            color: #FB543A;
+            margin-bottom: 0.25rem;
+        }
+
+        .line3 {
+            font-size: 0.29rem;
+            color: #999;
+        }
+
+        .detailBtn {
+            position: absolute;
+            bottom: 1.04rem;
+            right: 0rem;
+            width: 2rem;
+            text-align: right;
+            height: 0.7rem;
+            line-height: 0.7rem;
+            font-size: 0.5rem;
+            color: #666666;
+        }
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 18px;
+            opacity: 0.75;
+            line-height: 300px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #fff;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #fff;
+        }
+        .proD{
+            border-top: 0.027rem solid rgba(240,240,240,1);;
+        }
+        #footer{
+            height: 1.36rem;
+            line-height: 1.36rem;
+            text-align: center;
+            background-color: #F2F3F5;
+            color:#999;
+        }
+        #bg {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 1001;
+            background: rgba(0,0,0,0.8);
+        }
+        .bgimg{
+            display: block;
+            width: 6rem;
+            height: 4rem;
+            margin: 0 auto;
+            margin-top: 7rem;
+        }
+        .el-icon-error{
+            position: absolute;
+            top: 7.25rem;
+            left: 7.3rem;
+            display: inline-block;
+            font-size: 0.47rem;
+        }
+        html ,body{
+            height:100%;
+            overflow-y:auto;
+            overflow-x:hidden;
+        }
+        .msg{
+            position: relative;
+            right: -8.85rem;
+            top: 0.3rem;
+            width: 0.65rem;
+            height: 0.65rem;
+        }
+        p{font-family: Helvetica, Tahoma, Arial;}
+        .lavaBox{
+            width: 100%;
+            line-height: 0.8rem;
+            height: 0.8rem;
+            text-align: left;
+            background-color: #F9F9F9;
+        }
+        .lavaBox .laba{
+            display: inline-block;
+            width: 0.4rem;
+            height: auto;
+            margin-left: 0.51rem;
+            vertical-align: middle;
+        }
+        .lalal{
+            font-size:0.31rem;
+            font-weight:500;
+            color:rgba(51,51,51,1);
+            display: inline-block;
+            margin-left: 0.23rem;
+            vertical-align: middle;
+        }
+        .btn11{
+            float: right;
+            margin-right: 0.51rem;
+            margin-top: 0.135rem;
+            display: inline-block;
+            width:1.33rem;
+            height:0.53rem;
+            line-height: 0.53rem;
+            text-align: center;
+            background:rgba(248,168,19,1);
+            border-radius:0.27rem;
+            vertical-align: middle;
+            color: #fff;
+        }
+        .tibix2{
+            display: inline-block;
+            float: right;
+            width: 5.5rem;
+            font-size:0.30rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:#5b5b5b;
+        }
+        .tibix1{
+            display: inline-block;
+            float: right;
+            width: 5.5rem;
+            font-size:0.30rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:rgba(153,153,153,1);
+        }
+        .productContent{
+
+        }
+        .jiantou{
+            width: 0.16rem;
+            height: 0.27rem;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div style="height: 1rem;text-align: center;line-height: 1rem;font-size: 0.4rem;background:rgba(250,250,250,1);">锦鲤借</div>
+    <div class="productContent">
+        <div class="proD" v-for="item in productList4">
+            <div class="productList" @click="goDetail(item.id,item.description1,item.h5Url)">
+                <p class="line1"><img class="logoIcon" :src=item.logoUrl><span class="productName">{{item.description1}}</span><span
+                        class="productDetail" v-model="item.description1"></span></p>
+                <p class="line2" >{{item.description2}}<span class="tibix2">{{item.description3}}</span></p>
+                <p class="line3" >额度范围 (元)<span class="tibix1">{{item.description5}}</span></p>
+                <p class="detailBtn"><img class="jiantou" src="https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/jiantouIcon.png"></p>
+            </div>
+        </div>
+        <div class="darkLine"></div>
+        <!--<div class="darkLine"></div>-->
+    </div>
+    <!--<div id="footer">-我是有底线的-</div>-->
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.6.1/index.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            thridNo:true,
+            danid:'',
+            danh5Url:'',
+            buttonName:'',
+            icon1Name:'',
+            icon5Name:'',
+            icon6Name:'',
+            icon7Name:'',
+            icon1h5Url:"",
+            icon5h5Url:"",
+            icon6h5Url:"",
+            icon7h5Url:"",
+            icon1detailsLogo:'',
+            icon5detailsLogo:'',
+            icon6detailsLogo:'',
+            icon7detailsLogo:'',
+            icon1id:"",
+            icon5id:"",
+            icon6id:"",
+            icon7id:"",
+            productList4:[],
+            productList3:[],
+            danImg:'',
+            id:"",
+        },
+        mounted: function () {
+            this.productList4=JSON.parse(localStorage.getItem('list'));
+            console.log(this.productList4);
+        },
+        methods: {
+            goDetail:function (id,name,url) {
+                if(id!=null) {
+                    $.ajax({
+                        headers: {
+                            'token': localStorage.token,
+                            'productCode':'merchantProduct20190315161059'
+                        },
+                        // url:"http://60.205.216.141/flowPool/api/product/countUV",
+                        url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
+                        type: "get",
+                        data: {
+                            productId: id,
+                        },
+                        success: function (data) {
+                            if (data.msgCd == "ZYCASH-200") {
+                                app.copyMobile("copyMobile");
+                                window.location.href = url;
+                            }
+                        }
+                    });
+                }
+            },
+            closeBg:function () {
+                document.querySelector('#app').removeEventListener('touchmove', stopScroll, false);
+                $("#bg").css("display","none");
+                $("html").css("overflow","auto");
+                $("body").css("overflow","auto");
+            },
+            //复制手机号提示
+            copyMobile(data){
+                let ua = navigator.userAgent.toLowerCase();
+                //Android终端
+                let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
+                //Ios终端
+                let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    alert("copyMobile");
+                    //Ios
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    //Android终端
+                    window.control.copyMobile(data);
+                }
+            },
+        },
+    });
+    function getToken(data) {
+        localStorage.token=data;
+
+        // $("#registerBtn").html(data);
+        // app.getInfo(data);
+        // $("#registerBtn").html(data);
+    }
+    function stopScroll(e) {
+        e.preventDefault()
+    }
+
+
+</script>
+</body>
+</html>

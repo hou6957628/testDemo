@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--可视区域的定义，如屏幕缩放等。告诉浏览器如何规范的渲染网页-->
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <title>米贷</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/2.6.1/theme-chalk/index.css" rel="stylesheet">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+        *{
+            -webkit-overflow-scrolling: touch;
+        }
+        .hideClass{
+            display: none;
+        }
+        .el-carousel__container{
+            position: relative;
+            height: 3rem;
+        }
+        .imggg{
+            width: 9.73rem;
+            height: 2.93rem;
+        }
+        .topContent {
+            width: 9.33rem;
+            height: 4rem;
+            margin: 0 auto;
+            margin-top: 0.4rem;
+            background: url(images/shenBg1.png) no-repeat no-repeat;
+            background-size: 9.33rem 4rem;
+            position: relative;
+        }
+
+        #registerBtn {
+            font-size: 0.45rem;
+            font-weight: bold;
+            width: 3.5rem;
+            height: 1rem;
+            line-height: 1rem;
+            letter-spacing: 0.1rem;
+            background-color: #fff;
+            color: #ff7200;
+            border: 1px solid #fff;
+            border-radius: 70px;
+            -webkit-border-radius: 70px;
+            -o-border-radius: 70px;
+            -ms-border-radius: 70px;
+            margin-left: 0.4rem;
+            margin-top: 2.48rem;
+        }
+        .middleContent {
+            width: 9rem;
+            height: 2.27rem;
+            margin: 0 auto;
+            margin-top: 0.17rem;
+        }
+        .iconContent {
+            display: inline-block;
+            width: 2.15rem;
+            text-align: center;
+            height: 1.81rem;
+        }
+
+        .iconContent img {
+            display: block;
+            width: 1.06rem;
+            height: 1.06rem;
+            margin: 0 auto;
+        }
+
+        .iconContent p {
+            display: block;
+            margin-top: 0.13rem;
+            font-size: 0.27rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #100F10;
+            font-family:Helvetica;
+        }
+        .iconContent a{
+            text-decoration: none;
+        }
+        .darkLine {
+            width: 100%;
+            height: 0.027rem;
+            background-color: #F2F3F5;
+        }
+
+        .swiper-container {
+            width: 9.73rem;
+            height: 2.93rem;
+            margin: 0 auto;
+        }
+        .swiper-container img{
+            background-size: contain;
+        }
+        .bannerContent {
+            margin-top: 0.2rem;
+            margin-bottom: 0.173rem;
+        }
+
+        .bannerText {
+            font-size: 0.5rem;
+            text-align: center;
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+            color: #333333;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .productList {
+            width: 8.99rem;
+            height: 2.4rem;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logoIcon {
+            display: inline-block;
+            width: 0.48rem;
+            height: 0.48rem;
+            margin-right: 0.21rem;
+            vertical-align: middle;
+        }
+
+        .productName {
+            display: inline-block;
+            color: #333333;
+            font-size: 0.38rem;
+            font-weight: bold;
+            margin-right: 0.33rem;
+            vertical-align: middle;
+        }
+
+        .productDetail {
+            display: inline-block;
+            color: #666;
+            font-size: 0.32rem;
+            vertical-align: middle;
+        }
+
+        .line1 {
+            margin-top: 0.27rem;
+            margin-bottom: 0.48rem;
+        }
+
+        .line2 {
+            height:0.33rem ;
+            line-height:0.33rem ;
+            font-size: 0.44rem;
+            font-weight: bold;
+            color: #FB543A;
+            margin-bottom: 0.25rem;
+        }
+
+        .line3 {
+            font-size: 0.30rem;
+            color: #999;
+        }
+
+        .detailBtn {
+            position: absolute;
+            bottom: 0.59rem;
+            right: 0rem;
+            width: 1.87rem;
+            text-align: center;
+            height: 0.7rem;
+            line-height: 0.7rem;
+            font-size:0.29rem;
+            font-weight:bold;
+            color:rgba(255,255,255,1);
+            letter-spacing: 0.02rem;
+        }
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 18px;
+            opacity: 0.75;
+            line-height: 300px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #fff;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #fff;
+        }
+        .proD{
+            border-top: 0.027rem solid rgba(240,240,240,1);;
+        }
+        #footer{
+            height: 1.36rem;
+            line-height: 1.36rem;
+            text-align: center;
+            background-color: #F2F3F5;
+            color:#999;
+        }
+        #bg {
+            display: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 1001;
+            background: rgba(0,0,0,0.8);
+        }
+        .bgimg{
+            display: block;
+            width: 6rem;
+            height: 4rem;
+            margin: 0 auto;
+            margin-top: 7rem;
+        }
+        .el-icon-error{
+            position: absolute;
+            top: 7.25rem;
+            left: 7.3rem;
+            display: inline-block;
+            font-size: 0.47rem;
+        }
+        html ,body{
+            height:100%;
+            overflow:hidden;
+        }
+        .msg{
+            position: relative;
+            right: -8.85rem;
+            top: 0.3rem;
+            width: 0.65rem;
+            height: 0.65rem;
+        }
+        p{font-family: Helvetica, Tahoma, Arial;}
+        .lavaBox{
+            width: 100%;
+            line-height: 0.8rem;
+            height: 0.8rem;
+            text-align: left;
+            background-color: #F9F9F9;
+        }
+        .lavaBox .laba{
+            display: inline-block;
+            width: 0.4rem;
+            height: auto;
+            margin-left: 0.51rem;
+            vertical-align: middle;
+        }
+        .lalal{
+            font-size:0.31rem;
+            font-weight:500;
+            color:rgba(51,51,51,1);
+            display: inline-block;
+            margin-left: 0.23rem;
+            vertical-align: middle;
+        }
+        .btn11{
+            float: right;
+            margin-right: 0.51rem;
+            margin-top: 0.135rem;
+            display: inline-block;
+            width:1.33rem;
+            height:0.53rem;
+            line-height: 0.53rem;
+            text-align: center;
+            background:rgba(248,168,19,1);
+            border-radius:0.27rem;
+            vertical-align: middle;
+            color: #fff;
+        }
+        .tibix2{
+            display: inline-block;
+            float: right;
+            width: 5.5rem;
+            font-size:0.30rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:#5b5b5b;
+        }
+        .tibix1{
+            display: inline-block;
+            float: right;
+            width: 5.5rem;
+            font-size:0.30rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:rgba(153,153,153,1);
+        }
+        .productContent{
+
+        }
+        .jiantou{
+            width: 1.87rem;
+            height: 0.64rem;
+            background: url("https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/shenqinBtn.png") no-repeat no-repeat;
+            background-size: contain;
+            display: inline-block;
+        }
+        .tuijian{
+            overflow: scroll;
+            background-color: #F7F7F7;
+        }
+        .tui{
+            font-size: 0.43rem;
+            color: #100F10;
+            padding-top: 0.37rem;
+            padding-bottom: 0.45rem;
+            padding-left: 0.37rem;
+            background-color: #F7F7F7;
+        }
+        .productContent1{
+            width: 9.34rem;
+            height: 3.6rem;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius:0.27rem;
+        }
+        .proBox{
+            width: 100%;
+            height: 3.6rem;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            float: left;
+            min-width: 100%;
+        }
+        .proD1{
+            width: 3.03rem;
+            height: 3.6rem;
+            float: left;
+            margin-left: 0.04rem;
+            border-right: 0.06rem solid #F7F7F7;
+            white-space: nowrap;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            flex: 3;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-left: 0.04rem;
+            border-right: 0.06rem solid #F7F7F7;
+            white-space: nowrap;
+        }
+        .shenqing{
+            width:2.13rem;
+            height:0.45rem;
+            line-height: 0.45rem;
+            text-align: center;
+            background:rgba(246,214,0,1);
+            border-radius:0.23rem;
+            margin-top: 0.21rem;
+            margin-left: 0.88rem;
+            color: #fff;
+        }
+        .logoIc{
+            width: 0.48rem;
+            height: 0.48rem;
+            margin-left: 0.27rem;
+            vertical-align: middle;
+        }
+        .reName{
+            height: 0.48rem;
+            display: inline-block;
+            font-size:0.35rem;
+            font-weight:400;
+            color:rgba(20,20,20,1);
+            line-height:0.48rem;
+            margin-left: 0.15rem;
+            vertical-align: middle;
+        }
+        .dddds{
+            height: 0.8rem;
+            line-height: 0.8rem;
+            margin-top: 0.15rem;
+            margin-bottom: 0.15rem;
+        }
+        .edu{
+            font-size: 0.32rem;
+            color: #666;
+            margin-left: 0.27rem;
+            margin-bottom: 0.15rem;
+            width: 2.57rem;
+            overflow:hidden; /*超出的部分隐藏起来。*/
+            white-space:nowrap;/*不显示的地方用省略号...代替*/
+            text-overflow:ellipsis;/* 支持 IE */
+        }
+        .jing{
+            font-size: 0.43rem;
+            color: #100F10;
+            padding-top: 0.67rem;
+            padding-bottom: 0.40rem;
+            padding-left: 0.37rem;
+            background-color: #F7F7F7;
+        }
+        .xiaoe{
+            display: inline-block;
+            width: 0.77rem;
+            height: 0.39rem;
+            line-height: 0.39rem;
+            text-align: center;
+            background: url("https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/xiaoe.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.05rem;
+            vertical-align: middle;
+            font-size: 0.22rem;
+            color: #fff;
+        }
+        .zhouz{
+            display: inline-block;
+            width: 1.07rem;
+            height: 0.4rem;
+            line-height: 0.4rem;
+            text-align: center;
+            background: url("https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/zhouz.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.13rem;
+            vertical-align: middle;
+            font-size: 0.22rem;
+            color: #fff;
+        }
+        .shenq{
+            float: right;
+            font-size: 0.29rem;
+            letter-spacing: 0.05rem;
+            color: #666;
+            vertical-align: middle;
+        }
+        #app p span{
+            display: inline-block;
+            width: 2.8rem;
+            height: 1rem;
+            text-align: center;
+            line-height: 1rem;
+            font-size: 0.3rem;
+            margin-bottom: 0.3rem;
+            background-color: #dadada;
+        }
+        .active{
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <p>
+        <span :class="[classifyAge==0 ? activeClass : '']" @click="changeAge(0)">22-35</span>
+        <span :class="[classifyAge==1 ? activeClass : '']" @click="changeAge(1)">36-45</span>
+        <span :class="[classifyAge==2 ? activeClass : '']" @click="changeAge(2)">45-55</span>
+        <span :class="[classifyAge==3 ? activeClass : '']" @click="changeAge(3)">55岁以上</span>
+    </p>
+    <p>
+        <span :class="[classifyCapital==0 ? activeClass : '']" @click="changeCapital(0)">2000-3000</span>
+        <span :class="[classifyCapital==1 ? activeClass : '']" @click="changeCapital(1)">3000-5000</span>
+        <span :class="[classifyCapital==2 ? activeClass : '']" @click="changeCapital(2)">5000-8000</span>
+        <span :class="[classifyCapital==3 ? activeClass : '']" @click="changeCapital(3)">8000-1万</span>
+        <span :class="[classifyCapital==4 ? activeClass : '']" @click="changeCapital(4)">1万-5万</span>
+        <span :class="[classifyCapital==5 ? activeClass : '']" @click="changeCapital(5)">5万-10万</span>
+    </p>
+    <p>
+        <span :class="[classifyOccupation==0 ? activeClass : '']" @click="changeOccupation(0)">工薪族</span>
+        <span :class="[classifyOccupation==1 ? activeClass : '']" @click="changeOccupation(1)">无固定职业</span>
+        <span :class="[classifyOccupation==2 ? activeClass : '']" @click="changeOccupation(2)">个体户</span>
+        <span :class="[classifyOccupation==3 ? activeClass : '']" @click="changeOccupation(3)">企业主</span>
+        </p>
+    <p>
+        <span :class="[classifyCredit==0 ? activeClass : '']" @click="changeCredit(0)">借过多次，被拒多次</span>
+        <span :class="[classifyCredit==1 ? activeClass : '']" @click="changeCredit(1)">借过网贷，信用良好</span>
+        <span :class="[classifyCredit==2 ? activeClass : '']" @click="changeCredit(2)">未借过网贷</span>
+    </p>
+    <button type="button" style="width: 200px;height: 100px;font-size: 50px" @click="sub()">提交</button>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.6.1/index.js"></script>
+<script>
+    function getToken(data) {
+        localStorage.token=data;
+        $.ajax({
+            headers:{
+                token:localStorage.token
+            },
+            // url:"http://47.93.234.167:31999/flowPool/api/product/countLoanPageUV",
+            url:"http://60.205.216.141/flowPool/api/product/countLoanPageUV",
+            type: "get",
+            success: function (data) {
+            }
+        });
+    }
+    var app = new Vue({
+        el: '#app',
+        data:{
+            thridNo:true,
+            danid:'',
+            danh5Url:'',
+            buttonName:'',
+            icon1Name:'',
+            icon5Name:'',
+            icon6Name:'',
+            icon7Name:'',
+            icon1h5Url:"",
+            icon5h5Url:"",
+            icon6h5Url:"",
+            icon7h5Url:"",
+            icon1detailsLogo:'',
+            icon5detailsLogo:'',
+            icon6detailsLogo:'',
+            icon7detailsLogo:'',
+            icon1id:"",
+            icon5id:"",
+            icon6id:"",
+            icon7id:"",
+            productList4:[],
+            productList3:[],
+            productList14:[],
+            danImg:'',
+            kong:'',
+            classifyAge:0,
+            classifyCapital:0,
+            classifyOccupation:0,
+            classifyCredit:0,
+            activeClass:"active",
+        },
+        mounted: function () {
+        },
+        /**
+         * `classify_age` int(11) DEFAULT NULL COMMENT '年龄分类：0：22-35，1：36-45，2：45-55，3：55岁以上',
+         `classify_capital` int(11) DEFAULT NULL COMMENT '借款金额：0：2000-3000，1：3000-5000，2：5000-8000，3：8000-1万，4：1万-5万，5：5万-10万',
+         `classify_occupation` int(11) DEFAULT NULL COMMENT '职业分类：0：工薪族，1：无固定职业，2：个体户，3：企业主',
+         `classify_credit` int(11) DEFAULT NULL COMMENT '信用分类：0：借过多次，被拒多次，1：借过网贷，信用良好，2：未借过网贷',
+         */
+        methods: {
+            goDetail:function (id,name,url) {
+                if(id!=null){
+                    $.ajax({
+                        headers:{
+                            'token': localStorage.token,
+                            'productCode':'merchantProduct20190315161059'
+                        },
+                        url:"http://60.205.216.141/flowPool/api/product/countUV",
+                        // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
+                        type: "get",
+                        data:{
+                            productId:id,
+                        },
+                        success: function (data) {
+                            if(data.msgCd=="ZYCASH-200"){
+                                app.copyMobile("login");
+                                window.location.href=url;
+                            }else {
+                                app.loginIn("login");
+                            }
+                        }
+                    });
+                }
+            },
+            UV:function(data,data1){
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/flowPool/api/cusUvEarnings/countUV",
+                    // url:"http://47.93.234.167:31999/flowPool/api/cusUvEarnings/countUV",
+                    type: "post",
+                    data:{
+                        productId:data
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.copyMobile("login");
+                            window.location.href=data1;
+                        }else if(data.msgCd=="ZYCASH-2009"){
+                            app.loginIn("login");
+                        }
+                        else {
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,anim:false
+                                ,time: 1 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+            },
+            closeBg:function () {
+                document.querySelector('#app').removeEventListener('touchmove', stopScroll, false);
+                $("#bg").css("display","none");
+                $("html").css("overflow","auto");
+                $("body").css("overflow","auto");
+            },
+            goList:function (id,count) {
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': localStorage.token
+                    },
+                    url:"http://60.205.216.141/flowPool/api/product/getListByType",
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/getListByType",
+                    type: "get",
+                    data:{
+                        type:count,
+                        pageSize: 30,
+                        pageNum: 1
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            window.location.href="http://39.96.195.239/loanMarket/loanList.html?id="+count;
+                            // window.location.href="http://39.96.195.239/daichao/loanList.html?id="+count;
+                        }else if(data.msgCd=="ZYCASH-2009"){
+                            app.loginIn("login");
+                        }
+                        else {
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,anim:false
+                                ,time: 1 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+            },
+            //提交
+            sub:function(){
+                $.ajax({
+                    headers:{
+                        'Content-Type':'application/x-www-form-urlencoded',
+                        'token': "1df98b656f7a088004a501f961a60a67"
+                    },
+                    // url:"http://60.205.216.141/flowPool/api/product/matchingAI",
+                    url:"http://47.93.234.167:31999/flowPool/api/product/matchingAI",
+                    type: "post",
+                    data:{
+                        classifyAge: this.classifyAge,
+                        classifyCapital: this.classifyCapital,
+                        classifyOccupation: this.classifyOccupation,
+                        classifyCredit: this.classifyCredit,
+                    },
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            console.log(data.body);
+                            localStorage.setItem('list',JSON.stringify(data.body));
+                            // window.location.href="http://39.96.195.239/loanMarket/loanList.html";
+                            window.location.href="http://39.96.195.239/daichao/matchingList.html";
+                        }else if(data.msgCd=="ZYCASH-2009"){
+                            app.loginIn("login");
+                        }
+                        else {
+                            layer.open({
+                                content: data.msgInfo
+                                ,skin: 'msg'
+                                ,anim:false
+                                ,time: 1 //2秒后自动关闭
+                            });
+                        }
+                    }
+                });
+            },
+            //发送信息
+            loginIn(data){
+                let ua = navigator.userAgent.toLowerCase();
+                //Android终端
+                let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
+                //Ios终端
+                let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    alert(data);
+                    //Ios
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    //Android终端
+                    window.control.login(data);
+                }
+            },
+            //复制手机号提示
+            copyMobile(data){
+                let ua = navigator.userAgent.toLowerCase();
+                //Android终端
+                let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
+                //Ios终端
+                let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    alert("copyMobile");
+                    //Ios
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    //Android终端
+                    window.control.copyMobile(data);
+                }
+            },
+            //选择年龄分类
+            changeAge:function (data) {
+                app.classifyAge=data;
+            },
+            //选择借款金额
+            changeCapital:function (data) {
+                app.classifyCapital=data;
+            },
+            //选择职业分类
+            changeOccupation:function (data) {
+                app.classifyOccupation=data;
+            },
+            //选择信用分类
+            changeCredit:function (data) {
+                app.classifyCredit=data;
+            },
+
+        },
+    });
+    function stopScroll(e) {
+        e.preventDefault()
+    }
+</script>
+</body>
+</html>
