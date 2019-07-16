@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -307,7 +307,7 @@
 </head>
 <body>
 <div id="app" v-cloak>
-    <div style="height: 1rem;text-align: center;line-height: 1rem;font-size: 0.4rem;background:rgba(250,250,250,1);">锦鲤借</div>
+    <div style="height: 0.2rem;text-align: center;line-height: 0.2rem;font-size: 0.4rem;background:rgba(250,250,250,1);"></div>
     <div class="productContent">
         <div class="proD" v-for="item in productList4">
             <div class="productList" @click="goDetail(item.id,item.description1,item.h5Url)">
@@ -315,7 +315,7 @@
                         class="productDetail" v-model="item.description1"></span></p>
                 <p class="line2" >{{item.description2}}<span class="tibix2">{{item.description3}}</span></p>
                 <p class="line3" >额度范围 (元)<span class="tibix1">{{item.description5}}</span></p>
-                <p class="detailBtn"><img class="jiantou" src="http://jmyq.wzgeek.com/images/jiantouIcon.png"></p>
+                <p class="detailBtn"><img class="jiantou" src="https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/jiantouIcon.png"></p>
             </div>
         </div>
         <div class="darkLine"></div>

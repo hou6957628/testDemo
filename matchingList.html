@@ -119,7 +119,7 @@
         }
 
         .productList {
-            width: 8.99rem;
+            width: 8.50rem;
             height: 2.4rem;
             margin: 0 auto;
             position: relative;
@@ -195,7 +195,9 @@
             background-color: #fff;
         }
         .proD{
-            border-top: 0.027rem solid rgba(240,240,240,1);;
+            border:0.02rem solid rgba(230,230,230,1);
+            border-radius:0.13rem;
+            background-color: #fff;
         }
         #footer{
             height: 1.36rem;
@@ -297,19 +299,35 @@
             color:rgba(153,153,153,1);
         }
         .productContent{
-
+            width: 9.3rem;
+            margin: 0 auto;
+            margin-top: -2.13rem;
         }
         .jiantou{
             width: 0.16rem;
             height: 0.27rem;
         }
+        .pipei{
+            width: 100%;
+            height: 4.77rem;
+            background: url("http://39.96.195.239/images/aiPiPei.png") no-repeat no-repeat;
+            background-size: contain;
+        }
+        .notui{
+            font-size: 0.35rem;
+            text-align: center;
+            color: #666;
+            height: 1rem;
+            line-height: 1rem;
+            background-color: #fff;
+        }
     </style>
 </head>
 <body>
 <div id="app" v-cloak>
-    <div style="height: 1rem;text-align: center;line-height: 1rem;font-size: 0.4rem;background:rgba(250,250,250,1);">锦鲤借</div>
+    <div @click="goBack" class="pipei"></div>
     <div class="productContent">
-        <div class="proD" v-for="item in productList4">
+        <div v-if="kai!=0" class="proD" v-for="item in productList4">
             <div class="productList" @click="goDetail(item.id,item.description1,item.h5Url)">
                 <p class="line1"><img class="logoIcon" :src=item.logoUrl><span class="productName">{{item.description1}}</span><span
                         class="productDetail" v-model="item.description1"></span></p>
@@ -318,6 +336,9 @@
                 <p class="detailBtn"><img class="jiantou" src="https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/jiantouIcon.png"></p>
             </div>
         </div>
+        <p v-if="kai==0" class="proD">
+            <p class="notui">暂无推荐产品</p>
+        </p>
         <div class="darkLine"></div>
         <!--<div class="darkLine"></div>-->
     </div>
@@ -330,6 +351,7 @@
     var app = new Vue({
         el: '#app',
         data:{
+            kai:0,
             thridNo:true,
             danid:'',
             danh5Url:'',
@@ -357,7 +379,7 @@
         },
         mounted: function () {
             this.productList4=JSON.parse(localStorage.getItem('list'));
-            console.log(this.productList4);
+            this.kai=this.productList4.length;
         },
         methods: {
             goDetail:function (id,name,url) {
@@ -402,6 +424,11 @@
                     //Android终端
                     window.control.copyMobile(data);
                 }
+            },
+            //回到ai预测页面
+            goBack:function(){
+                // window.location.href="http://39.96.195.239/loanMarket/changeMatching.html";
+                window.location.href="http://39.96.195.239/daichao/changeMatching.html";
             },
         },
     });

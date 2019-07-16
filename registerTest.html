@@ -1,0 +1,1006 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码1-->
+    <meta name="format-detection" content="telephone=no">
+    <title>小锦鲤</title>
+    <script src="http://xjl.qxykjz.com/index.js"></script>
+    <link href="http://xjl.qxykjz.com/skin/layer.css">
+    <style>
+        *{margin: 0;padding: 0;text-decoration: none;overflow-x: hidden;
+            overflow-y:auto;
+            -webkit-overflow-scrolling: touch;}
+        /* 移动端定义字体的代码 */
+        html,body{
+            font-family:Helvetica;
+            width: 100%;
+            height: 27.1rem;
+            background: url("http://xjl.qxykjz.com/images/xiaojinli3.png") no-repeat no-repeat;
+            background-size: contain;
+            background-color: #4C38D7;
+            overflow-x: hidden;
+        }
+        #header{
+            width: 100%;
+        }
+        #content{
+            width: 90%;
+            margin: 0 auto;
+            position: relative;
+        }
+        .iconBox{
+            margin: 0 auto;
+            margin-top: 0.93rem;
+        }
+        .icon1 .iconImg{
+            width: 1.06rem;
+            height: 1.06rem;
+            background: url("http://xjl.qxykjz.com/images/iconImg.png") no-repeat no-repeat;
+            background-size: 1.06rem 3.18rem;
+            margin: 0 auto;
+        }
+        .icon2 .iconImg{
+            width: 1.06rem;
+            height: 1.06rem;
+            background: url("http://xjl.qxykjz.com/images/iconImg.png") no-repeat no-repeat;
+            background-size: 1.06rem 3.18rem;
+            background-position: 0 -1.06rem;
+            margin: 0 auto;
+        }
+        .icon3 .iconImg{
+            width: 1.06rem;
+            height: 1.06rem;
+            background: url("http://xjl.qxykjz.com/images/iconImg.png") no-repeat no-repeat;
+            background-size: 1.06rem 3.18rem;
+            background-position: 0 -2.12rem;
+            margin: 0 auto;
+        }
+        .icon1 ,.icon2 ,.icon3{
+            width: 33%;
+            float: left;
+            text-align: center;
+        }
+        .icon1 p,.icon2 p,.icon3 p{
+            font-size: 0.41rem;
+            color: #666666;
+            margin-top: 0.27rem;
+            letter-spacing: 1px;
+        }
+        .iptBox{
+            height: 1.50rem;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 0.2rem;
+            text-align: center;
+            overflow: hidden;
+        }
+        .ipt{
+            background:rgba(255,255,255,0.9);
+            width: 8.1rem;
+            display: inline-block;
+            height: 1.38rem;
+            border-radius:0.86rem;
+            margin: 0 auto;
+            outline: none;
+            font-size:0.39rem;
+            font-weight:bold;
+            text-align: left;
+            text-indent: 0.55rem;
+            border:0.02rem solid #FFFFFF;
+            color:#BBBBBB;
+            -webkit-appearance: none;
+            letter-spacing: 0.02rem;
+        }
+        .ipt::-webkit-input-placeholder{
+            font-weight:500;
+            color:rgba(153,153,153,1);
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        .ipt::-moz-placeholder{   /* Mozilla Firefox 19+ */
+            font-weight:500;
+            color:#bbbbbb;
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        .ipt:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+            font-weight:500;
+            color:#bbbbbb;
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+            font-weight:500;
+            color:#bbbbbb;
+            text-indent: 0.55rem;
+            text-align: left;
+        }
+        #btn{
+            width:8.38rem;
+            height: 1.7rem;
+            line-height: 1rem;
+            background: url("http://xjl.qxykjz.com/images/jinlibutten3.png") no-repeat no-repeat;
+            background-size: contain;
+            color: #954311;
+            text-align: center;
+            font-size: 0.48rem;
+            margin: 0 auto;
+            border: 0;
+            margin-top: 0.20rem;
+            font-weight: bold;
+            letter-spacing: 0.06rem;
+        }
+        .retext{
+            margin: 0 auto;
+            margin-top: 0.56rem;
+            margin-bottom: 0.5rem;
+            color: #FF7200;
+            font-size: 0.35rem;
+            text-align: center;
+        }
+        .layer{
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 1.5rem;
+            width: 8.6rem;
+            height: 7.8rem;
+            margin-left: -4.3rem;
+            background-color: #ffffff;
+            border-radius: 0.28rem;
+            z-index: 1999;
+        }
+        .bg{
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:rgba(51,51,51,0.6);
+            z-index: 999;
+        }
+        .iphoneNum{
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.4rem;
+            margin-top: 0.5rem;
+        }
+        .code,.sms,.password{
+            position: relative;
+            height: 1rem;
+            width: 85%;
+            margin: 0 auto;
+            font-size: 0.38rem;
+            vertical-align: middle;
+            margin-top: 0.5rem;
+        }
+        .code input,.sms input,.password input{
+            width: 3.8rem;
+            height: 0.85rem;
+            padding: 0 5px;
+            border: none;
+            border-bottom: 1px solid #828282;
+            font-size: 0.34rem;
+            vertical-align: middle;
+            border-radius: 0;
+            letter-spacing: 2px;
+            text-indent: 0.70rem;
+            -webkit-appearance: none;
+            outline: none;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        .password input{
+            width: 6.65rem;
+        }
+        .code span,.sms span,.password span{
+            display: inline-block;
+            width: 2.2rem;
+            vertical-align: middle;
+            color: #333333;
+        }
+        #smsBtn{
+            display: inline-block;
+            width: 2.5rem;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            padding: 0 5px;
+            background-color: #ffce31;
+            border: 1px solid #FFD12F;
+            font-size: 0.35rem;
+            text-align: center;
+            color: #fff;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        #quebtn{
+            width:80%;
+            height:1.30rem;
+            border:4px solid #FFD12F;
+            background-color: #FFD12F;
+            border-radius:70px;
+            color: #333333;
+            text-align: center;
+            font-size: 0.45rem;
+            margin: 0 auto;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .madd{
+            width: 90%;
+            margin: 0 auto;
+            font-size: 0.38rem;
+            vertical-align: middle;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+        .codeImg{
+            display: inline-block;
+            width: 2.5rem;
+            height: 0.9rem;
+            line-height: 0.9rem;
+            padding: 0 10px;
+            vertical-align: middle;
+        }
+        .codeIcon{
+            /*position: absolute;*/
+            /*top: 1.7rem;*/
+            display: inline-block;
+            width: 0.60rem;
+            height: 0.60rem;
+            /*background: url("images/codeIcon.png") no-repeat no-repeat;*/
+            /*background-size: 0.6rem 0.6rem;*/
+        }
+        .smsIcon{
+            /*position: absolute;*/
+            /*top: 3.1rem;*/
+            display: inline-block;
+            width: 0.67rem;
+            height: 0.67rem;
+            /*background: url("images/smsIcon.png") no-repeat no-repeat;*/
+            /*background-size: 0.67rem 0.67rem;*/
+        }
+        .passwordIcon{
+            /*position: absolute;*/
+            /*top: 4.55rem;*/
+            display: inline-block;
+            width: 0.6rem;
+            height: 0.6rem;
+            /*background: url("images/passwordIcon.png") no-repeat no-repeat;*/
+            /*background-size: 0.6rem 0.6rem;*/
+
+        }
+        .code:before{
+            position: absolute;
+            display: inline-block;
+            /* left: 1.4rem; */
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-top: 0.15rem;
+            content: '';
+            background:url("http://xjl.qxykjz.com/images/codeIcon.png") no-repeat;
+            background-size:0.6rem;
+            z-index: 10000;
+        }
+        .sms:before{
+            position: absolute;
+            display: inline-block;
+            /* left: 1.4rem; */
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-top: 0.15rem;
+            content:'';
+            background:url("http://xjl.qxykjz.com/images/smsIcon.png") no-repeat;
+            background-size:0.6rem;
+            z-index: 10000;
+        }
+        .password:before{
+            position: absolute;
+            display: inline-block;
+            /* left: 1.4rem; */
+            width: 0.6rem;
+            height: 0.6rem;
+            margin-top: 0.15rem;
+            content:'';
+            background:url("http://xjl.qxykjz.com/images/passwordIcon.png") no-repeat;
+            background-size:0.6rem;
+            z-index: 10000;
+        }
+        .Logo{
+            width: 0.79rem;
+            height: 0.79rem;
+            margin: 0.2rem 0.2rem 0.2rem 0.35rem;
+            vertical-align: middle;
+        }
+        .close{
+            position: absolute;
+            left: 50%;
+            top: 11rem;
+            width: 1rem;
+            height: 1rem;
+            margin-left: -0.5rem;
+        }
+        .closeIcon{
+            position: absolute;
+            left: 50%;
+            top: 11rem;
+            width: 0.2rem;
+            height: 0.2rem;
+        }
+        .blueLine{
+            position: absolute;
+            left: 0.76rem;
+            top: 0.55rem;
+            display: inline-block;
+            width: 0.05rem;
+            height: 0.5rem;
+        }
+        .logoName{
+            display: inline-block;
+            width:1.5rem;
+            height:1rem;
+            line-height: 1rem;
+            font-size:0.41rem;
+            font-family:PingFang-SC-Regular;
+            font-weight:bold;
+            color:rgba(255,255,255,1);
+            vertical-align: middle;
+        }
+        .top {
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+            height: 6.5rem;
+        }
+        .topBg {
+            position: absolute;
+            top: .5rem;
+            left: .3rem;
+            right: .3rem;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .topBg canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: 0 auto;
+        }
+        .topBg #canvas2 {
+            z-index: 1;
+        }
+        .topBg #canvas {
+            z-index: 2;
+        }
+        .zuigao{
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 4.5rem;
+            margin-left: -2.25rem;
+            height: 0.7rem;
+            font-size: 0.45rem;
+            text-align: center;
+            font-weight: 500;
+            color: rgba(90,249,255,1);
+        }
+        .zuigao1{
+            position: absolute;
+            left: 50%;
+            top: 2.8rem;
+            margin-left: -2.45rem;
+            width: 4.90rem;
+            height: 1.30rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: rgba(247,214,73,1);
+            text-align: center;
+        }
+        .lixi{
+            position: absolute;
+            left: 50%;
+            top: 4.8rem;
+            margin-left: -1.4rem;
+            width: 2.8rem;
+            text-align: center;
+            height: 0.75rem;
+            line-height: 0.75rem;
+            border: 0.03rem solid rgba(90,249,255,1);
+            border-radius: 0.5rem;
+            font-size: 0.37rem;
+            font-weight: 400;
+            color: rgba(90,249,255,1);
+        }
+        .wangxian{
+            width:8.6rem;
+            height:0.50rem;
+            font-size:0.36rem;
+            font-weight:bold;
+            color:rgba(214,203,255,1);
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 0.7rem;
+            font-family: "微软雅黑", "microsoft yahei", "宋体", "Arial Narrow";
+        }
+        .yinghu{
+            width:10.3rem;
+            height:0.41rem;
+            line-height: 0.41rem;
+            text-align: center;
+            font-size:0.30rem;
+            font-weight:bold;
+            color:rgba(214,203,255,1);
+            font-family: "微软雅黑", "microsoft yahei", "宋体", "Arial Narrow";
+        }
+        .yinghu a{
+            color: #5AF9FF;
+        }
+        .liucheng{
+            display:-webkit-flex;
+            display:flex;
+            width:7.17rem ;
+            height: 1.2rem;
+            margin: 0 auto;
+            justify-content:space-between;
+            align-items:center;
+            margin-top: 0.74rem;
+        }
+        .imgBox{
+            width: 1.6rem;
+            height: 1.2rem;
+            text-align: center;
+        }
+        .liuchengImg{
+            width: 1.12rem;
+            height: 1.12rem;
+        }
+        .liuchengText{
+            display:-webkit-flex;
+            display:flex;
+            width:7.17rem ;
+            height: 1.1rem;
+            margin: 0 auto;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .liuchengSpan{
+            width: 1.6rem;
+            height: 1.0rem;
+            text-align: center;
+            line-height: 1rem;
+            font-size:0.35rem;
+            font-weight:bold;
+            color:rgba(128,219,253,1);
+        }
+        .dai11{
+            width:3.7rem;
+            height:1.39rem;
+            line-height: 1.39rem;
+            color: #fff;
+            font-size:0.39rem;
+            font-weight:bold;
+            text-align: center;
+            background:rgba(43,32,159,1);
+            border-radius:0.27rem;
+            z-index: 500;
+            position: absolute;
+            left: 50%;
+            margin-left: -1.85rem;
+            top:0;
+        }
+        .ddd11{
+            width:8.86rem;
+            height:4.87rem;
+            background:rgba(235,250,255,1);
+            border-radius:0.28rem;
+            margin: 0 auto;
+            margin-top: 0.9rem;
+        }
+        .ddasdasd{
+            margin-top: 0.4rem;
+            position: relative;
+            text-align: center;
+        }
+        .itemD{
+            width: 6.45rem;
+            height: 1rem;
+            margin: 0 auto;
+            margin-bottom: 0.1rem;
+        }
+        .itemBox{
+            margin-top: 1rem;
+            text-align: left;
+        }
+        .itemBox img{
+            width: 1rem;
+            height: 1rem;
+            vertical-align: middle;
+        }
+        .itemBox span{
+            font-size:0.39rem;
+            font-weight:bold;
+            color:rgba(43,52,64,1);
+            vertical-align: middle;
+            margin-left: 0.37rem;
+        }
+        .tipsArea{
+            width: 8.74rem;
+            margin: 0 auto;
+            color: #AFA3FF;
+            text-align: center;
+        }
+        .tips1{
+            margin-top: 0.73rem;
+            font-size: 0.35rem;
+            margin-bottom: 0.33rem;
+        }
+        .tips2{
+            line-height: 0.5rem;
+            font-size:0.31rem;
+        }
+        .boottom{
+            text-align: center;
+            background-color: #003F90;
+            color: #1D56A0;
+            font-size: 0.31rem;
+            height: 0.72rem;
+            line-height: 0.72rem;
+            margin-top: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <img class="Logo" src="http://xjl.qxykjz.com/images/xiaojinlilogo.png"><span class="logoName">小锦鲤</span>
+</header>
+<div class="top">
+    <div class="topBg">
+        <img style="height: 6rem;width: auto" src="http://xjl.qxykjz.com/images/huan.png" alt="">
+        <canvas id="canvas" style="height: 6rem;" height="150" width="300"></canvas>
+        <!--底部背景-->
+        <canvas id="canvas2" style="height: 6rem;"></canvas>
+        <p class="zuigao">最高借款额度(元)</p>
+        <p id="number-grow" class="zuigao1">200，000</p>
+        <p class="lixi">利息低至0.2元</p>
+    </div>
+</div>
+<div class="wangxian">
+    <ul id="comment_list">
+    </ul>
+</div>
+<div id="content">
+    <div class="iptBox"><input placeholder="请输入手机号码（领取50000额度）" maxlength="11" class="ipt" type="text"/><i class="closeIcon"></i> </div>
+    <div style="text-align: center;margin-top: 0.1rem"><button id="btn"></button></div>
+</div>
+<div class="yinghu">
+    “身份证/信用分/银行卡号”点击申请<a href="http://140.143.151.229/xiaoRegister/registrationAgreement.html">《用户注册协议》</a>
+</div>
+<div class="liucheng">
+    <div class="imgBox"><img class="liuchengImg" src="http://xjl.qxykjz.com/images/liucheng1.png"></div>
+    <div class="imgBox"><img class="liuchengImg" src="http://xjl.qxykjz.com/images/liucheng2.png"></div>
+    <div class="imgBox"><img class="liuchengImg" src="http://xjl.qxykjz.com/images/liucheng3.png"></div>
+</div>
+<div class="liuchengText">
+    <span class="liuchengSpan">3秒注册</span>
+    <span class="liuchengSpan">2分钟审核</span>
+    <span class="liuchengSpan">3分钟到账</span>
+</div>
+<div class="ddasdasd">
+<div class="dai11">
+    贷款就找小锦鲤
+</div>
+<div class="ddd11">
+    <div class="itemBox">
+    <p class="itemD"><img src="http://xjl.qxykjz.com/images/liuchengxia1.png"><span>为你量身定制，100%下款率</span></p>
+    <p class="itemD"><img src="http://xjl.qxykjz.com/images/liuchengxia2.png"><span>1000-20万额度</span></p>
+    <p class="itemD"><img src="http://xjl.qxykjz.com/images/liuchengxia3.png"><span>免息券，现金红包，实时拿</span></p>
+    </div>
+</div>
+</div>
+<div class="tipsArea">
+<p class="tips1">友情提示</p>
+<p class="tips2">小锦鲤保证严格遵守金融相关的法律法规，合法合规经营提供的借贷及借贷业务未违反国家利率规定、未包含国家禁止金融产品或服务。并通过合理有效的信息安全技术和管理流程合法收集和使用用户个人信息，防止泄露、损毁、丢失。</p>
+</div>
+<div class="boottom">北京致鑫科技有限公司 京ICP备19015286号</div>
+<div class="bg">
+    <img class="close" src="http://xjl.qxykjz.com/images/close.png">
+</div>
+<div class="layer">
+    <form id="registerForm" method="post">
+        <div class="iphoneNum">手机号:<span class="hiddPhone"></span></div>
+        <div class="code"><input id="code" name="code" type="number" placeholder="请输入图形验证码" ><img class="codeImg" src=""></div>
+        <div class="sms"><input id="sms" name="sms" type="number" placeholder="请输入短信验证码" ><button id="smsBtn" type="button">点击发送</button></div>
+        <div class="password"><input id="password1" name="password1" type="password" placeholder="请输入密码"></div>
+        <div class="madd"><button type="submit" id="quebtn">确定</button></div>
+        <div><input class="hiddPhone" type="hidden"></div>
+    </form>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+<script src="http://xjl.qxykjz.com/layer.js"></script>
+<script src="http://xjl.qxykjz.com/js/number.js"></script>
+<script src="http://xjl.qxykjz.com/js/index.js" charset="utf-8" ></script>
+<script>
+    $(function () {
+        //截取渠道
+        var url = window.location.href;
+        function getCaption(obj){
+            //var ret = /merchantProduct\d+_([a-zA-Z0-9]{1,32})_\d+/g;
+
+            var ret = /uri\/(\S*).html/;
+
+            var c=obj.match(ret);
+            console.log(c);
+
+            if(c==null || c=='null'){
+                var index=obj.lastIndexOf("\/");
+                c=obj.substring(index+1,obj.length);
+            }else{
+                c=c[1];
+            }
+
+            console.log(c);
+            return c;
+
+            /**
+             * var index=obj.lastIndexOf("\/");
+             obj=obj.substring(index+1,obj.length-5);
+             console.log(obj);
+             return obj;
+             */
+        }
+        localStorage.channle=getCaption(url);
+        function getParam(paramName) {
+            paramValue = "", isFound = !1;
+            if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {
+                arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;
+                while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+            }
+            return paramValue == "" && (paramValue = null), paramValue
+        }
+        localStorage.fx=getParam("fx");
+        /**
+         * getMsg() 获取验证码方法
+         */
+        function getMsg() {
+            $.ajax({
+                url: "http://60.205.216.141/flowPool/api/user/getAuthCode",
+                // url: "http://47.93.234.167:31999/flowPool/api/user/getAuthCode",
+                data: {
+                    mobile:$(".ipt").val(),
+                    productCode:"merchantProduct20190315161059",
+                },
+                headers: {'productCode': "merchantProduct20190315161059"},
+                type: "post",
+                dataType: "json",
+                cache: false,
+                success: function(message) {
+                    if(message.msgCd == "ZYCASH-200") {
+                        var content="data:image/jpg;base64,"+message.body;
+                        $(".codeImg").attr("src",content);
+                    } else {
+                        layer.msg(message.msgInfo);
+                    }
+                },error:function (message){
+                    layer.msg(message.msgInfo);
+                }
+            });
+        }
+        getMsg();
+        //重新获取验证码
+        $(".codeImg").on("click",function () {
+            getMsg();
+        });
+        $(".close").on('click',function () {
+            $(".bg").css("display","none");
+            $(".layer").css("display","none");
+        });
+        //校验手机号
+        function checkPhone(phone){
+            if(!(/^1[34578]\d{9}$/.test(phone))){
+                layer.msg("手机号码有误，请重填");
+                return false;
+            }else {
+                $.ajax({
+                    url: "http://60.205.216.141/flowPool/api/user/mobileExisted",
+                    // url: "http://47.93.234.167:31999/flowPool/api/user/mobileExisted",
+                    data: {
+                        mobile:$(".ipt").val(),
+                    },
+                    headers: {'productCode': "merchantProduct20190315161059"},
+                    type: "POST",
+                    success: function(message) {
+                        if(message.msgCd=="ZYCASH-2004"){
+                            downLoadApp();
+                        }else if(message.msgCd=="SYS00001"){
+                            layer.msg(message.msgInfo);
+                        }
+                        else {
+                            $(".hiddPhone").val(phone);
+                            $(".hiddPhone").html(phone);
+                            console.log($(".hiddPhone").val());
+                            $(".bg").css("display","block");
+                            $(".layer").css("display","block");
+                        }
+                    },error:function (message){
+                        layer.msg(message);
+                    }
+                });
+
+            }
+
+        };
+        //校验验证码
+        function checkCode(code){
+            if(!(/([0-9]{4})/.test(code))){
+                layer.msg("请输入正确的图形验证码");
+                return false;
+            }else {
+                return true;
+            }
+        };
+        $("#btn").on("click",function () {
+            var name=$.trim($(".ipt").val());
+            checkPhone(name);
+            getMsg();
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+        //发送验证码
+        $("#smsBtn").click(function(event) {
+            if(checkCode($("#code").val())){
+                //这里写发送验证码的代码
+                var _this=this;
+                $.ajax({
+                    url: "http://60.205.216.141/flowPool/api/user/send-texting",
+                    // url: "http://47.93.234.167:31999/flowPool/api/user/send-texting",
+                    data: {
+                        mobile:$(".hiddPhone").val(),
+                        type:0,
+                        authCode:$("#code").val(),
+                    },
+                    headers: {'productCode': "merchantProduct20190315161059"},
+                    type: "post",
+                    dataType: "json",
+                    cache: false,
+                    success: function(message) {
+                        if(message.msgCd == "ZYCASH-200") {
+                            layer.msg("发送验证码成功");
+                            var time = 60;
+                            settime($("#smsBtn"));
+                            function settime(obj){
+                                if (time==0) {
+                                    $(obj).attr('disabled', false);
+                                    $(obj).html("点击获取验证码");
+                                    time = 60;
+                                    return;
+                                } else{
+                                    $(obj).attr('disabled', true);
+                                    $(obj).html(time+"秒后重新发送");
+                                    time--;
+                                }
+                                setTimeout(function() {
+                                    settime(obj)
+                                },1000)
+                            }
+                        }else if(message.msgCd == "ZYCASH-2002"){
+                            layer.msg("图形验证码错误！");
+                        }
+                        else {
+                            layer.msg(message.msgInfo);
+                        }
+                    },error:function (message){
+                        layer.msg(message.msgInfo);
+                    }
+                });
+            }
+        });
+        //收齐键盘
+        $('.ipt').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+        $('#code').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+        $('#sms').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+        $('#password1').on('blur',function(){
+            setTimeout(function(){
+                window.scrollTo(0, 0)
+            },100)
+        });
+    });
+    $.validator.addMethod("isPassword",function(value,element,params){
+        var score = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9a-zA-Z_]+$/;
+        return this.optional(element) || (score.test(value));
+    },"密码必须由6位以上字母和数字组成");
+    //注册成功android3秒钟后下载，ios跳转下载页
+    function downLoadApp(){
+        let ua = navigator.userAgent.toLowerCase();
+        //Android终端
+        let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
+        //Ios终端
+        let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+            window.location.href="http://xjl.qxykjz.com/xiaoRegister/downloadApp.html"
+        } else if (/(Android)/i.test(navigator.userAgent)) {
+            //Android终端
+            window.location.href="http://xjl.qxykjz.com/xiaoRegister/downloadAndroidApp.html"
+        }
+    };
+    $("#registerForm").validate({
+        rules: {
+            password1:{
+                required: true,
+                minlength: 6,
+                maxlength: 16,
+                isPassword:true
+                // pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/,
+            },
+            code:{
+                required: true,
+                minlength: 4,
+                maxlength: 4,
+                // pattern: /^\d{4}$/,
+            },
+            sms: {
+                required: true,
+                minlength: 4,
+                maxlength: 4,
+            },
+
+        },
+        messages: {
+            password1:{
+                required: "请输入密码",
+                minlength: "请输入6到16位数字字母组合的密码",
+                maxlength: "请输入6到16位数字字母组合的密码",
+            },
+            code:{
+                required: "请输入您的图形验证码",
+                minlength: "请输入4位图形验证码",
+                maxlength: "请输入4位图形验证码",
+            },
+            sms:{
+                required: "请输入短信验证码",
+                minlength: "请输入4位短信验证码",
+                maxlength: "请输入4位短信验证码",
+            },
+
+        },
+        errorPlacement: function(error, element) {
+            layer.msg(error.text());
+        },
+            submitHandler:function(form) {
+            $.ajax({
+                url: "http://60.205.216.141/flowPool/api/user/register?fx="+localStorage.fx,
+                // url: "http://47.93.234.167:31999/flowPool/api/user/register?fx="+localStorage.fx,
+                data: {
+                    mobile:$(".hiddPhone").val(),
+                    password:$("#password1").val(),
+                    mobileCaptcha:$("#sms").val(),
+                    productCode:"merchantProduct20190315161059",
+                    subChannelCode:localStorage.channle,
+                },
+                headers: {'productCode': "merchantProduct20190315161059",'deviceType': "h5"},
+                type: "post",
+                dataType: "json",
+                cache: false,
+                success: function(message) {
+                    if(message.msgCd == "ZYCASH-200") {
+                        downLoadApp();
+                    }else if(message.msgCd == "ZYCASH-2002"){
+                        layer.msg("图形验证码错误！");
+                    }else if(message.msgCd=="ZYCASH-2005"){
+                        layer.msg(message.msgInfo);
+                    }
+                    else {
+                        layer.msg(message.msgInfo);
+                    }
+                },error:function (message){
+                    layer.msg(message);
+                }
+            });
+        },
+        onkeyup:false
+    });
+</script>
+<script>
+
+    var canvas2 = document.getElementById('canvas2');
+    var ctx2 = canvas2.getContext('2d');
+    ctx2.lineWidth = 8;
+    ctx2.strokeStyle = "#3F475F";
+    //画底部的灰色圆环
+    ctx2.beginPath();
+    ctx2.arc(150, 100, 85, Math.PI * 0.85, Math.PI * 2.15, false);
+    // ctx2.closePath();
+    ctx2.stroke();
+
+    //画半环形
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var start = Math.PI * 0.85;
+    var end = Math.PI * 1.25;
+
+    var width = canvas.width,
+        height = canvas.height;
+    if (window.devicePixelRatio) {
+
+        canvas.height = height * window.devicePixelRatio;
+        canvas.width = width * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+        ctx.beginPath();
+        ctx.strokeStyle = '#99CC33';
+        ctx.lineCap = 'square';
+        ctx.closePath();
+        ctx.fill();
+        ctx.lineWidth = 8;
+
+        var g = ctx.createLinearGradient(0, 0, 180, 0);  //创建渐变对象  渐变开始点和渐变结束点
+        g.addColorStop(0, '#1DFBEB'); //添加颜色点
+        g.addColorStop(1, '#36B0FF'); //添加颜色点
+        ctx.strokeStyle = g;     //使用渐变对象作为圆环的颜色
+
+        function draw(current) {
+            ctx.beginPath();
+            ctx.arc(150, 100, 85, (start), ((end) * current) - start, false);
+            ctx.stroke();
+        }
+
+        var t = 0;
+        var timer = null;
+
+        function loadCanvas(now) {
+            timer = setInterval(function () {
+                if (t > now) {
+                    draw(now);//最后一次绘制
+                    clearInterval(timer);
+                } else {
+                    draw(t);
+                    t += 0.01;
+                }
+            }, 25);
+        }
+
+        loadCanvas(0.8);
+        timer = null;
+
+    }
+
+</script>
+<script>
+    var _mtac = {"senseQuery":1};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500687712");
+        mta.setAttribute("cid", "500687713");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
+</body>
+</html>

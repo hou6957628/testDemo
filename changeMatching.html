@@ -450,40 +450,150 @@
             margin-bottom: 0.3rem;
             background-color: #dadada;
         }
-        .active{
-            border: 1px solid red;
+        #app .age .active ,#app .jie .active ,#app .zhiye .active ,#app .xinyong .active{
+            color:rgba(253,124,50,1);
+            background:rgba(254,239,230,1);
+            border:0.03rem solid rgba(255,213,189,1);
         }
-
+        .jieText{
+            height: 1rem;
+            line-height: 1rem;
+            width: 100%;
+            font-size:0.32rem;
+            font-weight:500;
+            color:rgba(253,124,50,1);
+            text-align: center;
+            border-bottom:0.027rem solid #F2F3F5;
+        }
+        .contentArea{
+            width: 9.12rem;
+            margin: 0 auto;
+        }
+        .tou1{
+            display: block;
+            font-style: normal;
+            font-size:0.45rem;
+            font-weight:bold;
+            color:rgba(59,66,80,1);
+            margin-top: 0.45rem;
+            margin-bottom: 0.41rem;
+        }
+        #app .age span{
+            width: 2rem;
+            height: 0.83rem;
+            line-height: 0.83rem;
+            text-align: center;
+            background:rgba(255,255,255,1);
+            border:0.03rem solid rgba(204,204,204,1);
+            border-radius:0.08rem;
+            font-size: 0.4rem;
+            margin-right: 0.15rem;
+            color: #666;
+        }
+        #app .jie span{
+            width: 2.4rem;
+            height: 0.83rem;
+            line-height: 0.83rem;
+            text-align: center;
+            background:rgba(255,255,255,1);
+            border:0.03rem solid rgba(204,204,204,1);
+            border-radius:0.08rem;
+            font-size: 0.4rem;
+            margin-right: 0.15rem;
+            color: #666;
+        }
+        #app .zhiye span{
+            width: 2.07rem;
+            height: 0.83rem;
+            line-height: 0.83rem;
+            text-align: center;
+            background:rgba(255,255,255,1);
+            border:0.03rem solid rgba(204,204,204,1);
+            border-radius:0.08rem;
+            font-size: 0.4rem;
+            margin-right: 0.15rem;
+            color: #666;
+        }
+        #app .xinyong span{
+            width: 3.73rem;
+            height: 0.83rem;
+            line-height: 0.83rem;
+            text-align: center;
+            background:rgba(255,255,255,1);
+            border:0.03rem solid rgba(204,204,204,1);
+            border-radius:0.08rem;
+            font-size: 0.4rem;
+            margin-right: 0.15rem;
+            color: #666;
+        }
+        .congzhi{
+            display: inline-block;
+            width: 3.49rem;
+            height: 1.04rem;
+            line-height: 1.04rem;
+            text-align: center;
+            border:0.03rem solid rgba(255,211,186,1);
+            border-radius:0.13rem;
+            font-size:0.43rem;
+            font-weight:500;
+            color:rgba(253,124,50,1);
+            margin-top: 0.5rem;
+            text-decoration: none;
+        }
+        .queding{
+            display: inline-block;
+            float: right;
+            margin-top: 0.5rem;
+            width: 5.25rem;
+            height: 1.04rem;
+            line-height: 1.04rem;
+            text-align: center;
+            border:0.03rem solid #fd7c32;
+            background-color: #fd7c32;
+            border-radius:0.13rem;
+            font-size:0.43rem;
+            font-weight:500;
+            color: rgb(255, 255, 255);
+        }
     </style>
 </head>
 <body>
 <div id="app" v-cloak>
-    <p>
-        <span :class="[classifyAge==0 ? activeClass : '']" @click="changeAge(0)">22-35</span>
-        <span :class="[classifyAge==1 ? activeClass : '']" @click="changeAge(1)">36-45</span>
-        <span :class="[classifyAge==2 ? activeClass : '']" @click="changeAge(2)">45-55</span>
-        <span :class="[classifyAge==3 ? activeClass : '']" @click="changeAge(3)">55岁以上</span>
-    </p>
-    <p>
-        <span :class="[classifyCapital==0 ? activeClass : '']" @click="changeCapital(0)">2000-3000</span>
-        <span :class="[classifyCapital==1 ? activeClass : '']" @click="changeCapital(1)">3000-5000</span>
-        <span :class="[classifyCapital==2 ? activeClass : '']" @click="changeCapital(2)">5000-8000</span>
-        <span :class="[classifyCapital==3 ? activeClass : '']" @click="changeCapital(3)">8000-1万</span>
-        <span :class="[classifyCapital==4 ? activeClass : '']" @click="changeCapital(4)">1万-5万</span>
-        <span :class="[classifyCapital==5 ? activeClass : '']" @click="changeCapital(5)">5万-10万</span>
-    </p>
-    <p>
-        <span :class="[classifyOccupation==0 ? activeClass : '']" @click="changeOccupation(0)">工薪族</span>
-        <span :class="[classifyOccupation==1 ? activeClass : '']" @click="changeOccupation(1)">无固定职业</span>
-        <span :class="[classifyOccupation==2 ? activeClass : '']" @click="changeOccupation(2)">个体户</span>
-        <span :class="[classifyOccupation==3 ? activeClass : '']" @click="changeOccupation(3)">企业主</span>
+    <div class="jieText">99%的借款失败都是因为信息不真实，请务必填写真实信息！</div>
+    <!--<div style="height: 1rem;text-align: center;line-height: 1rem;font-size: 0.51rem;color:#333333;font-weight: bold;background:rgba(250,250,250,1);">AI智能匹配</div>-->
+    <div class="contentArea">
+        <p class="age">
+            <i class="tou1">年龄(岁)</i>
+            <span :class="[classifyAge==0 ? activeClass : '']" @click="changeAge(0)">22-35</span>
+            <span :class="[classifyAge==1 ? activeClass : '']" @click="changeAge(1)">36-45</span>
+            <span :class="[classifyAge==2 ? activeClass : '']" @click="changeAge(2)">45-55</span>
+            <span :class="[classifyAge==3 ? activeClass : '']" @click="changeAge(3)">55岁以上</span>
         </p>
-    <p>
-        <span :class="[classifyCredit==0 ? activeClass : '']" @click="changeCredit(0)">借过多次，被拒多次</span>
-        <span :class="[classifyCredit==1 ? activeClass : '']" @click="changeCredit(1)">借过网贷，信用良好</span>
-        <span :class="[classifyCredit==2 ? activeClass : '']" @click="changeCredit(2)">未借过网贷</span>
-    </p>
-    <button type="button" style="width: 200px;height: 100px;font-size: 50px" @click="sub()">提交</button>
+        <p class="jie">
+            <i class="tou1">借款金额(元)</i>
+            <span :class="[classifyCapital==0 ? activeClass : '']" @click="changeCapital(0)">2000-3000</span>
+            <span :class="[classifyCapital==1 ? activeClass : '']" @click="changeCapital(1)">3000-5000</span>
+            <span :class="[classifyCapital==2 ? activeClass : '']" @click="changeCapital(2)">5000-8000</span>
+            <span :class="[classifyCapital==3 ? activeClass : '']" @click="changeCapital(3)">8000-1万</span>
+            <span :class="[classifyCapital==4 ? activeClass : '']" @click="changeCapital(4)">1万-5万</span>
+            <span :class="[classifyCapital==5 ? activeClass : '']" @click="changeCapital(5)">5万-10万</span>
+        </p>
+        <p class="zhiye">
+            <i class="tou1">职业</i>
+            <span :class="[classifyOccupation==0 ? activeClass : '']" @click="changeOccupation(0)">工薪族</span>
+            <span :class="[classifyOccupation==1 ? activeClass : '']" @click="changeOccupation(1)">无固定职业</span>
+            <span :class="[classifyOccupation==2 ? activeClass : '']" @click="changeOccupation(2)">个体户</span>
+            <span :class="[classifyOccupation==3 ? activeClass : '']" @click="changeOccupation(3)">企业主</span>
+        </p>
+        <p class="xinyong">
+            <i class="tou1">信用状况</i>
+            <span :class="[classifyCredit==0 ? activeClass : '']" @click="changeCredit(0)">借过多次,被拒多次</span>
+            <span :class="[classifyCredit==1 ? activeClass : '']" @click="changeCredit(1)">借过网贷,信用良好</span>
+            <span :class="[classifyCredit==2 ? activeClass : '']" @click="changeCredit(2)">未借过网贷</span>
+        </p>
+        <a class="congzhi" type="button" @click="res()">重置</a>
+        <a class="queding" type="button" @click="sub()">确定</a>
+    </div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
@@ -491,16 +601,6 @@
 <script>
     function getToken(data) {
         localStorage.token=data;
-        $.ajax({
-            headers:{
-                token:localStorage.token
-            },
-            // url:"http://47.93.234.167:31999/flowPool/api/product/countLoanPageUV",
-            url:"http://60.205.216.141/flowPool/api/product/countLoanPageUV",
-            type: "get",
-            success: function (data) {
-            }
-        });
     }
     var app = new Vue({
         el: '#app',
@@ -545,104 +645,12 @@
          `classify_credit` int(11) DEFAULT NULL COMMENT '信用分类：0：借过多次，被拒多次，1：借过网贷，信用良好，2：未借过网贷',
          */
         methods: {
-            goDetail:function (id,name,url) {
-                if(id!=null){
-                    $.ajax({
-                        headers:{
-                            'token': localStorage.token,
-                            'productCode':'merchantProduct20190315161059'
-                        },
-                        url:"http://60.205.216.141/flowPool/api/product/countUV",
-                        // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
-                        type: "get",
-                        data:{
-                            productId:id,
-                        },
-                        success: function (data) {
-                            if(data.msgCd=="ZYCASH-200"){
-                                app.copyMobile("login");
-                                window.location.href=url;
-                            }else {
-                                app.loginIn("login");
-                            }
-                        }
-                    });
-                }
-            },
-            UV:function(data,data1){
-                $.ajax({
-                    headers:{
-                        'Content-Type':'application/x-www-form-urlencoded',
-                        'token': localStorage.token
-                    },
-                    url:"http://60.205.216.141/flowPool/api/cusUvEarnings/countUV",
-                    // url:"http://47.93.234.167:31999/flowPool/api/cusUvEarnings/countUV",
-                    type: "post",
-                    data:{
-                        productId:data
-                    },
-                    success: function (data) {
-                        if(data.msgCd=="ZYCASH-200"){
-                            app.copyMobile("login");
-                            window.location.href=data1;
-                        }else if(data.msgCd=="ZYCASH-2009"){
-                            app.loginIn("login");
-                        }
-                        else {
-                            layer.open({
-                                content: data.msgInfo
-                                ,skin: 'msg'
-                                ,anim:false
-                                ,time: 1 //2秒后自动关闭
-                            });
-                        }
-                    }
-                });
-            },
-            closeBg:function () {
-                document.querySelector('#app').removeEventListener('touchmove', stopScroll, false);
-                $("#bg").css("display","none");
-                $("html").css("overflow","auto");
-                $("body").css("overflow","auto");
-            },
-            goList:function (id,count) {
-                $.ajax({
-                    headers:{
-                        'Content-Type':'application/x-www-form-urlencoded',
-                        'token': localStorage.token
-                    },
-                    url:"http://60.205.216.141/flowPool/api/product/getListByType",
-                    // url:"http://47.93.234.167:31999/flowPool/api/product/getListByType",
-                    type: "get",
-                    data:{
-                        type:count,
-                        pageSize: 30,
-                        pageNum: 1
-                    },
-                    success: function (data) {
-                        if(data.msgCd=="ZYCASH-200"){
-                            window.location.href="http://39.96.195.239/loanMarket/loanList.html?id="+count;
-                            // window.location.href="http://39.96.195.239/daichao/loanList.html?id="+count;
-                        }else if(data.msgCd=="ZYCASH-2009"){
-                            app.loginIn("login");
-                        }
-                        else {
-                            layer.open({
-                                content: data.msgInfo
-                                ,skin: 'msg'
-                                ,anim:false
-                                ,time: 1 //2秒后自动关闭
-                            });
-                        }
-                    }
-                });
-            },
             //提交
             sub:function(){
                 $.ajax({
                     headers:{
                         'Content-Type':'application/x-www-form-urlencoded',
-                        'token': "1df98b656f7a088004a501f961a60a67"
+                        'token': localStorage.token
                     },
                     // url:"http://60.205.216.141/flowPool/api/product/matchingAI",
                     url:"http://47.93.234.167:31999/flowPool/api/product/matchingAI",
@@ -688,20 +696,12 @@
                     window.control.login(data);
                 }
             },
-            //复制手机号提示
-            copyMobile(data){
-                let ua = navigator.userAgent.toLowerCase();
-                //Android终端
-                let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
-                //Ios终端
-                let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
-                    alert("copyMobile");
-                    //Ios
-                } else if (/(Android)/i.test(navigator.userAgent)) {
-                    //Android终端
-                    window.control.copyMobile(data);
-                }
+            //重置
+            res: function () {
+                app.classifyAge = 0;
+                app.classifyCapital = 0;
+                app.classifyOccupation = 0;
+                app.classifyCredit = 0;
             },
             //选择年龄分类
             changeAge:function (data) {
@@ -722,9 +722,6 @@
 
         },
     });
-    function stopScroll(e) {
-        e.preventDefault()
-    }
 </script>
 </body>
 </html>
