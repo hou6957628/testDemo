@@ -336,9 +336,9 @@
                 <p class="detailBtn"><img class="jiantou" src="https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/jiantouIcon.png"></p>
             </div>
         </div>
-        <p v-if="kai==0" class="proD">
+        <div v-if="kai==0" class="proD">
             <p class="notui">暂无推荐产品</p>
-        </p>
+        </div>
         <div class="darkLine"></div>
         <!--<div class="darkLine"></div>-->
     </div>
@@ -377,9 +377,10 @@
             danImg:'',
             id:"",
         },
-        mounted: function () {
+        created: function () {
             this.productList4=JSON.parse(localStorage.getItem('list'));
             this.kai=this.productList4.length;
+            console.log(this.kai)
         },
         methods: {
             goDetail:function (id,name,url) {
@@ -389,8 +390,8 @@
                             'token': localStorage.token,
                             'productCode':'merchantProduct20190315161059'
                         },
-                        // url:"http://60.205.216.141/flowPool/api/product/countUV",
-                        url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
+                        url:"http://60.205.216.141/flowPool/api/product/countUV",
+                        // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
                         type: "get",
                         data: {
                             productId: id,
@@ -427,8 +428,8 @@
             },
             //回到ai预测页面
             goBack:function(){
-                // window.location.href="http://39.96.195.239/loanMarket/changeMatching.html";
-                window.location.href="http://39.96.195.239/daichao/changeMatching.html";
+                window.location.href="http://39.96.195.239/loanMarket/changeMatching.html";
+                // window.location.href="http://39.96.195.239/daichao/changeMatching.html";
             },
         },
     });

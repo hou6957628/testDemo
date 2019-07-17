@@ -233,7 +233,7 @@
         }
         html ,body{
             height:100%;
-            overflow:hidden;
+            overflow:scroll;
         }
         .msg{
             position: relative;
@@ -637,6 +637,7 @@
             activeClass:"active",
         },
         mounted: function () {
+            this.getInfo();
         },
         /**
          * `classify_age` int(11) DEFAULT NULL COMMENT '年龄分类：0：22-35，1：36-45，2：45-55，3：55岁以上',
@@ -652,8 +653,8 @@
                         'Content-Type':'application/x-www-form-urlencoded',
                         'token': localStorage.token
                     },
-                    // url:"http://60.205.216.141/flowPool/api/product/matchingAI",
-                    url:"http://47.93.234.167:31999/flowPool/api/product/matchingAI",
+                    url:"http://60.205.216.141/flowPool/api/product/matchingAI",
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/matchingAI",
                     type: "post",
                     data:{
                         classifyAge: this.classifyAge,
@@ -665,8 +666,8 @@
                         if(data.msgCd=="ZYCASH-200"){
                             console.log(data.body);
                             localStorage.setItem('list',JSON.stringify(data.body));
-                            // window.location.href="http://39.96.195.239/loanMarket/loanList.html";
-                            window.location.href="http://39.96.195.239/daichao/matchingList.html";
+                            window.location.href="http://39.96.195.239/loanMarket/matchingList.html";
+                            // window.location.href="http://39.96.195.239/daichao/matchingList.html";
                         }else if(data.msgCd=="ZYCASH-2009"){
                             app.loginIn("login");
                         }
@@ -719,7 +720,29 @@
             changeCredit:function (data) {
                 app.classifyCredit=data;
             },
-
+            //获取初始化数据
+            getInfo: function (data) {
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    data:{
+                        pageNum:1,
+                        pageSize:10,
+                    },
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/index",
+                    url:"http://60.205.216.141/flowPool/api/product/index",
+                    type: "get",
+                    success: function (data) {
+                        if (data.msgCd == "ZYCASH-200") {
+                            app.classifyAge = data.body.superCusMatching.classifyAge;
+                            app.classifyCapital = data.body.superCusMatching.classifyCapital;
+                            app.classifyOccupation = data.body.superCusMatching.classifyOccupation;
+                            app.classifyCredit = data.body.superCusMatching.classifyCredit;
+                        }
+                    }
+                });
+            },
         },
     });
 </script>

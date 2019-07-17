@@ -1,0 +1,584 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--可视区域的定义，如屏幕缩放等。告诉浏览器如何规范的渲染网页-->
+    <!--启用 webapp 模式, 会隐藏工具栏和菜单栏，和其它配合使用。-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--在webapp模式下，改变顶部状态条的颜色。-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--屏蔽电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <title>米贷</title>
+    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+    <link href="https://cdn.bootcss.com/element-ui/2.6.1/theme-chalk/index.css" rel="stylesheet">
+    <style type="text/css">
+        [v-cloak] {
+            display: none;
+        }
+        *{
+            -webkit-overflow-scrolling: touch;
+        }
+        .hideClass{
+            display: none;
+        }
+        .el-carousel__container{
+            position: relative;
+            height: 3rem;
+        }
+        .imggg{
+            width: 9.73rem;
+            height: 2.93rem;
+        }
+        .topContent {
+            width: 9.33rem;
+            height: 4rem;
+            margin: 0 auto;
+            margin-top: 0.4rem;
+            background: url(images/shenBg1.png) no-repeat no-repeat;
+            background-size: 9.33rem 4rem;
+            position: relative;
+        }
+
+        #registerBtn {
+            font-size: 0.45rem;
+            font-weight: bold;
+            width: 3.5rem;
+            height: 1rem;
+            line-height: 1rem;
+            letter-spacing: 0.1rem;
+            background-color: #fff;
+            color: #ff7200;
+            border: 1px solid #fff;
+            border-radius: 70px;
+            -webkit-border-radius: 70px;
+            -o-border-radius: 70px;
+            -ms-border-radius: 70px;
+            margin-left: 0.4rem;
+            margin-top: 2.48rem;
+        }
+        .middleContent {
+            width: 9rem;
+            height: 2.27rem;
+            margin: 0 auto;
+            margin-top: 0.17rem;
+        }
+        .iconContent {
+            display: inline-block;
+            width: 2.15rem;
+            text-align: center;
+            height: 1.81rem;
+        }
+
+        .iconContent img {
+            display: block;
+            width: 1.06rem;
+            height: 1.06rem;
+            margin: 0 auto;
+        }
+
+        .iconContent p {
+            display: block;
+            margin-top: 0.13rem;
+            font-size: 0.27rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #100F10;
+            font-family:Helvetica;
+        }
+        .iconContent a{
+            text-decoration: none;
+        }
+        .darkLine {
+            width: 100%;
+            height: 0.027rem;
+            background-color: #F2F3F5;
+        }
+
+        .swiper-container {
+            width: 9.73rem;
+            height: 2.93rem;
+            margin: 0 auto;
+        }
+        .swiper-container img{
+            background-size: contain;
+        }
+        .bannerContent {
+            margin-top: 0.2rem;
+            margin-bottom: 0.173rem;
+        }
+
+        .bannerText {
+            font-size: 0.5rem;
+            text-align: center;
+            margin-top: 0.3rem;
+            margin-bottom: 0.3rem;
+            color: #333333;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .productList {
+            width: 8.99rem;
+            height: 2.4rem;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logoIcon {
+            display: inline-block;
+            width: 0.48rem;
+            height: 0.48rem;
+            margin-right: 0.21rem;
+            vertical-align: middle;
+        }
+
+        .productName {
+            display: inline-block;
+            color: #333333;
+            font-size: 0.38rem;
+            font-weight: bold;
+            margin-right: 0.33rem;
+            vertical-align: middle;
+        }
+
+        .productDetail {
+            display: inline-block;
+            color: #666;
+            font-size: 0.32rem;
+            vertical-align: middle;
+        }
+
+        .line1 {
+            margin-top: 0.27rem;
+            margin-bottom: 0.48rem;
+        }
+
+        .line2 {
+            height:0.33rem ;
+            line-height:0.33rem ;
+            font-size: 0.44rem;
+            font-weight: bold;
+            color: #FB543A;
+            margin-bottom: 0.25rem;
+        }
+
+        .line3 {
+            font-size: 0.30rem;
+            color: #999;
+        }
+
+        .detailBtn {
+            position: absolute;
+            bottom: 0.59rem;
+            right: 0rem;
+            width: 1.87rem;
+            text-align: center;
+            height: 0.7rem;
+            line-height: 0.7rem;
+            font-size:0.29rem;
+            font-weight:bold;
+            color:rgba(255,255,255,1);
+            letter-spacing: 0.02rem;
+        }
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 18px;
+            opacity: 0.75;
+            line-height: 300px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #fff;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #fff;
+        }
+        .proD{
+            border-top: 0.027rem solid rgba(240,240,240,1);;
+        }
+        #bg {
+            position: absolute;
+            top: 1rem;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: 999;
+            background: rgba(116, 116, 116, 0.8);
+        }
+        html ,body{
+            height:100%;
+            overflow:auto;
+        }
+        p{font-family: Helvetica, Tahoma, Arial;}
+        .lavaBox .laba{
+            display: inline-block;
+            width: 0.4rem;
+            height: auto;
+            margin-left: 0.51rem;
+            vertical-align: middle;
+        }
+        .tibix2{
+            display: inline-block;
+            float: right;
+            width: 5.5rem;
+            font-size:0.30rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:#5b5b5b;
+        }
+        .tibix1{
+            display: inline-block;
+            float: right;
+            width: 5.5rem;
+            font-size:0.30rem;
+            font-family:PingFang-SC-Medium;
+            font-weight:500;
+            color:rgba(153,153,153,1);
+        }
+        .productContent{
+
+        }
+        .jiantou{
+            width: 1.87rem;
+            height: 0.64rem;
+            background: url("https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/shenqinBtn.png") no-repeat no-repeat;
+            background-size: contain;
+            display: inline-block;
+        }
+        .xiaoe{
+            display: inline-block;
+            width: 0.77rem;
+            height: 0.39rem;
+            line-height: 0.39rem;
+            text-align: center;
+            background: url("https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/xiaoe.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.05rem;
+            vertical-align: middle;
+            font-size: 0.22rem;
+            color: #fff;
+        }
+        .zhouz{
+            display: inline-block;
+            width: 1.07rem;
+            height: 0.4rem;
+            line-height: 0.4rem;
+            text-align: center;
+            background: url("https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/zhouz.png") no-repeat no-repeat;
+            background-size: contain;
+            margin-left: 0.13rem;
+            vertical-align: middle;
+            font-size: 0.22rem;
+            color: #fff;
+        }
+        .shenq{
+            float: right;
+            font-size: 0.29rem;
+            letter-spacing: 0.05rem;
+            color: #666;
+            vertical-align: middle;
+        }
+
+        #change{
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .change1{
+            width: 50%;
+            height: 1rem;
+            line-height: 1rem;
+            text-align: center;
+            font-size: 0.32rem;
+        }
+        .change2{
+            width: 50%;
+            height: 1rem;
+            line-height: 1rem;
+            text-align: center;
+            font-size: 0.32rem;
+        }
+        .change1 span{
+            display: inline-block;
+        }
+        .change2 span{
+            display: inline-block;
+        }
+        .updown{
+            display: inline-block;
+            width: 0.32rem;
+            height: 0.48rem;
+            margin-top: 0.1rem;
+            margin-left: 0.2rem;
+            background: url("http://39.96.195.239/images/updown1.png") no-repeat no-repeat;
+            background-size: contain;
+            vertical-align: middle;
+        }
+        .updown1{
+            display: inline-block;
+            width: 0.32rem;
+            height: 0.48rem;
+            margin-top: 0.1rem;
+            margin-left: 0.2rem;
+            background: url("http://39.96.195.239/images/updown.png") no-repeat no-repeat;
+            background-size: contain;
+            vertical-align: middle;
+        }
+        #changeBox1{
+            position: absolute;
+            left: 0;
+            top: 1rem;
+            width: 50%;
+            height: 2rem;
+            text-align: center;
+            background-color: #fff;
+            z-index: 1000;
+        }
+        #changeBox2{
+            position: absolute;
+            left: 50%;
+            top: 1rem;
+            width: 50%;
+            height: 5rem;
+            text-align: center;
+            background-color: #fff;
+            z-index: 1000;
+        }
+
+        #changeBox1 ul li,#changeBox2 ul li{
+            height: 1rem;
+            line-height: 1rem;
+            border-top: 0.02rem solid #ddd;
+            font-size: 0.32rem;
+            color: #666666;
+            letter-spacing: 0.03rem;
+        }
+        #changeBox1 ul .active, #changeBox2 ul .active ,.active{
+            color:#FB543A;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div id="change">
+        <div :class="[active1==true ? activeClass : '']" class="change1"><span>综合排序</span><i :class="[active1==true ? updown : updown1]"></i></div>
+        <div :class="[active2==true ? activeClass : '']" class="change2"><span>额度</span><i :class="[active2==true ? updown : updown1]"></i></div>
+    </div>
+    <div v-if="changeBox11" id="changeBox1">
+        <ul>
+            <li :class="[line1==0 ? activeClass : '']" @click="goccc(0)">最新上线</li>
+            <li :class="[line1==1 ? activeClass : '']" @click="goccc(1)">额度高</li>
+        </ul>
+    </div>
+    <div v-if="changeBox22" id="changeBox2">
+        <ul>
+            <li :class="[line2==0 ? activeClass : '']" @click="goccc1(0)">不限</li>
+            <li :class="[line2==1 ? activeClass : '']" @click="goccc1(1)">1000到3000</li>
+            <li :class="[line2==2 ? activeClass : '']" @click="goccc1(2)">3000到5000</li>
+            <li :class="[line2==3 ? activeClass : '']" @click="goccc1(3)">5000到1万</li>
+            <li :class="[line2==4 ? activeClass : '']" @click="goccc1(4)">1万以上</li>
+        </ul>
+    </div>
+    <div class="productContent">
+        <div class="proD" v-for="(item,index) in productList4" :key='index'>
+            <div class="productList" @click="goDetail(item.id,item.description1,item.h5Url)">
+                <p class="line1"><img class="logoIcon" :src=item.logoUrl><span class="productName">{{item.description1}}</span>
+                    <span class="xiaoe">{{(item.classifyAmount)?"大额":"小额"}}</span><span class="zhouz">{{(item.classifyTime)?"长期":"7天周转"}}</span><span class="shenq">已申请:<span style="color: #FF3C00">{{item.applyNumber}}</span>人</span></p>
+                <p class="line2" >{{item.description2}}<span class="tibix2">{{item.description3}}</span></p>
+                <p class="line3" >额度范围 (元)<span class="tibix1">{{item.description5}}</span></p>
+                <!--<p class="detailBtn"><img class="jiantou" src="https://zytech-prod.oss-cn-beijing.aliyuncs.com/images/images/jiantouIcon.png"></p>-->
+                <p class="detailBtn"><span class="jiantou" >立即申请</span></p>
+            </div>
+        </div>
+        <div class="darkLine"></div>
+        <!--<div class="darkLine"></div>-->
+    </div>
+    <div v-if="bg1" id="bg">
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.1/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/element-ui/2.6.1/index.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data:{
+            danid:'',
+            danh5Url:'',
+            buttonName:'',
+            productList4:[],
+            productList3:[],
+            danImg:'',
+            id:"",
+            bg1:false,
+            changeBox11:false,
+            changeBox22:false,
+            totalSort:null,
+            quotaSort:null,
+            activeClass:"active",
+            updown:"updown",
+            updown1:"updown1",
+            active1:false,
+            active2:false,
+            line1:null,
+            line2:null,
+        },
+        mounted: function () {
+            this.getInfo();
+        },
+        methods: {
+            // totalSort  综合 0 1   quotaSort  额度 0 1 2 3 4
+            getInfo: function (data) {
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    data:{
+                        pageNum:1,
+                        pageSize:10,
+                    },
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/index",
+                    url:"http://60.205.216.141/flowPool/api/product/index",
+                    type: "get",
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            // $("html").css("overflow","auto");
+                            // $("body").css("overflow","auto");
+                            app.productList4=data.body.productList4;
+                            app.productList14=data.body.productList14;
+                            app.kong=app.productList14.length;
+                        }else if(data.msgCd=="ZYCASH-1013"){
+                            app.$message.error('请先登录！');
+                        }
+                        else {
+                            app.$message.error('系统繁忙请稍后再试！');
+                        }
+                    }
+                });
+            },
+            goDetail:function (id,name,url) {
+                if(id!=null) {
+                    $.ajax({
+                        headers: {
+                            'token': localStorage.token,
+                            'productCode':'merchantProduct20190315161059'
+                        },
+                        url:"http://60.205.216.141/flowPool/api/product/countUV",
+                        // url:"http://47.93.234.167:31999/flowPool/api/product/countUV",
+                        type: "get",
+                        data: {
+                            productId: id,
+                        },
+                        success: function (data) {
+                            if (data.msgCd == "ZYCASH-200") {
+                                app.copyMobile("copyMobile");
+                                window.location.href = url;
+                            }
+                        }
+                    });
+                }
+            },
+            goccc:function(data){
+                this.totalSort=data;
+                app.line1=data;
+                app.active1=true;
+                app.active2=false;
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    data:{
+                        totalSort:this.totalSort,
+                        quotaSort:null,
+                    },
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/loanDaQuan",
+                    url:"http://60.205.216.141/flowPool/api/product/loanDaQuan",
+                    type: "post",
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.productList4=data.body;
+                            app.changeBox22=false;
+                            app.changeBox11=false;
+                            app.bg1=false;
+                        }
+                    }
+                });
+            },
+            goccc1:function(data){
+                this.quotaSort=data;
+                app.line2=data;
+                app.active2=true;
+                app.active1=false;
+                $.ajax({
+                    headers:{
+                        'token': localStorage.token
+                    },
+                    data:{
+                        totalSort:null,
+                        quotaSort:this.quotaSort,
+                    },
+                    // url:"http://47.93.234.167:31999/flowPool/api/product/loanDaQuan",
+                    url:"http://60.205.216.141/flowPool/api/product/loanDaQuan",
+                    type: "post",
+                    success: function (data) {
+                        if(data.msgCd=="ZYCASH-200"){
+                            app.productList4=data.body;
+                            app.changeBox22=false;
+                            app.changeBox11=false;
+                            app.bg1=false;
+                        }
+                    }
+                });
+            },
+            closeBg:function () {
+                document.querySelector('#app').removeEventListener('touchmove', stopScroll, false);
+                $("#bg").css("display","none");
+                $("html").css("overflow","auto");
+                $("body").css("overflow","auto");
+            },
+            //复制手机号提示
+            copyMobile(data){
+                let ua = navigator.userAgent.toLowerCase();
+                //Android终端
+                let isAndroid = ua.indexOf('Android') > -1 || ua.indexOf('Adr') > -1;
+                //Ios终端
+                let isiOS = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+                if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+                    alert("copyMobile");
+                    //Ios
+                } else if (/(Android)/i.test(navigator.userAgent)) {
+                    //Android终端
+                    window.control.copyMobile(data);
+                }
+            },
+
+        },
+    });
+    function getToken(data) {
+        localStorage.token=data;
+    }
+    function stopScroll(e) {
+        e.preventDefault()
+    }
+
+    $(".change1").on("click", function () {
+        app.changeBox11=true;
+        app.changeBox22=false;
+        app.bg1=true;
+        app.line2=null;
+    });
+    $(".change2").on("click", function () {
+        app.changeBox22=true;
+        app.changeBox11=false;
+        app.bg1=true;
+        app.line1=null;
+    })
+</script>
+</body>
+</html>
