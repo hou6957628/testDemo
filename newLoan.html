@@ -556,6 +556,7 @@
 <script>
     function getToken(data) {
         localStorage.token=data;
+        app.getInfo();
         if(localStorage.token!="undefined"&&localStorage.token!=""&&localStorage.token!=null){
             app.noToken=false;
             app.$forceUpdate();

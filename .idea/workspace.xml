@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08c86d7d-3487-4c2c-813f-86d6d4820b78" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/loanBooks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/changeMatching.html" beforeDir="false" afterPath="$PROJECT_DIR$/changeMatching.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/matchingList.html" beforeDir="false" afterPath="$PROJECT_DIR$/matchingList.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/newLoan.html" beforeDir="false" afterPath="$PROJECT_DIR$/newLoan.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,13 +59,13 @@
           <entry key="data1" value="25" />
           <entry key="data2" value="23" />
           <entry key="data3" value="5" />
-          <entry key="html" value="17593" />
+          <entry key="html" value="17596" />
           <entry key="txt" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="17593" />
+          <entry key="HTML" value="17596" />
           <entry key="PLAIN_TEXT" value="91" />
         </counts>
       </usages-collector>
@@ -78,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/newLoan.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="783" column="37" lean-forward="true" selection-start-line="783" selection-start-column="37" selection-end-line="783" selection-end-column="37" />
+            <state relative-caret-position="-8">
+              <caret line="776" column="46" lean-forward="true" selection-start-line="776" selection-start-column="46" selection-end-line="776" selection-end-column="46" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
@@ -94,17 +92,24 @@
                 <element signature="n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#span#0;n#span#3;n#p#0;n#div#0;n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="e#19362#20134#0" />
+                <element signature="e#20262#21696#0" />
+                <element signature="e#21576#22563#0" />
+                <element signature="e#22600#23833#0" />
+                <element signature="e#23867#24130#0" />
+                <element signature="e#24171#25580#0" />
+                <element signature="e#25626#26213#0" />
+                <element signature="e#26265#26865#0" />
                 <element signature="e#28869#29691#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/changeMatching.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="717" column="14" lean-forward="true" selection-start-line="717" selection-start-column="14" selection-end-line="717" selection-end-column="14" />
+            <state relative-caret-position="-51">
+              <caret line="663" column="60" lean-forward="true" selection-start-line="663" selection-start-column="60" selection-end-line="663" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -113,7 +118,7 @@
         <entry file="file://$PROJECT_DIR$/loanList.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="331">
-              <caret line="326" column="68" lean-forward="true" selection-start-line="326" selection-start-column="68" selection-end-line="326" selection-end-column="68" />
+              <caret line="326" column="68" selection-start-line="326" selection-start-column="68" selection-end-line="326" selection-end-column="68" />
               <folding>
                 <element signature="e#661#699#0" />
                 <element signature="e#709#767#0" />
@@ -133,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/matchingList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3023">
-              <caret line="307" column="28" lean-forward="true" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
+            <state relative-caret-position="-3518">
+              <caret line="307" column="28" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
               <folding>
                 <element signature="e#661#699#0" />
                 <element signature="e#709#767#0" />
@@ -165,11 +170,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/loanBooks.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1123">
-              <caret line="491" column="23" lean-forward="true" selection-start-line="491" selection-start-column="23" selection-end-line="491" selection-end-column="23" />
+            <state relative-caret-position="989">
+              <caret line="537" column="14" selection-start-line="537" selection-start-column="14" selection-end-line="537" selection-end-column="14" />
               <folding>
                 <element signature="e#661#699#0" />
                 <element signature="e#709#767#0" />
@@ -201,7 +206,6 @@
       <find>goBack</find>
       <find>app</find>
       <find>footer</find>
-      <find>goChangeMatching</find>
       <find>proD</find>
       <find>sub</find>
       <find>Logo</find>
@@ -225,6 +229,7 @@
       <find>app.loginIn(&quot;login&quot;)</find>
       <find>align-content</find>
       <find>activeClass</find>
+      <find>goChangeMatching</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -265,9 +270,9 @@
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/registerTest.html" />
         <option value="$PROJECT_DIR$/loanBooks.html" />
-        <option value="$PROJECT_DIR$/newLoan.html" />
         <option value="$PROJECT_DIR$/matchingList.html" />
         <option value="$PROJECT_DIR$/loanList.html" />
+        <option value="$PROJECT_DIR$/newLoan.html" />
         <option value="$PROJECT_DIR$/changeMatching.html" />
       </list>
     </option>
@@ -309,7 +314,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563360604981" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1563430945826" />
     <property name="last_opened_file_path" value="$USER_HOME$/work/daichao" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -381,7 +386,7 @@
       <workItem from="1562914057720" duration="4557000" />
       <workItem from="1562998831078" duration="5771000" />
       <workItem from="1563008822313" duration="62000" />
-      <workItem from="1563158255812" duration="59755000" />
+      <workItem from="1563158255812" duration="63802000" />
     </task>
     <task id="LOCAL-00001" summary="贷超页面，下载页，注册页更新，备份">
       <created>1562580042003</created>
@@ -404,11 +409,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563272122080</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="修改页面，待超增加智能推荐">
+      <created>1563360625895</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1563360625895</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="346016000" />
+    <option name="totallyTimeSpent" value="350063000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -722,33 +734,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/newLoan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="783" column="37" lean-forward="true" selection-start-line="783" selection-start-column="37" selection-end-line="783" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#3;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#span#0;n#span#3;n#p#0;n#div#0;n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#19362#20134#0" />
-            <element signature="e#28869#29691#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loanList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
-          <caret line="326" column="68" lean-forward="true" selection-start-line="326" selection-start-column="68" selection-end-line="326" selection-end-column="68" />
+          <caret line="326" column="68" selection-start-line="326" selection-start-column="68" selection-end-line="326" selection-end-column="68" />
           <folding>
             <element signature="e#661#699#0" />
             <element signature="e#709#767#0" />
@@ -764,17 +753,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/changeMatching.html">
+    <entry file="file://$PROJECT_DIR$/loanBooks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="717" column="14" lean-forward="true" selection-start-line="717" selection-start-column="14" selection-end-line="717" selection-end-column="14" />
+        <state relative-caret-position="989">
+          <caret line="537" column="14" selection-start-line="537" selection-start-column="14" selection-end-line="537" selection-end-column="14" />
+          <folding>
+            <element signature="e#661#699#0" />
+            <element signature="e#709#767#0" />
+            <element signature="e#786#824#0" />
+            <element signature="n#style#0;n#span#0;n#span#3;n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#12592#12855#0" />
+            <element signature="e#12907#13507#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/newLoan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="776" column="46" lean-forward="true" selection-start-line="776" selection-start-column="46" selection-end-line="776" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#3;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#span#3;n#p#0;n#div#0;n#div#0;n#div#6;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#19362#20134#0" />
+            <element signature="e#20262#21696#0" />
+            <element signature="e#21576#22563#0" />
+            <element signature="e#22600#23833#0" />
+            <element signature="e#23867#24130#0" />
+            <element signature="e#24171#25580#0" />
+            <element signature="e#25626#26213#0" />
+            <element signature="e#26265#26865#0" />
+            <element signature="e#28869#29691#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/matchingList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3023">
-          <caret line="307" column="28" lean-forward="true" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
+        <state relative-caret-position="-3518">
+          <caret line="307" column="28" selection-start-line="307" selection-start-column="28" selection-end-line="307" selection-end-column="28" />
           <folding>
             <element signature="e#661#699#0" />
             <element signature="e#709#767#0" />
@@ -804,18 +831,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loanBooks.html">
+    <entry file="file://$PROJECT_DIR$/changeMatching.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1123">
-          <caret line="491" column="23" lean-forward="true" selection-start-line="491" selection-start-column="23" selection-end-line="491" selection-end-column="23" />
-          <folding>
-            <element signature="e#661#699#0" />
-            <element signature="e#709#767#0" />
-            <element signature="e#786#824#0" />
-            <element signature="n#style#0;n#span#0;n#span#3;n#p#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#12592#12855#0" />
-            <element signature="e#12907#13507#0" />
-          </folding>
+        <state relative-caret-position="-51">
+          <caret line="663" column="60" lean-forward="true" selection-start-line="663" selection-start-column="60" selection-end-line="663" selection-end-column="60" />
         </state>
       </provider>
     </entry>

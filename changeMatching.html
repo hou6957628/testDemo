@@ -601,6 +601,7 @@
 <script>
     function getToken(data) {
         localStorage.token=data;
+        this.getInfo();
     }
     var app = new Vue({
         el: '#app',
